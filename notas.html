@@ -21,12 +21,6 @@
         top: 0;
         z-index: 1000;
       }
-      .badge-version {
-        font-size: 0.7rem;
-        padding: 4px 8px;
-        background: #282828;
-        color: #fff;
-      }
     </style>
   </head>
   <body class="bg-grid">
@@ -34,7 +28,7 @@
       <div class="container d-flex justify-content-between align-items-center">
         <a href="index.html" class="btn btn-outline-tech btn-sm">Volver</a>
         <span class="fw-bold text-uppercase small text-muted"
-          >Registro de desarrollo</span
+          >Notas de Versión</span
         >
       </div>
     </nav>
@@ -44,94 +38,103 @@
         <h1 class="h2 fw-bold border-bottom border-dark pb-2">
           Registro de cambios
         </h1>
-        <p class="text-muted">
-          Documentación técnica de actualizaciones y parches.
-        </p>
+        <p class="text-muted">Evolución técnica de la plataforma Simulatrón.</p>
       </header>
 
       <div class="row">
         <div class="col-12">
-          <!-- VERSION 1.2.0 -->
+          <!-- VERSION 1.3.0 -->
           <div class="custom-card mb-5">
             <div class="custom-card-header bg-dark text-white">
+              <span>Módulo de Riesgos y Consultoría</span>
+              <span class="badge bg-warning text-dark">v1.3.0</span>
+            </div>
+            <div class="card-body">
+              <h5 class="fw-bold mb-3 text-dark">Mayo 2026</h5>
+              <ul>
+                <li>
+                  <strong>Gestión de Riesgos:</strong> Incorporación de la guía
+                  de estudio técnica y carga de banco de preguntas avanzadas.
+                </li>
+                <li>
+                  <strong>Simulador Proactivo:</strong> Transformación del modo
+                  estrella hacia un sistema de consultoría basada en casos de
+                  estudio reales.
+                </li>
+                <li>
+                  <strong>Algoritmo de respuestas:</strong> Refactorización
+                  total de la base de datos para eliminar patrones de respuestas
+                  predecibles y equilibrar la dificultad.
+                </li>
+                <li>
+                  <strong>Estandarización UX:</strong> Implementación de avisos
+                  y mensajes de éxito integrados, eliminando las notificaciones
+                  nativas del navegador.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- VERSION 1.2.0 -->
+          <div class="custom-card mb-5 opacity-75">
+            <div class="custom-card-header bg-secondary text-white">
               <span>Módulo Gestión y Escalabilidad</span>
-              <span class="badge bg-warning text-dark">v1.2.0 - Actual</span>
+              <span>v1.2.0</span>
             </div>
             <div class="card-body">
               <h5 class="fw-bold mb-3 text-dark">Abril 2026</h5>
               <ul>
                 <li>
-                  <strong>Organización modular:</strong> Estructura de carpetas
-                  optimizada para añadir nuevas materias fácilmente.
+                  <strong>Arquitectura modular:</strong> Separación del
+                  contenido en carpetas independientes para permitir el
+                  crecimiento de la plataforma.
                 </li>
                 <li>
-                  <strong>Eje temático nuevo:</strong> Incorporación de la
-                  materia Gestión de proyectos con su propia paleta de colores.
+                  <strong>Página principal:</strong> Creación del Hub de
+                  bienvenida para seleccionar diferentes ejes de estudio.
                 </li>
                 <li>
-                  <strong>Index principal:</strong> Selector global (Hub) para
-                  elegir el área de estudio al iniciar la aplicación.
-                </li>
-                <li>
-                  <strong>Consolidación técnica:</strong> Unificación del motor
-                  de examen y el sistema de notas para todas las materias.
+                  <strong>Motor universal:</strong> Centralización de la lógica
+                  de exámenes para procesar cualquier materia de forma dinámica.
                 </li>
               </ul>
             </div>
           </div>
 
           <!-- VERSION 1.1.0 -->
-          <div class="custom-card mb-5 opacity-75">
-            <div class="custom-card-header bg-secondary text-white">
-              <span>Bibliografías y Optimización UX</span>
+          <div class="custom-card mb-5 opacity-50">
+            <div class="custom-card-header bg-light border-dark">
+              <span>Bibliografías y Mejoras Visuales</span>
               <span>v1.1.0</span>
             </div>
-            <div class="card-body">
-              <h5 class="fw-bold mb-3 text-dark">Abril 2026</h5>
+            <div class="card-body text-muted">
+              <h5 class="fw-bold mb-3">Abril 2026</h5>
               <ul>
                 <li>
-                  <strong>Material de estudio:</strong> Integración de guías
-                  bibliográficas completas dentro de cada sección.
+                  <strong>Secciones de estudio:</strong> Inclusión de las
+                  primeras guías de repaso técnico para la carrera de Frontend.
                 </li>
                 <li>
-                  <strong>Corrección del motor:</strong> Visualización correcta
-                  de etiquetas de código HTML en las preguntas.
-                </li>
-                <li>
-                  <strong>Mejora visual:</strong> Resultados de examen más
-                  claros, marcando la opción elegida y la correcta de forma
-                  discreta.
-                </li>
-                <li>
-                  <strong>Misión interactiva:</strong> Refactorización del
-                  minijuego con nuevas animaciones y panel de ayudas.
+                  <strong>Visualización de código:</strong> Ajuste en el
+                  procesamiento de caracteres especiales para mostrar etiquetas
+                  HTML reales en los tests.
                 </li>
               </ul>
             </div>
           </div>
 
           <!-- VERSION 1.0.0 -->
-          <div class="custom-card border-secondary opacity-50">
+          <div class="custom-card border-secondary opacity-25">
             <div class="custom-card-header">
               <span>Lanzamiento Inicial</span>
               <span>v1.0.0</span>
             </div>
-            <div class="card-body">
-              <h5 class="fw-bold mb-3 text-dark">Marzo 2026</h5>
-              <ul>
-                <li>
-                  <strong>Lógica base:</strong> Motor de simulación de 20
-                  preguntas al azar con tres niveles de dificultad.
-                </li>
-                <li>
-                  <strong>Banco de datos:</strong> Carga de 240 preguntas
-                  iniciales para la carrera de desarrollo frontend.
-                </li>
-                <li>
-                  <strong>Prototipo interactivo:</strong> Desarrollo inicial de
-                  la zona de práctica de Flexbox.
-                </li>
-              </ul>
+            <div class="card-body text-muted small">
+              <h5 class="fw-bold mb-2">Marzo 2026</h5>
+              <p>
+                Despliegue base del motor de simulación y carga del banco de
+                datos de 240 preguntas para desarrollo web.
+              </p>
             </div>
           </div>
         </div>
