@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bibliografía: Gestión de Riesgos</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      .text-orange {
+        color: #ff9100;
+        font-weight: bold;
+      }
+      .math-logic {
+        background: #1e1e1e;
+        color: #ff9100;
+        padding: 15px;
+        border-radius: 4px;
+        font-family: var(--font-mono);
+        text-align: center;
+      }
+      .strategy-grid {
+        border-left: 4px solid #ff9100;
+        padding-left: 20px;
+      }
+      .badge-threat {
+        background-color: #ff5f5f;
+        color: white;
+      }
+      .badge-opportunity {
+        background-color: #d0ff41;
+        color: black;
+      }
+    </style>
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="../index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-uppercase">Gestión de Riesgos</span>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <header class="mb-5 text-center">
+        <h1 class="h2 fw-bold border-bottom border-dark pb-2">
+          Guía de Gestión de Riesgos
+        </h1>
+        <p class="text-muted">
+          Procesos de identificación, análisis y respuesta ante la
+          incertidumbre.
+        </p>
+      </header>
+
+      <!-- 1. CONCEPTOS GENERALES -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">1. Definiciones fundamentales</div>
+        <div class="card-body">
+          <p>
+            Un <strong>riesgo</strong> es cualquier evento o condición incierta
+            que puede afectar de forma positiva o negativa a los objetivos del
+            proyecto.
+          </p>
+          <ul>
+            <li>
+              <strong>Probabilidad:</strong> Posibilidad de que el evento ocurra
+              (0 a 1 o porcentaje).
+            </li>
+            <li>
+              <strong>Impacto:</strong> Consecuencia o efecto sobre el alcance,
+              tiempo, costo o calidad.
+            </li>
+            <li>
+              <strong>Doble Naturaleza:</strong> Los riesgos no son solo
+              amenazas; también existen riesgos positivos llamados
+              <strong>Oportunidades</strong>.
+            </li>
+          </ul>
+          <h6 class="fw-bold text-orange mt-3">Fórmula de Exposición:</h6>
+          <div class="math-logic">
+            Exposición al Riesgo = Probabilidad × Impacto
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. CLASIFICACIÓN DE RIESGOS -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">2. Tipos de Riesgos según origen</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 border-end">
+              <ul>
+                <li>
+                  <strong>Riesgos Técnicos:</strong> Tecnología, obsolescencia,
+                  rendimiento.
+                </li>
+                <li>
+                  <strong>Riesgos de Gestión:</strong> Planificación, liderazgo,
+                  comunicación.
+                </li>
+                <li>
+                  <strong>Riesgos Externos:</strong> Leyes, clima, competencia,
+                  economía.
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6 ps-md-4">
+              <ul>
+                <li>
+                  <strong>Riesgos de Alcance:</strong> Definición incompleta,
+                  Scope Creep.
+                </li>
+                <li>
+                  <strong>Riesgos de Comunicación:</strong> Malentendidos o
+                  falta de datos oportunos.
+                </li>
+                <li>
+                  <strong>Riesgos de Interesados:</strong> Resistencia al
+                  cambio, falta de apoyo.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. ESTRUCTURA LÓGICA -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">
+          3. Estructura para definir un riesgo
+        </div>
+        <div class="card-body">
+          <p>
+            Una correcta definición de riesgo debe seguir este esquema lógico:
+          </p>
+          <div
+            class="alert alert-success-tech p-3 text-center"
+            style="font-family: var(--font-mono); font-size: 0.9rem"
+          >
+            "Si <span class="text-white fw-bold">[CAUSA]</span>, entonces
+            <span class="text-white fw-bold">[EVENTO DE RIESGO]</span>, lo que
+            podría llevar a
+            <span class="text-white fw-bold">[EFECTO/CONSECUENCIA]</span>"
+          </div>
+          <p class="small text-muted mt-2">
+            Ejemplo: "Si falta experiencia en el equipo, entonces podría haber
+            errores de desarrollo, lo que resultaría en retrasos."
+          </p>
+        </div>
+      </div>
+
+      <!-- 4. IMPACTO Y CLASIFICACIÓN -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">4. Niveles de Impacto</div>
+        <div class="card-body">
+          <p>El impacto se evalúa según su severidad en los objetivos:</p>
+          <ul>
+            <li><strong>Insignificante:</strong> Efecto mínimo o nulo.</li>
+            <li><strong>Menor:</strong> Pequeño inconveniente gestionable.</li>
+            <li>
+              <strong>Moderado:</strong> Impacto notable, requiere acciones
+              correctivas.
+            </li>
+            <li>
+              <strong>Mayor:</strong> Impacto significativo en uno o más
+              objetivos.
+            </li>
+            <li>
+              <strong>Crítico:</strong> Peligro severo, puede llevar a la
+              cancelación.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 5. ESTRATEGIAS DE RESPUESTA -->
+      <div class="custom-card mb-5">
+        <div class="custom-card-header">
+          5. Plan de Mitigación y Estrategias
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <!-- Amenazas -->
+            <div class="col-md-6 mb-4">
+              <h6 class="fw-bold">
+                <span class="badge badge-threat me-2">!</span>Estrategias para
+                Amenazas
+              </h6>
+              <ul class="strategy-grid list-unstyled mt-3">
+                <li>
+                  <strong>Evitar:</strong> Eliminar la causa del riesgo por
+                  completo.
+                </li>
+                <li>
+                  <strong>Mitigar:</strong> Reducir la probabilidad o el
+                  impacto.
+                </li>
+                <li>
+                  <strong>Transferir:</strong> Desplazar la responsabilidad (ej.
+                  seguros).
+                </li>
+                <li>
+                  <strong>Aceptar:</strong> Reconocer la existencia y prepararse
+                  para las consecuencias.
+                </li>
+              </ul>
+            </div>
+            <!-- Oportunidades -->
+            <div class="col-md-6 mb-4">
+              <h6 class="fw-bold">
+                <span class="badge badge-opportunity me-2">?</span>Estrategias
+                para Oportunidades
+              </h6>
+              <ul
+                class="strategy-grid list-unstyled mt-3"
+                style="border-color: #d0ff41"
+              >
+                <li>
+                  <strong>Explotar:</strong> Asegurar que la oportunidad se
+                  materialice.
+                </li>
+                <li>
+                  <strong>Compartir:</strong> Adjudicar la oportunidad a un
+                  tercero capacitado.
+                </li>
+                <li>
+                  <strong>Mejorar:</strong> Aumentar la probabilidad y el
+                  impacto positivo.
+                </li>
+                <li>
+                  <strong>Aceptar:</strong> Tomar la oportunidad si ocurre, sin
+                  acción proactiva.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer
+      class="mt-5 pt-4 border-top border-secondary opacity-40 text-center pb-5"
+    >
+      <p class="text-uppercase tracking-widest fw-bold small">
+        Gestión de Proyectos
+      </p>
+    </footer>
+  </body>
+</html>

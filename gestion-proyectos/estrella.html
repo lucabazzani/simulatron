@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Misión Estrella: Caso de Análisis</title>
+    <title>Análisis Operativo Proactivo</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -18,39 +18,29 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <style>
-      .case-container {
-        background: #fff;
-        border: 2px solid #000;
-        padding: 20px;
-        font-size: 0.9rem;
-        max-height: 250px;
-        overflow-y: auto;
+      .report-paper {
+        background: white;
+        border: 2px solid #282828;
+        padding: 40px;
+        box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.05);
       }
-      .slot-tarea {
-        border: 2px dashed #ccc;
-        padding: 10px;
-        margin-bottom: 5px;
-        min-height: 45px;
-        background: #fafafa;
-        cursor: pointer;
+      .strategy-btn {
+        text-transform: none;
+        font-size: 0.9rem;
         transition: 0.2s;
       }
-      .tarea-completada {
-        background: var(--primary-color) !important;
-        color: white;
-        border-style: solid;
+      .strategy-btn:hover {
+        background-color: var(--primary-color) !important;
+        color: #000;
         border-color: #000;
       }
-      .acta-table td {
-        padding: 8px;
-        border: 1px solid #ddd;
-      }
-      .step-indicator {
-        font-weight: bold;
-        color: var(--primary-color);
-        border-bottom: 2px solid;
-        margin-bottom: 15px;
-        display: inline-block;
+      .step-header {
+        font-weight: 800;
+        color: #ff9100;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        display: block;
+        margin-bottom: 5px;
       }
     </style>
   </head>
@@ -67,148 +57,61 @@
     >
       <div class="container d-flex justify-content-between align-items-center">
         <a href="index.html" class="btn btn-outline-tech btn-sm">Volver</a>
-        <span class="fw-bold">ANÁLISIS DE CASO</span>
+        <span class="fw-bold">Control de Crisis</span>
       </div>
     </nav>
 
     <div class="container pb-5">
       <div class="row g-4">
-        <!-- Lado Izquierdo: El Caso Real (Cooperativa del Valle) -->
-        <div class="col-lg-5">
-          <div class="custom-card">
-            <div class="custom-card-header bg-dark text-white">
-              Documentación del Caso
-            </div>
-            <div class="card-body p-4">
-              <div class="case-container shadow-inner">
-                <h6 class="fw-bold">Cooperativa del Valle - Software Agro</h6>
+        <!-- EXPOSICIÓN EXTENSA DEL CASO -->
+        <div class="col-lg-12">
+          <div class="report-paper mb-4">
+            <h5 class="fw-bold text-center border-bottom border-dark">
+              INFORME TÉCNICO DE PROYECTO - SIGO-COOP
+            </h5>
+            <div class="row mt-4">
+              <div class="col-md-6">
                 <p>
-                  Se requiere digitalizar 15 años de historia de registros
-                  manuales en 8 meses. Presupuesto: $4.8M. El equipo es experto
-                  en sistemas pero no conoce el negocio del campo. El cliente es
-                  muy resistente al cambio tecnológico.
+                  <strong>1. Alcance:</strong> Digitalizar 15 años de historia
+                  de registros agropecuarios. El sistema debe gestionar desde
+                  pesaje de granos hasta facturación municipal automatizada.
+                </p>
+                <p>
+                  <strong>2. Inversión y Tiempos:</strong> $4.800.000 de capital
+                  asignado y un plazo inamovible de 8 meses corridos.
+                </p>
+              </div>
+              <div class="col-md-6">
+                <p>
+                  <strong>3. Factor Humano:</strong> Empleados con baja adopción
+                  tecnológica (promedio de 50 años). Proveedor experto en
+                  Java/JS pero con cero experiencia en cooperativas rurales.
+                </p>
+                <p>
+                  <strong>4. Meta Estratégica:</strong> Modernización total para
+                  sobrevivir ante la competencia internacional que ya digitalizó
+                  sus silos.
                 </p>
               </div>
             </div>
           </div>
-
-          <div
-            id="feedback-panel"
-            class="alert alert-success-tech d-none animate__animated animate__pulse"
-          >
-            Fase validada correctamente. Avanzando...
-          </div>
         </div>
 
-        <!-- Lado Derecho: Interacción -->
-        <div class="col-lg-7">
-          <!-- MISIÓN 1: SECUENCIACIÓN -->
-          <div
-            id="mision-1"
-            class="custom-card animate__animated animate__fadeIn"
-          >
-            <div class="custom-card-header">Fase 1: Orden de Actividades</div>
-            <div class="card-body">
-              <span class="step-indicator"
-                >Tarea: Ordene cronológicamente el plan (Click para
-                seleccionar)</span
-              >
-              <div id="opciones-secuencia" class="row g-2">
-                <!-- Se llena con JS -->
-              </div>
+        <!-- ÁREA DE SIMULACIÓN INTERACTIVA -->
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="" id="mission-content">
+              <!-- El JavaScript llenará esto con las Fases 1, 2 y 3 -->
             </div>
-          </div>
-
-          <!-- MISIÓN 2: ENFOQUE ESTRATÉGICO -->
-          <div
-            id="mision-2"
-            class="custom-card d-none animate__animated animate__fadeIn"
-          >
-            <div class="custom-card-header">Fase 2: Diagnóstico de Enfoque</div>
-            <div class="card-body">
-              <span class="step-indicator"
-                >Pregunta: ¿Qué enfoque es mejor ante plazos rígidos pero
-                requisitos inciertos?</span
-              >
-              <div class="d-grid gap-2">
-                <button
-                  onclick="checkMision2('Predictivo')"
-                  class="btn btn-outline-tech"
-                >
-                  Predictivo (En Cascada)
-                </button>
-                <button
-                  onclick="checkMision2('Agil')"
-                  class="btn btn-outline-tech"
-                >
-                  Ágil (Incremental)
-                </button>
-                <button
-                  onclick="checkMision2('Hibrido')"
-                  class="btn btn-outline-tech"
-                >
-                  Híbrido (Mezcla de ambos)
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- MISIÓN 3: ACTA DE CONSTITUCIÓN -->
-          <div
-            id="mision-3"
-            class="custom-card d-none animate__animated animate__fadeIn"
-          >
-            <div class="custom-card-header">Fase 3: Datos de Gestión Final</div>
-            <div class="card-body">
-              <table class="w-100 acta-table">
-                <tr>
-                  <td><strong>Proyecto</strong></td>
-                  <td>Proyecto SIGO-Coop</td>
-                </tr>
-                <tr>
-                  <td><strong>Inversión</strong></td>
-                  <td>
-                    <select
-                      id="acta-budget"
-                      class="form-select border-0 bg-light"
-                    >
-                      <option>?</option>
-                      <option>$1.2M</option>
-                      <option>$4.8M</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td><strong>Límite</strong></td>
-                  <td>
-                    <select
-                      id="acta-time"
-                      class="form-select border-0 bg-light"
-                    >
-                      <option>?</option>
-                      <option>8 Meses</option>
-                      <option>14 Semanas</option>
-                    </select>
-                  </td>
-                </tr>
-              </table>
-              <div class="text-end mt-4">
-                <button
-                  id="final-btn"
-                  onclick="checkFinal()"
-                  class="btn btn-tech"
-                >
-                  VALIDAR
-                </button>
-              </div>
+            <div class="col-md-5">
+              <div id="feedback-panel" class="d-none"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <script src="js/estrella.js"></script>
-    <!-- Cuadro de Logro Integrado (Se activa al finalizar el juego) -->
+    <!-- MODAL FINAL INTEGRADO -->
     <div
       id="modal-logro"
       class="d-none"
@@ -218,29 +121,34 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.7);
+        background: rgba(0, 0, 0, 0.9);
         z-index: 9999;
-        display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px;
       "
     >
       <div
-        class="custom-card animate__animated animate__zoomIn"
-        style="max-width: 500px; width: 100%"
+        class="custom-card p-5 animate__animated animate__zoomIn"
+        style="max-width: 600px"
       >
-        <div class="custom-card-header bg-dark text-white">
-          <span>Misión completada</span>
-        </div>
-        <div class="card-body text-center p-5">
-          <h2 class="fw-bold mb-3">¡Felicitaciones!</h2>
-          <p class="text-muted mb-4">
-            Has superado todos los desafíos de este entrenamiento con éxito.
-          </p>
-          <a href="index.html" class="btn btn-tech w-100">Cerrar</a>
+        <h1 class="fw-bold text-center" style="color: var(--primary-color)">
+          CONSULTORÍA APROBADA
+        </h1>
+        <hr />
+        <p class="text-center">
+          Usted ha demostrado que el proyecto de la
+          <strong>Cooperativa del Valle</strong> es viable bajo su dirección. Ha
+          resuelto los problemas de riesgo y ha equilibrado las restricciones
+          operativas con éxito.
+        </p>
+        <div class="text-center mt-4">
+          <a href="index.html" class="btn btn-tech px-5"
+            >Regresar al simulador</a
+          >
         </div>
       </div>
     </div>
+
+    <script src="js/estrella.js"></script>
   </body>
 </html>

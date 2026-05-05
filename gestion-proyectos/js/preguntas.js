@@ -2315,4 +2315,247 @@ export const bancoPreguntas = [
     ],
     correcta: 0,
   },
+
+  // ==========================================
+  // NIVEL 3: Gestión de Riesgos - REESTRUCTURADO
+  // Distribución de respuestas: 0: 5 | 1: 5 | 2: 5 | 3: 5
+  // ==========================================
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta: "¿Qué es un riesgo según la documentación de gestión?",
+    opciones: [
+      "Una certeza de que algo fallará en el cronograma",
+      "El impacto financiero de los impuestos internos",
+      "Cualquier evento o condición incierta que puede afectar positiva o negativamente al proyecto",
+      "La documentación final que se entrega al cerrar una etapa",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta:
+      "¿Qué mide específicamente la probabilidad dentro de un evento de riesgo?",
+    opciones: [
+      "El daño monetario total expresado en moneda local",
+      "La posibilidad de que un evento de riesgo específico ocurra",
+      "La cantidad de días de atraso en la ruta crítica",
+      "La satisfacción del cliente ante un entregable",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta:
+      "Cuando hablamos de impacto en la gestión de riesgos, nos referimos a:",
+    opciones: [
+      "La rapidez con la que se identifica un error técnico",
+      "La decisión del director de cambiar de proveedor",
+      "La reunión informativa con los socios inversores",
+      "La consecuencia o efecto sobre los objetivos del proyecto",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta:
+      "¿Cuál es la fórmula técnica para obtener el valor de exposición al riesgo?",
+    opciones: [
+      "Exposición = Probabilidad × Impacto",
+      "Exposición = Costo total / Tiempo estimado",
+      "Exposición = Holgura + Días de atraso",
+      "Exposición = Número de recursos × Nivel de calidad",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta: "¿Qué significa que el riesgo tenga una 'doble naturaleza'?",
+    opciones: [
+      "Que debe ser gestionado por dos directores diferentes",
+      "Que existen riesgos negativos (amenazas) y riesgos positivos (oportunidades)",
+      "Que el impacto se mide siempre en tiempo y en dinero",
+      "Que puede ocurrir al inicio o al final del proyecto",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta:
+      "El fenómeno denominado deriva del alcance o 'scope creep' se define como:",
+    opciones: [
+      "La renuncia inesperada del equipo de desarrollo",
+      "El aumento del presupuesto sin previo aviso",
+      "Cambios no controlados al alcance del proyecto después de su inicio",
+      "La mejora de la calidad de los procesos administrativos",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta:
+      "¿Cuál de los siguientes es considerado un riesgo externo según el origen?",
+    opciones: [
+      "Falta de capacitación en el personal del equipo",
+      "Malentendidos de comunicación interna",
+      "Definición incompleta de los requerimientos técnicos",
+      "Cambios regulatorios o nuevas leyes que afectan al proyecto",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta:
+      "Si la estrategia ante una amenaza es eliminar la causa del riesgo por completo, hablamos de:",
+    opciones: ["Evitar", "Mitigar", "Transferir", "Aceptar"],
+    correcta: 0,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta: "¿En qué consiste la estrategia de transferencia de riesgos?",
+    opciones: [
+      "Ignorar el riesgo hasta que desaparezca solo",
+      "Capacitar al personal para que no cometa errores",
+      "Dividir el riesgo en pequeñas partes entre los socios",
+      "Desplazar la responsabilidad a un tercero, como contratar un seguro",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta:
+      "¿Cuál es la respuesta proactiva correcta ante una Oportunidad (riesgo positivo) para asegurar que ocurra?",
+    opciones: ["Ignorar", "Aceptar", "Explotar", "Mitigar"],
+    correcta: 2,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta: "Un impacto se clasifica como crítico si tiene el potencial de:",
+    opciones: [
+      "Poner en peligro el éxito o incluso llevar a la cancelación del proyecto",
+      "Causar una molestia mínima que se gestiona con facilidad",
+      "Generar una actualización en el manual de procedimientos",
+      "Cambiar el nombre del stakeholder principal",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta:
+      "¿Cuál es la estructura gramatical recomendada para definir un riesgo formalmente?",
+    opciones: [
+      "Como una lista de tareas que faltan realizar",
+      "Si [causa], entonces [evento de riesgo], lo que podría llevar a [efecto]",
+      "Haciendo una descripción estética del problema visual",
+      "Detallando los costos de las facturas que están pendientes",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta: "El impacto 'menor' de un riesgo se caracteriza por ser:",
+    opciones: [
+      "Una amenaza que requiere detener el proyecto por meses",
+      "Un evento positivo que genera grandes ganancias",
+      "Una falla técnica en los servidores del cliente",
+      "Un pequeño inconveniente que puede gestionarse con facilidad",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta:
+      "¿Qué acción se realiza en la estrategia de mitigación de amenazas?",
+    opciones: [
+      "Transferir el dinero del presupuesto a otra área",
+      "Reducir la probabilidad de ocurrencia o el impacto del evento",
+      "Cerrar la etapa de planificación de forma anticipada",
+      "Aumentar el precio de venta de los entregables",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta:
+      "¿A qué estrategia de respuesta a oportunidades se refiere la adjudicación a un tercero capacitado?",
+    opciones: ["Explotar", "Aceptar", "Compartir", "Mejorar"],
+    correcta: 2,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta:
+      "¿Qué rol debe incluirse siempre en un plan de mitigación para cada riesgo identificado?",
+    opciones: [
+      "Una persona o equipo responsable de monitorear y ejecutar la acción",
+      "El nombre del cliente que descubrió el error original",
+      "Solo el gerente financiero de la organización promotora",
+      "Los competidores externos que podrían verse afectados",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta:
+      "¿Qué factor define el nivel de riesgo que los interesados están dispuestos a aceptar?",
+    opciones: [
+      "La cantidad de hitos del cronograma",
+      "La fecha del acta de constitución",
+      "La tolerancia al riesgo",
+      "La duración total de la ruta crítica",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta: "La reserva de contingencia consiste técnicamente en asignar:",
+    opciones: [
+      "Más empleados a la etapa de cierre",
+      "Archivos duplicados en diferentes servidores",
+      "Una descripción nueva para cada hito técnico",
+      "Presupuesto o tiempo adicional para cubrir riesgos materializados",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta:
+      "¿Cuál de estos es un riesgo vinculado a los Interesados (Stakeholders)?",
+    opciones: [
+      "Resistencia al cambio u oposición al proyecto por alguna parte",
+      "Falla inesperada de los equipos informáticos internos",
+      "Errores gramaticales en la documentación técnica",
+      "Lluvias intensas que retrasan el inicio de la jornada",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 3,
+    tema: "riesgos",
+    pregunta: "¿Qué implica la estrategia de 'aceptación' pasiva de un riesgo?",
+    opciones: [
+      "Cambiar todo el plan del proyecto de inmediato",
+      "Reconocer el riesgo y no tomar acciones proactivas, solo asumir efectos",
+      "Desplazar la responsabilidad al director de otra área",
+      "Aumentar los controles semanales del progreso técnico",
+    ],
+    correcta: 1,
+  },
 ];
