@@ -2317,6 +2317,529 @@ export const bancoPreguntas = [
   },
 
   // ==========================================
+  // NIVEL 1 - GESTIÓN DE RIESGOS (Módulo de Proyectos)
+  // Distribución equilibrada: 0:(5) | 1:(5) | 2:(5) | 3:(5)
+  // ==========================================
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "¿A qué se refiere formalmente la gestión de riesgos según el apunte?",
+    opciones: [
+      "Al proceso sistemático de identificar, analizar, planificar y controlar las respuestas a los riesgos",
+      "A una reunión semanal obligatoria para que el personal se presente",
+      "Únicamente al cálculo de las deudas técnicas y los plazos",
+      "A la selección manual de los proveedores con mejor precio",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "¿Qué afirma la documentación sobre la naturaleza de los riesgos?",
+    opciones: [
+      "Solo pueden ocurrir durante la etapa técnica de cierre",
+      "Son exclusivamente amenazas externas al equipo técnico",
+      "Poseen una doble naturaleza: pueden ser amenazas o presentarse como oportunidades",
+      "Ocurren de forma cíclica y predecible cada tres meses",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "En la definición técnica, un 'Evento de riesgo' afecta directamente a:",
+    opciones: [
+      "Solamente los manuales impresos de capacitación",
+      "La vida personal del representante del cliente",
+      "La ubicación geográfica de las oficinas principales",
+      "Los objetivos del proyecto (alcance, tiempo, costo, calidad, recursos)",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "¿Cuál es la fórmula técnica de Nivel 1 para calcular la exposición al riesgo?",
+    opciones: [
+      "Exposición = Valor monetario + Tiempos tardíos",
+      "Exposición = Probabilidad × Impacto",
+      "Exposición = Cantidad de recursos / Holgura total",
+      "Exposición = Meta deseada - Costo acumulado",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "Una característica principal del riesgo es que se refiere siempre a:",
+    opciones: [
+      "Eventos que podrían ocurrir en el futuro del proyecto",
+      "Facturas que ya fueron pagadas en etapas anteriores",
+      "Bases de datos que ya fueron instaladas por el equipo",
+      "A decisiones tomadas durante el acta de constitución",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "La clasificación de los riesgos en el proyecto depende atendiendo a su:",
+    opciones: [
+      "Tamaño visual en el gráfico de Gantt",
+      "Importancia ante la competencia comercial",
+      "Origen, naturaleza o área de impacto",
+      "Cantidad de personas que se darán cuenta del error",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "¿Cuál de estos ejemplos corresponde a un riesgo de origen Externo?",
+    opciones: [
+      "Falta de capacitación técnica del equipo",
+      "Cambios regulatorios o nuevas leyes que afectan al proyecto",
+      "Incompletitud en el acta de constitución de inicio",
+      "Mala definición del alcance por parte del director",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "¿Cómo se define el término 'Scope Creep' (deriva del alcance) según la teoría?",
+    opciones: [
+      "Errores en la codificación de las etiquetas del servidor",
+      "Renuncia inmediata del personal clave del desarrollo",
+      "Aparición de huecos o espacios vacíos en las tarjetas",
+      "Cambios no controlados al alcance del proyecto tras su inicio",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "Subestimar la duración de las actividades es una falla clasificada como:",
+    opciones: [
+      "Riesgo de Tiempo (Cronograma)",
+      "Riesgo de Comunicación externa",
+      "Evento positivo de oportunidad estratégica",
+      "Error técnico en el modelo de cascada",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "El desperdicio o la mala utilización de los recursos económicos genera un:",
+    opciones: [
+      "Incremento del valor estratégico de la empresa",
+      "Error de probabilidad con impacto moderado",
+      "Riesgo de Costo (Presupuesto)",
+      "Efecto de mejora en las lecciones aprendidas",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "En la definición lógica de riesgos, la situación que da origen al evento se llama:",
+    opciones: ["Impacto terminal", "Causa", "Meta", "Protocolo inicial"],
+    correcta: 1,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "¿A qué categoría pertenece el riesgo de tener 'errores o defectos en los entregables'?",
+    opciones: [
+      "Riesgo de Gestión administrativa",
+      "Riesgo de Interesados externos",
+      "Riesgo técnico puro del proveedor",
+      "Riesgo de Calidad",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "La 'Resistencia al cambio' u oposición al proyecto se clasifica como:",
+    opciones: [
+      "Costo de no conformidad operacional",
+      "Problema técnico de las bases de datos",
+      "Riesgo de los Interesados (Stakeholders)",
+      "Análisis estadístico del sistema final",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "Una falta de documentación técnica en un proyecto suele derivar en un:",
+    opciones: [
+      "Riesgo de Comunicación",
+      "Paso optimista en la ruta crítica",
+      "Gasto de capital compartido del socio",
+      "Hito verificado exitosamente por el PMBOK",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "El valor de probabilidad de que ocurra un evento se expresa generalmente:",
+    opciones: [
+      "Únicamente con una descripción en color verde o rojo",
+      "Como un valor entre 0 y 1 (o en porcentaje)",
+      "Mediante la lista completa de todos los stakeholders",
+      "Por el nombre del director del proyecto y su antigüedad",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta: "Se dice que el riesgo es una 'incertidumbre' porque implica:",
+    opciones: [
+      "Que no existe duda sobre la fecha final de cierre",
+      "Que los socios externos siempre pagarán por el plan",
+      "Una decisión tomada exclusivamente por el directorio",
+      "Falta de certeza sobre si un evento ocurrirá o cuándo ocurrirá",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "¿Qué término se usa para la medida de magnitud de un riesgo al combinar probabilidad e impacto?",
+    opciones: [
+      "Exposición al Riesgo",
+      "Ruta del Inversor",
+      "Buffer de Tiempo",
+      "Estrategia de Metas",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "La incompatibilidad entre diferentes tecnologías o procesos se denomina técnicamente:",
+    opciones: [
+      "Dato del acta de cierre manual",
+      "Factor insignificante de presupuesto",
+      "Riesgo de Integración",
+      "Situación imprevista de los proveedores",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "Respecto a la incertidumbre, ¿cuál de estos conceptos es un factor clave en un evento de riesgo?",
+    opciones: [
+      "Que el nombre del producto ya esté definido",
+      "No conocer su impacto exacto antes de que ocurra",
+      "Tener una oficina central con ventilación bioclimática",
+      "Utilizar plantillas de Gantt integradas en Excel",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 1,
+    tema: "riesgos",
+    pregunta:
+      "¿Cuál es el objetivo final de la gestión de riesgos para un Director de Proyecto?",
+    opciones: [
+      "Lograr eliminar por completo todos los riesgos externos",
+      "Aumentar el gasto en seguros privados anualmente",
+      "Hacer que el personal trabaje fines de semana sin costo",
+      "Aumentar los eventos positivos y disminuir los negativos",
+    ],
+    correcta: 3,
+  },
+
+  // ==========================================
+  // NIVEL 2 - GESTIÓN DE RIESGOS (Intermedio)
+  // Distribución equilibrada: 0:(5) | 1:(5) | 2:(5) | 3:(5)
+  // ==========================================
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "Cuando un riesgo genera un impacto notable que requiere atención inmediata y acciones correctivas, se clasifica como:",
+    opciones: [
+      "Insignificante o Bajo",
+      "Moderado",
+      "Causa técnica de nivel uno",
+      "Meta proactiva del directorio",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "¿Qué componente de la definición de riesgos describe el suceso incierto específico que puede afectar al plan?",
+    opciones: [
+      "El acta de cierre final",
+      "La meta del trimestre",
+      "El fondo de reserva operativa",
+      "El Evento de Riesgo",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "¿Cómo se define la 'Tolerancia al Riesgo' según el material de estudio?",
+    opciones: [
+      "La cantidad de horas extras que el equipo puede trabajar",
+      "El número total de socios que tiene el proyecto",
+      "Nivel de riesgo que una organización o interesados están dispuestos a aceptar",
+      "La suma del presupuesto que se gasta en capacitación técnica",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "¿Cuál es el propósito fundamental de un Plan de Mitigación de Riesgos?",
+    opciones: [
+      "Pagar el sueldo a los expertos técnicos",
+      "Modificar el nombre de los socios externos",
+      "Eliminar el uso de bases de datos antiguas",
+      "Reducir la probabilidad o el impacto de los riesgos de alta prioridad",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "La estrategia de respuesta denominada 'Evitar' ante una amenaza consiste técnicamente en:",
+    opciones: [
+      "Tomar medidas para eliminar la causa del riesgo por completo",
+      "Desplazar la responsabilidad económica hacia un tercero capacitado",
+      "Aceptar las consecuencias una vez que el problema ocurrió",
+      "Ignorar el suceso hasta que el proyecto sea archivado",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "¿Qué parte de la estructura de definición lógica indica las consecuencias potenciales sobre los objetivos?",
+    opciones: [
+      "La meta estratégica del cliente",
+      "El Efecto o Consecuencia",
+      "La firma del representante legal",
+      "El manual de usuario impreso",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "La 'Mala definición del alcance' y las 'Asignaciones inadecuadas de recursos' son ejemplos de:",
+    opciones: [
+      "Eventos de riesgo externo fuera de control",
+      "Riesgos de Calidad con impacto insignificante",
+      "Riesgos de Gestión (vinculados a la planificación)",
+      "Metodologías ágiles de mejora de rendimiento",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "En la gestión de amenazas, el 'Reconocimiento Pasivo' se realiza comúnmente cuando:",
+    opciones: [
+      "El riesgo es de bajo impacto y baja probabilidad de ocurrencia",
+      "Se ha decidido contratar un seguro para deslindar responsabilidad",
+      "No existe un Director de Proyecto asignado todavía",
+      "El presupuesto total ha sido duplicado por el sponsor",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "¿Cuál es la clasificación de impacto para un riesgo que tiene un efecto mínimo o nulo en los objetivos?",
+    opciones: [
+      "Riesgo preventivo",
+      "Incidente moderado",
+      "Problema técnico de obsolescencia",
+      "Insignificante o Bajo",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "Según los apuntes, la definición de categorías de impacto debe ser siempre específica para:",
+    opciones: [
+      "Únicamente los socios gubernamentales",
+      "Solo el equipo de desarrollo de backend",
+      "Cada proyecto y organización en particular",
+      "Cualquier competidor que esté en el mercado",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "Ante un riesgo positivo (oportunidad), la estrategia que busca aumentar su impacto favorable es:",
+    opciones: [
+      "Transferir",
+      "Mejorar",
+      "Aceptar pasivamente",
+      "Evitar la causa",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "En un Plan de Mitigación, el 'Responsable' se define formalmente como:",
+    opciones: [
+      "La persona encargada de monitorear y ejecutar las acciones de respuesta",
+      "El empleado que cometió el error original durante el desarrollo",
+      "El proveedor que cobra la cuota mensual de mantenimiento",
+      "Únicamente el stakeholder que puso el dinero inicial",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "Los desastres naturales (clima) y la inestabilidad política son considerados:",
+    opciones: [
+      "Oportunidades de mejora para el equipo directivo",
+      "Resultados fallidos de la etapa técnica de diseño",
+      "Inconvenientes mínimos gestionables por programadores",
+      "Riesgos Externos fuera del control del equipo",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "Diferenciar entre un 'Riesgo Técnico' y uno de 'Gestión' es vital para el director porque:",
+    opciones: [
+      "Aumenta la velocidad del framework de Bootstrap utilizado",
+      "Elimina la necesidad de utilizar etiquetas HTML5 semánticas",
+      "Permite asignar las misiones a los perfiles correspondientes del equipo",
+      "Hace que el cliente ya no quiera realizar cambios al alcance",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "La gestión moderna prioriza prevenir fallos mediante la anticipación. Un proceso para esto es:",
+    opciones: [
+      "Cargar facturas mensuales de la competencia",
+      "Realizar pruebas y prototipos de forma temprana",
+      "Reemplazar a todo el personal cada tres meses",
+      "Gastar el fondo de reserva el primer mes del plan",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "Las escalas utilizadas para evaluar el impacto de un evento se clasifican habitualmente en:",
+    opciones: [
+      "Cualitativas o cuantitativas",
+      "Temporales o arquitectónicas",
+      "Externas o de código fuente",
+      "Solo informativas para el cierre del acta",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "¿Cuál de estas acciones es una aplicación real de la estrategia de 'Transferir'?",
+    opciones: [
+      "Realizar un curso de capacitación intensiva al personal interno",
+      "Subcontratar actividades de alto riesgo a un tercero calificado",
+      "Actualizar las librerías del framework a la versión estable",
+      "Escribir las lecciones aprendidas al finalizar la jornada",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "Según el material, ¿con qué frecuencia debe revisarse y actualizarse el plan de mitigación?",
+    opciones: [
+      "Solo al final de cada año de calendario fiscal",
+      "Una sola vez durante la firma del contrato principal",
+      "Periódicamente a medida que surgen nuevos riesgos o cambian condiciones",
+      "Cada vez que el programador junior solicita un aumento de sueldo",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta: "¿Qué significa que el riesgo se considere un 'Evento Positivo'?",
+    opciones: [
+      "Que no genera costos económicos a la organización",
+      "Que es una tarea que el equipo ya terminó hace meses",
+      "Que se refiere únicamente al personal administrativo",
+      "Que presenta una Oportunidad de beneficio para el proyecto",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 2,
+    tema: "riesgos",
+    pregunta:
+      "El riesgo clasificado como 'Pérdida de personal clave' pertenece al área de:",
+    opciones: [
+      "Riesgos de Recursos",
+      "Metodologías ágiles de cierre técnico",
+      "Regulaciones del gobierno central",
+      "Fallo del manual de estilos visuales",
+    ],
+    correcta: 0,
+  },
+
+  // ==========================================
   // NIVEL 3: Gestión de Riesgos - REESTRUCTURADO
   // Distribución de respuestas: 0: 5 | 1: 5 | 2: 5 | 3: 5
   // ==========================================
@@ -2557,5 +3080,764 @@ export const bancoPreguntas = [
       "Aumentar los controles semanales del progreso técnico",
     ],
     correcta: 1,
+  },
+
+  // ==========================================
+  // NIVEL 1 - CALIDAD, MANTENIMIENTO Y AMBIENTE
+  // Distribución: 0: (5) | 1: (5) | 2: (5) | 3: (5)
+  // ==========================================
+  {
+    nivel: 1,
+    tema: "calidad",
+    pregunta: "¿Cuál es la definición de calidad según el enfoque del PMBOK?",
+    opciones: [
+      "Grado en que un conjunto de características inherentes cumple con los requisitos",
+      "Proceso reactivo que se activa solo ante fallos graves",
+      "Medición de cuánto dinero se ahorró en el código",
+      "La estética visual definida por el equipo de diseño",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 1,
+    tema: "calidad",
+    pregunta:
+      "El Aseguramiento de la Calidad (QA) se diferencia del control de calidad porque se orienta a:",
+    opciones: [
+      "El producto final",
+      "El personal administrativo",
+      "La contratación de proveedores",
+      "El proceso de desarrollo",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 1,
+    tema: "calidad",
+    pregunta: "¿Qué pregunta busca responder el proceso de Verificación?",
+    opciones: [
+      "¿El producto es del color correcto?",
+      "¿Estamos construyendo el producto correctamente?",
+      "¿Cuánto tiempo tardó el mantenimiento?",
+      "¿El cliente está satisfecho con la inversión?",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 1,
+    tema: "calidad",
+    pregunta:
+      "En la gestión de calidad, el Control de Calidad (QC) es considerado una actividad:",
+    opciones: [
+      "Proactiva de planificación",
+      "Preventiva de riesgos externos",
+      "Reactiva orientada al producto",
+      "Exclusiva del Directorio de la empresa",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 1,
+    tema: "calidad",
+    pregunta: "¿A qué pregunta se orienta fundamentalmente la Validación?",
+    opciones: [
+      "¿El costo cumple con la variable de Lledó?",
+      "¿Estamos construyendo el producto correcto?",
+      "¿El código sigue las reglas gramaticales?",
+      "¿El equipo de trabajo tiene experiencia técnica?",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 1,
+    tema: "calidad",
+    pregunta:
+      "Dentro de los costos de conformidad (prevención), un ejemplo común es:",
+    opciones: [
+      "El pago de garantías al cliente",
+      "La reparación de fallos ya manifestados",
+      "La capacitación y realización de pruebas",
+      "El gasto por la pérdida de reputación",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 1,
+    tema: "calidad",
+    pregunta:
+      "¿Qué gastos se incluyen dentro de los costos de 'no conformidad'?",
+    opciones: [
+      "Retrabajos, garantías y pérdida de clientes",
+      "Revisiones de código preventivas",
+      "Inversión en auditorías externas",
+      "Compra de servidores energéticamente eficientes",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 1,
+    tema: "mantenimiento",
+    pregunta: "¿Cuál es el objetivo principal del mantenimiento de software?",
+    opciones: [
+      "Aumentar el precio de venta del software mensualmente",
+      "Reducir la comunicación entre el equipo y el cliente",
+      "Eliminar la necesidad de utilizar etiquetas HTML",
+      "Operar eficientemente, corregir errores y mantener el valor del sistema",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 1,
+    tema: "mantenimiento",
+    pregunta:
+      "La cualidad que permite realizar modificaciones con el menor esfuerzo posible se denomina:",
+    opciones: [
+      "Mantenibilidad",
+      "Flexibilidad del acta de constitución",
+      "Alcance progresivo del desarrollo",
+      "Riesgo de exposición al sistema",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 1,
+    tema: "mantenimiento",
+    pregunta:
+      "¿A qué concepto se refiere la capacidad de un software para funcionar sin fallos bajo condiciones establecidas?",
+    opciones: [
+      "Métrica de rendimiento social",
+      "Cálculo de holgura libre técnica",
+      "Fiabilidad",
+      "Punto de interrupción adaptable",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 1,
+    tema: "mantenimiento",
+    pregunta:
+      "Identificar y corregir defectos que se manifiestan durante la operación es el objetivo de:",
+    opciones: [
+      "El Mantenimiento Correctivo",
+      "El Modelo Espiral de gestión",
+      "El Mantenimiento Preventivo",
+      "El Ciclo de Deming reactivo",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 1,
+    tema: "mantenimiento",
+    pregunta:
+      "Cuando ajustamos un software para que funcione en un nuevo sistema operativo o base de datos, realizamos un mantenimiento:",
+    opciones: ["Perfectivo", "Manual", "Básico", "Adaptativo"],
+    correcta: 3,
+  },
+  {
+    nivel: 1,
+    tema: "mantenimiento",
+    pregunta:
+      "¿Cuál de estos tipos de mantenimiento introduce mejoras basadas en nuevas necesidades del usuario sin corregir errores?",
+    opciones: [
+      "Mantenimiento Correctivo",
+      "Mantenimiento Proyectado",
+      "Mantenimiento Perfectivo",
+      "Mantenimiento Semántico",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 1,
+    tema: "mantenimiento",
+    pregunta: "El mantenimiento preventivo consiste principalmente en:",
+    opciones: [
+      "Reparar el sistema una vez que dejó de funcionar",
+      "Realizar acciones proactivas para evitar problemas futuros",
+      "Añadir funciones de estética visual al front-end",
+      "Pedir al cliente que no use el sistema durante las mañanas",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 1,
+    tema: "ambiente",
+    pregunta:
+      "¿Qué objetivo tiene la Evaluación de Impacto Ambiental (EIA) en un proyecto?",
+    opciones: [
+      "Determinar la jerarquía 4R de la oficina",
+      "Eliminar la necesidad de contratar ingenieros",
+      "Reducir el presupuesto de energía de los inversores",
+      "Identificar, predecir y mitigar los efectos del proyecto en el entorno",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 1,
+    tema: "ambiente",
+    pregunta:
+      "En la gestión de residuos, el concepto de reducir el volumen de desechos se refiere a actuar en:",
+    opciones: [
+      "El origen de la generación de residuos",
+      "La etapa final de cierre del proyecto",
+      "El código fuente de las etiquetas",
+      "Los manuales de usuario del software",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 1,
+    tema: "ambiente",
+    pregunta:
+      "Utilizar luz natural y ventilación cruzada en el diseño de instalaciones es parte de:",
+    opciones: [
+      "La virtualización de servidores",
+      "El diseño bioclimático",
+      "La infraestructura de la arquitectura ágil",
+      "La eficiencia perfecta del mantenimiento",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 1,
+    tema: "ambiente",
+    pregunta:
+      "El Green IT (TI Verde) busca mejorar la sostenibilidad ambiental mediante:",
+    opciones: [
+      "Código eficiente para reducir el consumo eléctrico en data centers",
+      "Uso de servidores obsoletos para ahorrar presupuesto",
+      "Eliminar todas las computadoras del personal técnico",
+      "Publicitar la marca de la organización como ecológica",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 1,
+    tema: "ambiente",
+    pregunta:
+      "Alinear un proyecto con los Objetivos de Desarrollo Sostenible (ODS) de la ONU ayuda a:",
+    opciones: [
+      "Generar menos documentos de lecciones aprendidas",
+      "Aumentar el precio de venta final de forma ilegal",
+      "Mejorar la aceptación social y la resiliencia a largo plazo",
+      "Eliminar el cumplimiento de normativas gubernamentales",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 1,
+    tema: "ambiente",
+    pregunta:
+      "Las siglas ESG se refieren a tres marcos de evaluación clave que son:",
+    opciones: [
+      "Estándar, Sistema y Gestión",
+      "Eficiencia, Servicio y Garantía",
+      "Estilo, Soporte y Graficación",
+      "Ambiental, Social y Gobernanza",
+    ],
+    correcta: 3,
+  },
+
+  // ==========================================
+  // NIVEL 2 - CALIDAD, MANTENIMIENTO Y AMBIENTE (Intermedio)
+  // Distribución: 0: (5) | 1: (5) | 2: (5) | 3: (5)
+  // ==========================================
+  {
+    nivel: 2,
+    tema: "calidad",
+    pregunta:
+      "¿Cuáles son los tres grandes procesos interrelacionados que propone la gestión de calidad según el apunte?",
+    opciones: [
+      "Venta, Entrega y Soporte post-venta del producto",
+      "Planificar la calidad, Gestionar la calidad y Controlar la calidad",
+      "Identificar bugs, Corregir código y Documentar errores",
+      "Contratación, Evaluación de personal y Cierre de contratos",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 2,
+    tema: "calidad",
+    pregunta:
+      "La métrica de calidad denominada MTBF (Mean Time Between Failures) mide específicamente:",
+    opciones: [
+      "El número total de líneas de código cubiertas por pruebas",
+      "La satisfacción y lealtad del usuario con el producto final",
+      "El tiempo promedio que transcurre entre fallos del sistema",
+      "La cantidad de defectos por cada 1.000 líneas de código",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 2,
+    tema: "calidad",
+    pregunta:
+      "Dentro de las métricas de calidad, el NPS (Net Promoter Score) tiene como objetivo:",
+    opciones: [
+      "Medir la satisfacción y lealtad del usuario con el software",
+      "Calcular el tiempo que el programador tarda en cerrar un ticket",
+      "Contar el porcentaje de código duplicado en la base de datos",
+      "Verificar cuántas etiquetas HTML fueron cerradas incorrectamente",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 2,
+    tema: "calidad",
+    pregunta:
+      "¿En qué consiste la tendencia moderna denominada 'Testing Shift-Left'?",
+    opciones: [
+      "Mover las pruebas de calidad al final de la etapa de cierre",
+      "Asignar la responsabilidad de las pruebas a un tercero externo",
+      "Ocultar los resultados de las pruebas a los stakeholders principales",
+      "Incorporar pruebas y actividades de calidad lo más temprano posible en el desarrollo",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 2,
+    tema: "calidad",
+    pregunta:
+      "Técnicamente, el Aseguramiento de la Calidad (QA) busca responder la siguiente inquietud:",
+    opciones: [
+      "¿Seguimos los procesos de trabajo correctos para evitar defectos?",
+      "¿Cuántos errores detectó el sistema durante el último mes?",
+      "¿Cuál es el margen de ganancia neta después del mantenimiento?",
+      "¿Qué color de fondo prefiere el cliente para el prototipo?",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 2,
+    tema: "calidad",
+    pregunta:
+      "Las pruebas de Aceptación del Usuario (UAT), Pruebas Alfa y Beta son actividades propias de:",
+    opciones: [
+      "La fase inicial de relevamiento",
+      "La etapa técnica de Validación del software",
+      "La estimación del costo de conformidad técnica",
+      "La reestructuración manual de la base de datos",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 2,
+    tema: "calidad",
+    pregunta:
+      "Según el modelo de madurez CMMI, un proceso que se encuentra estandarizado en toda la organización está en el nivel:",
+    opciones: [
+      "Nivel 1 (Inicial)",
+      "Nivel 2 (Gestionado)",
+      "Nivel 3 (Definido)",
+      "Nivel 5 (En optimización)",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 2,
+    tema: "mantenimiento",
+    pregunta:
+      "Estadísticamente, el costo del mantenimiento suele representar un porcentaje del ciclo de vida total entre el:",
+    opciones: ["1% y el 5%", "10% y el 20%", "25% y el 50%", "60% y el 80%"],
+    correcta: 3,
+  },
+  {
+    nivel: 2,
+    tema: "mantenimiento",
+    pregunta:
+      "¿A qué se refiere la 'Paradoja del Mantenimiento' según la Ley de Lehman?",
+    opciones: [
+      "Al mantener o mejorar un sistema, su complejidad tiende a aumentar, encareciendo el mantenimiento futuro",
+      "Un software que no tiene errores hoy tendrá más errores el día de mañana obligatoriamente",
+      "Mientras menos documentación tenga un sistema, más fácil será de mantener por técnicos expertos",
+      "El costo de mantenimiento baja drásticamente cuanto más viejo es el sistema operativo",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 2,
+    tema: "mantenimiento",
+    pregunta:
+      "La técnica de Refactoring (Refactorización) consiste técnicamente en:",
+    opciones: [
+      "Eliminar el software antiguo y desarrollarlo de nuevo desde cero",
+      "Reestructurar el código existente sin cambiar su comportamiento externo",
+      "Agregar nuevas funcionalidades para mejorar el rendimiento comercial",
+      "Documentar manualmente los errores que el programador no pudo resolver",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 2,
+    tema: "mantenimiento",
+    pregunta:
+      "¿Qué situación representa un ejemplo de Mantenimiento Adaptativo?",
+    opciones: [
+      "Corregir una vulnerabilidad de seguridad descubierta ayer",
+      "Eliminar código innecesario para optimizar la velocidad",
+      "Adaptar una aplicación de Windows 10 para que funcione en Windows 11",
+      "Arreglar un error que impide a los usuarios realizar pagos con tarjeta",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 2,
+    tema: "mantenimiento",
+    pregunta:
+      "En un acuerdo SLA, si un incidente se califica con severidad Crítica (P1), ¿qué tiempos suelen establecerse?",
+    opciones: [
+      "Respuesta inmediata y resolución en menos de diez minutos",
+      "Respuesta en un día y resolución durante el transcurso del mes",
+      "Respuesta en 8 horas y resolución tras consultar con el proveedor externo",
+      "Respuesta en 1 hora y resolución en aproximadamente 4 horas",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 2,
+    tema: "mantenimiento",
+    pregunta: "La disponibilidad de un software se mide específicamente por:",
+    opciones: [
+      "La proporción de tiempo en que el sistema está operativo y listo para su uso",
+      "El número de descargas que tiene la aplicación en la tienda virtual",
+      "La cantidad de veces que el Director de Proyecto aprueba el presupuesto",
+      "El esfuerzo necesario para cambiar un módulo de la base de datos",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 2,
+    tema: "mantenimiento",
+    pregunta:
+      "¿Qué norma define las características de calidad del producto (adecuación, fiabilidad, seguridad, etc.)?",
+    opciones: [
+      "ISO 9001",
+      "ISO/IEC 25010",
+      "Ley de Lehman técnica",
+      "Framework del PMBOK",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 2,
+    tema: "ambiente",
+    pregunta:
+      "Las estrategias de mitigación ambiental buscan anticiparse a los daños. En esta fase es vital:",
+    opciones: [
+      "Contratar solo programadores que vivan cerca de la oficina central",
+      "Descartar todos los equipos informáticos que tengan más de un año",
+      "Realizar estudios previos para identificar y predecir posibles efectos negativos",
+      "Evitar la documentación para ahorrar el consumo excesivo de papel",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 2,
+    tema: "ambiente",
+    pregunta:
+      "Según la jerarquía 4R, la acción de reincorporar residuos al ciclo productivo se denomina:",
+    opciones: ["Reducir", "Reutilizar", "Tratar", "Reciclar"],
+    correcta: 3,
+  },
+  {
+    nivel: 2,
+    tema: "ambiente",
+    pregunta:
+      "¿Qué ODS (Objetivo de Desarrollo Sostenible) se enfoca en energía asequible y no contaminante?",
+    opciones: ["ODS 7", "ODS 11", "ODS 12", "ODS 13"],
+    correcta: 0,
+  },
+  {
+    nivel: 2,
+    tema: "ambiente",
+    pregunta:
+      "¿En qué unidades se expresa generalmente la Huella de Carbono de un proyecto?",
+    opciones: [
+      "Líneas de código ineficientes",
+      "Emisiones totales de CO2 equivalente",
+      "Puntos de función de hardware reciclado",
+      "Megavatios consumidos por el Scrum Master",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 2,
+    tema: "ambiente",
+    pregunta:
+      "La evaluación ESG ayuda a las empresas frente a inversores porque incorpora criterios de:",
+    opciones: [
+      "Velocidad de carga de datos únicamente",
+      "Bajos sueldos técnicos y alta rotación de equipo",
+      "Impacto ambiental, responsabilidad social y buena gobernanza",
+      "Cantidad de certificaciones locales sin validación oficial",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 2,
+    tema: "ambiente",
+    pregunta:
+      "¿Cómo se denomina al modelo opuesto al sistema lineal de producir, usar y desechar?",
+    opciones: [
+      "Evolución Digital Sostenible",
+      "Mantenimiento Adaptativo Ambiental",
+      "Ciclo de Vida en Cascada Verde",
+      "Economía Circular",
+    ],
+    correcta: 3,
+  },
+
+  // ==========================================
+  // NIVEL 3 - CALIDAD, MANTENIMIENTO Y AMBIENTE (Avanzado)
+  // Distribución: 0: (5) | 1: (5) | 2: (5) | 3: (5)
+  // ==========================================
+  {
+    nivel: 3,
+    tema: "calidad",
+    pregunta:
+      "¿A qué categoría de costo pertenece el 'retrabajo' generado por defectos detectados tardíamente en el ciclo de desarrollo?",
+    opciones: [
+      "Costos de no conformidad",
+      "Costos de prevención operativa",
+      "Gasto de mantenimiento adaptativo",
+      "Costo de evaluación de conformidad",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 3,
+    tema: "calidad",
+    pregunta:
+      "En el modelo de madurez de procesos CMMI, ¿cuál es el nivel donde se aplica el control estadístico sobre los procesos?",
+    opciones: [
+      "Nivel 5: En optimización continua",
+      "Nivel 4: Gestionado cuantitativamente",
+      "Nivel 3: Definido por la organización",
+      "Nivel 2: Gestionado por proyectos",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 3,
+    tema: "calidad",
+    pregunta:
+      "Según el estándar ISO/IEC 25010, la característica de 'Portabilidad' del software se define como:",
+    opciones: [
+      "La rapidez del procesamiento bajo carga máxima",
+      "La facilidad de uso para el ciudadano promedio",
+      "Capacidad del software de ser transferido de un entorno a otro",
+      "El grado de resistencia ante vulnerabilidades de red",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 3,
+    tema: "mantenimiento",
+    pregunta:
+      "¿Qué postula técnicamente la Ley de Lehman sobre la evolución de los sistemas de software?",
+    opciones: [
+      "El mantenimiento preventivo elimina la deuda técnica",
+      "La fiabilidad aumenta proporcionalmente al tiempo",
+      "Los sistemas tienden a simplificarse tras cada ajuste",
+      "Al evolucionar, la complejidad de un sistema aumenta a menos que se trabaje para mantenerla",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 3,
+    tema: "mantenimiento",
+    pregunta:
+      "En la definición de un Service Level Agreement (SLA), un incidente de severidad Alta (P2) requiere resolución en:",
+    opciones: [
+      "24 horas",
+      "1 hora de respuesta operativa",
+      "72 horas laborales",
+      "Una semana tras la revisión del caso",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 3,
+    tema: "calidad",
+    pregunta:
+      "¿Cuál es la principal ventaja estratégica del enfoque Shift-left dentro de la gestión moderna?",
+    opciones: [
+      "Reducir la cantidad de personal técnico junior",
+      "Identificar y resolver defectos en las fases iniciales de diseño y planificación",
+      "Transferir los riesgos tecnológicos a un socio externo",
+      "Optimizar los costos de no conformidad al cierre del ciclo",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 3,
+    tema: "mantenimiento",
+    pregunta:
+      "Refactorizar el código de un proceso para bajar el tiempo de respuesta de 3 a 1 segundo sin cambiar su función es:",
+    opciones: [
+      "Un proceso preventivo de obsolescencia",
+      "Una identificación reactiva de defectos",
+      "Mantenimiento perfectivo orientado a la eficiencia",
+      "Una reestructuración del acta de constitución",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 3,
+    tema: "ambiente",
+    pregunta:
+      "La medición de la Huella de Carbono del Proyecto permite identificar las fuentes de mayor impacto analizando:",
+    opciones: [
+      "Solamente los gastos monetarios en logística",
+      "Únicamente los residuos generados en las oficinas",
+      "La cantidad de lecciones aprendidas archivadas",
+      "Las emisiones de CO2 generadas directa e indirectamente",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 3,
+    tema: "calidad",
+    pregunta:
+      "Es considerada una actividad técnica propia y exclusiva del proceso de Verificación según el material:",
+    opciones: [
+      "Inspección del código fuente y revisión de documentos de diseño",
+      "Pruebas beta controladas con usuarios finales reales",
+      "Evaluación del impacto estratégico ante los inversores",
+      "Gestión de reclamos a través del soporte posventa",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 3,
+    tema: "ambiente",
+    pregunta:
+      "¿Qué certificación ISO es la referencia específica para el establecimiento de un sistema de gestión de la energía?",
+    opciones: ["ISO/IEC 27001", "ISO 50001", "ISO 9001", "ISO 14001"],
+    correcta: 1,
+  },
+  {
+    nivel: 3,
+    tema: "calidad",
+    pregunta:
+      "La técnica de Refactoring se vincula directamente con la deuda técnica debido a que:",
+    opciones: [
+      "Es una acción que el cliente debe pagar por separado",
+      "Oculta la falta de liderazgo del director de proyecto",
+      "Mejora la legibilidad interna y reduce complicaciones futuras",
+      "Sustituye por completo al Aseguramiento de Calidad",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 3,
+    tema: "ambiente",
+    pregunta:
+      "En el marco de la gestión ambiental corporativa, la Economía Circular busca promover:",
+    opciones: [
+      "La extracción masiva de nuevos recursos minerales",
+      "El desecho secuencial de hardware informático",
+      "La obsolescencia programada para favorecer ventas",
+      "Ciclos cerrados para mantener recursos en uso el mayor tiempo posible",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 3,
+    tema: "calidad",
+    pregunta:
+      "La metodología Six Sigma establece un umbral de calidad extremadamente alto definido por un máximo de:",
+    opciones: [
+      "3,4 defectos por cada millón de oportunidades",
+      "Tres incidentes críticos permitidos en cada sprint",
+      "Sesenta por ciento de ahorro en mantenimiento correctivo",
+      "Diez fallos registrados mensualmente en el sistema",
+    ],
+    correcta: 0,
+  },
+  {
+    nivel: 3,
+    tema: "ambiente",
+    pregunta:
+      "Siguiendo la jerarquía 4R aplicada a proyectos, ¿cuál es la medida más efectiva para mitigar residuos?",
+    opciones: [
+      "Tratar los materiales tóxicos tras su generación",
+      "Reducir el volumen de residuos desde el origen",
+      "Reciclar el papel utilizado en el plan de comunicaciones",
+      "Reutilizar insumos digitales de proyectos finalizados",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 3,
+    tema: "mantenimiento",
+    pregunta:
+      "¿Cuál de las siguientes normas internacionales define formalmente los procesos de mantenimiento de software?",
+    opciones: [
+      "ISO 21500 de dirección de proyectos",
+      "ISO/IEC 9126 de portabilidad técnica",
+      "ISO/IEC 14764 de ingeniería de software",
+      "Guía PMBOK en su módulo transversal",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 3,
+    tema: "ambiente",
+    pregunta:
+      "La integración de marcos de evaluación ESG permite a la organización de un proyecto:",
+    opciones: [
+      "Ignorar las normativas ambientales gubernamentales",
+      "Evitar la participación activa de los stakeholders",
+      "Descentralizar la planificación hacia terceros externos",
+      "Lograr mayor acceso a financiamiento y resiliencia institucional",
+    ],
+    correcta: 3,
+  },
+  {
+    nivel: 3,
+    tema: "ambiente",
+    pregunta:
+      "¿A qué objetivo de la agenda ONU 2030 pertenece el concepto de producción y consumo responsables?",
+    opciones: ["ODS 12", "ODS 7", "ODS 13", "ODS 11"],
+    correcta: 0,
+  },
+  {
+    nivel: 3,
+    tema: "calidad",
+    pregunta:
+      "Según la norma ISO 25010, ¿cuál de las siguientes es una sub-característica de la Mantenibilidad?",
+    opciones: [
+      "La satisfacción global de los usuarios finales",
+      "La modularidad presente en el diseño estructural",
+      "El nivel de ruido visual de la interfaz del usuario",
+      "La velocidad de transmisión en las APIs de servidor",
+    ],
+    correcta: 1,
+  },
+  {
+    nivel: 3,
+    tema: "calidad",
+    pregunta:
+      "El proceso de Validación se considera vital y diferente al de Verificación porque su foco es:",
+    opciones: [
+      "Analizar los informes de estado de avance técnicos",
+      "Someter a pruebas el acta de constitución de proyecto",
+      "Confirmar que el producto satisface el propósito previsto",
+      "Registrar los costos de conformidad por cada recurso",
+    ],
+    correcta: 2,
+  },
+  {
+    nivel: 3,
+    tema: "calidad",
+    pregunta:
+      "La gestión moderna prioriza la inversión en prevención en lugar de inspección con el fin de:",
+    opciones: [
+      "Aumentar el número de testeos al final del cierre",
+      "Favorecer exclusivamente al equipo de desarrollo junior",
+      "Ahorrar espacio en el almacenamiento de documentación",
+      "Reducir drásticamente los elevados costos de fallas externas",
+    ],
+    correcta: 3,
   },
 ];
