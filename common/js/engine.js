@@ -70,13 +70,26 @@ async function cargarBancoYIniciar() {
 }
 
 function inicializarExamen(banco) {
-  // 1. Filtrar por nivel y tema
-  let bancoFiltrado = banco.filter((p) => p.nivel === nivelActual);
-  if (temaActual !== "mix") {
-    bancoFiltrado = bancoFiltrado.filter((p) => p.tema === temaActual);
-  }
+  const gruposDeTemas = {
+    calidad: ["calidad", "mantenimiento", "ambiente"],
+    riesgos: ["riesgos"], // Aquí podrías añadir otros si hiciera falta
+  };
 
-  // 2. Seleccionar 20 y barajar
+  // 2. Si el tema actual está en el grupo, usamos el array de temas. Si no, solo el tema individual.
+  let temasAFiltrar = gruposDeTemas[temaActual] || [temaActual];
+
+  // 3. Modificamos el filtro para que busque cualquiera de los temas del grupo
+  let bancoFiltrado = banco.filter((p) => {
+    const nivelCoincide = p.nivel === nivelActual;
+
+    if (temaActual === "mix") {
+      return nivelCoincide;
+    } else {
+      return nivelCoincide && temasAFiltrar.includes(p.tema);
+    }
+  });
+
+  // 4. Seleccionar 20 y barajar
   preguntasSeleccionadas = barajar(bancoFiltrado).slice(0, 20);
 
   // 3. UI Título dinámico
