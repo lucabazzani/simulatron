@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simulatron | Simulador de Estudio</title>
+    <title>Simulatron | Hub de Estudio</title>
     <!-- Google Fonts: JetBrains Mono -->
     <link
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&display=swap"
@@ -17,37 +17,44 @@
     <!-- CSS Global -->
     <link rel="stylesheet" href="common/global.css" />
 
-    <!-- Icono para navegadores (Android / Chrome / Desktop) -->
+    <style>
+      /* Identidad visual para la nueva materia */
+      .opt-matematica:hover {
+        background-color: #00d4ff !important;
+        transform: translate(-4px, -4px);
+        box-shadow: 6px 6px 0px #000;
+      }
+      .opt-matematica .status-tag {
+        background-color: #001e2b;
+        color: #00d4ff;
+      }
+    </style>
+
     <link rel="icon" type="image/png" href="icono.png" />
-
-    <!-- Icono para iPhone y iPad -->
     <link rel="apple-touch-icon" href="icono.png" />
-
-    <!-- Color de la barra del navegador en móviles -->
     <meta name="theme-color" content="#f1f1e6" />
-
     <link rel="manifest" href="manifest.json" />
   </head>
   <body class="bg-grid">
     <div class="hub-wrapper">
       <!-- HEADER PRINCIPAL -->
       <header class="text-center mt-5 mb-5">
-        <h1 class="fw-bolder display-1">SIMULATRÓN</h1>
-        <p class="text-uppercase tracking-widest fw-bold">
-          Plataforma de evaluación y consulta bibliográfica.
+        <h1 class="fw-bolder display-1 text-uppercase">SIMULATRÓN</h1>
+        <p class="text-uppercase tracking-widest fw-bold opacity-75">
+          Centro unificado de evaluación y bibliografía técnica
         </p>
       </header>
 
       <!-- CONTENEDOR DE SELECCIÓN -->
       <main class="container">
         <div class="row g-4 justify-content-center">
-          <!-- OPCIÓN: DESARROLLO FRONTEND -->
-          <div class="col-md-6 col-lg-5">
+          <!-- MATERIA 1: DESARROLLO FRONTEND -->
+          <div class="col-md-6 col-lg-4">
             <a
               href="frontend/index.html"
-              class="matter-option opt-frontend shadow"
+              class="matter-option opt-frontend shadow h-100 d-flex flex-column"
             >
-              <span class="status-tag">MATERIA 1:</span>
+              <span class="status-tag">MATERIA 1</span>
               <h2 class="fw-bold text-uppercase">Desarrollo Frontend</h2>
               <p class="small text-dark opacity-75">
                 Evaluación integral de HTML5, CSS3 y el framework Bootstrap 5.
@@ -61,17 +68,37 @@
             </a>
           </div>
 
-          <!-- OPCIÓN: GESTIÓN DE PROYECTOS -->
-          <div class="col-md-6 col-lg-5">
+          <!-- MATERIA 2: GESTIÓN DE PROYECTOS -->
+          <div class="col-md-6 col-lg-4">
             <a
               href="gestion-proyectos/index.html"
-              class="matter-option opt-gestion shadow"
+              class="matter-option opt-gestion shadow h-100 d-flex flex-column"
             >
-              <span class="status-tag">MATERIA 2:</span>
+              <span class="status-tag">MATERIA 2</span>
               <h2 class="fw-bold text-uppercase">Gestión de Proyectos</h2>
               <p class="small text-dark opacity-75">
-                Fundamentos de administración, ciclos de vida, planificación
-                temporal y metodologías ágiles.
+                Fundamentos de administración, planificación de tiempos,
+                mitigación de riesgos y calidad.
+              </p>
+              <div
+                class="mt-auto pt-4 fw-bold text-end border-top border-dark border-opacity-10"
+              >
+                ACCEDER AL MÓDULO >
+              </div>
+            </a>
+          </div>
+
+          <!-- MATERIA 3: MATEMÁTICA -->
+          <div class="col-md-6 col-lg-4">
+            <a
+              href="matematica/index.html"
+              class="matter-option opt-matematica shadow h-100 d-flex flex-column"
+            >
+              <span class="status-tag">MATERIA 3</span>
+              <h2 class="fw-bold text-uppercase">Matemática</h2>
+              <p class="small text-dark opacity-75">
+                Teoría de conjuntos, lógica proposicional, cuantificadores,
+                sucesiones e inducción fuerte.
               </p>
               <div
                 class="mt-auto pt-4 fw-bold text-end border-top border-dark border-opacity-10"
@@ -96,7 +123,7 @@
           >
           <br />
           Versión:
-          <a href="notas.html" class="badge-version">1.4.0</a>
+          <a href="notas.html" class="badge-version">1.5.0</a>
         </p>
       </footer>
     </div>

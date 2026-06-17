@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bibliografía: Sucesiones e Inducción</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      .math-formula {
+        font-family: var(--font-mono);
+        color: #00d4ff;
+        background: #1a1a1a;
+        padding: 15px;
+        border-radius: 4px;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+      }
+      .prop-card {
+        border-left: 5px solid #00d4ff !important;
+        background-color: #f0f9ff;
+      }
+      code {
+        color: #d63384;
+        font-weight: bold;
+      }
+      .term-list dt {
+        color: #00d4ff;
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="../index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-uppercase small">Sucesiones e Inducción</span>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <header class="mb-5 text-center">
+        <h1 class="h2 fw-bold border-bottom border-dark pb-2">
+          Guía: Sucesiones e Inducción
+        </h1>
+        <p class="text-muted">
+          Cálculo de términos generales y lógica de demostraciones matemáticas.
+        </p>
+      </header>
+
+      <div class="row">
+        <div class="col-12">
+          <!-- 1. DEFINICIÓN GENERAL -->
+          <div class="custom-card mb-4 prop-card">
+            <div class="custom-card-header">1. Concepto de Sucesión</div>
+            <div class="card-body">
+              <p>
+                Una sucesión es un <strong>conjunto ordenado</strong> de números
+                llamados términos, donde cada lugar está designado por un
+                subíndice (ej: a₁, a₂, a₃...).
+              </p>
+              <ul>
+                <li>
+                  <strong>Término General (aₙ):</strong> Es el criterio o
+                  fórmula que permite determinar cualquier término según su
+                  posición.
+                </li>
+                <li>
+                  <strong>Subíndice (n):</strong> Indica el lugar que ocupa el
+                  término en la serie.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 2. PROGRESIÓN ARITMÉTICA -->
+          <div class="custom-card mb-4">
+            <div class="custom-card-header">2. Sucesión Aritmética</div>
+            <div class="card-body">
+              <p>
+                Cada término se obtiene sumando al anterior un número fijo
+                llamado <strong>Diferencia (d)</strong>.
+              </p>
+              <div class="math-formula mb-3">d = aⱼ - aⱼ₋₁</div>
+              <p><strong>Cálculo del término enésimo:</strong></p>
+              <div class="math-formula mb-3">aₙ = a₁ + d · (n - 1)</div>
+              <p class="small text-muted italic">
+                Nota: Para hallar el cuarto término (n=4), se sustituye n en la
+                expresión general.
+              </p>
+            </div>
+          </div>
+
+          <!-- 3. PROGRESIÓN GEOMÉTRICA -->
+          <div class="custom-card mb-4">
+            <div class="custom-card-header">3. Sucesión Geométrica</div>
+            <div class="card-body">
+              <p>
+                Cada término se obtiene multiplicando al anterior por una
+                cantidad fija llamada <strong>Razón (r)</strong>.
+              </p>
+              <div class="math-formula mb-3">r = aⱼ₊₁ / aⱼ</div>
+              <p>
+                <strong>Cálculo del término general:</strong> Se obtiene
+                operando el primer término por la razón elevada a la potencia
+                deseada para alcanzar la posición <em>n</em>.
+              </p>
+            </div>
+          </div>
+
+          <!-- 4. CLASIFICACIÓN TÉCNICA -->
+          <div class="custom-card mb-4 prop-card">
+            <div class="custom-card-header">
+              4. Clasificación según el Crecimiento
+            </div>
+            <div class="card-body">
+              <table class="table table-bordered small">
+                <thead>
+                  <tr class="table-dark">
+                    <th>Clasificación</th>
+                    <th>Condición Matemática</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Estrictamente Creciente</td>
+                    <td>aₙ₊₁ > aₙ</td>
+                  </tr>
+                  <tr>
+                    <td>Creciente</td>
+                    <td>aₙ₊₁ ≥ aₙ</td>
+                  </tr>
+                  <tr>
+                    <td>Estrictamente Decreciente</td>
+                    <td>aₙ₊₁ < aₙ</td>
+                  </tr>
+                  <tr>
+                    <td>Decreciente</td>
+                    <td>aₙ₊₁ ≤ aₙ</td>
+                  </tr>
+                  <tr>
+                    <td>Constante</td>
+                    <td>aₙ = k</td>
+                  </tr>
+                  <tr>
+                    <td>Alternada</td>
+                    <td>Signos cambian entre (+) y (-)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 5. PRINCIPIO DE INDUCCIÓN -->
+          <div class="custom-card mb-4">
+            <div class="custom-card-header">5. Inducción Matemática</div>
+            <div class="card-body">
+              <p>
+                Método para demostrar que una propiedad P(n) es válida para todo
+                número natural. Consta de dos pasos críticos:
+              </p>
+              <ol>
+                <li>
+                  <strong>Base Inductiva:</strong> Demostrar que
+                  <code>P(1)</code> es verdadera.
+                </li>
+                <li>
+                  <strong>Paso Inductivo:</strong> Suponer que
+                  <code>P(k)</code> es verdadera (Hipótesis) y demostrar que
+                  implica que <code>P(k + 1)</code> es verdadera (Tesis).
+                </li>
+              </ol>
+              <p>
+                <strong>Inducción Fuerte:</strong> Similar al anterior, pero
+                supone que la propiedad se cumple para todos los valores
+                <code>h</code> menores o iguales a <code>k</code>.
+              </p>
+            </div>
+          </div>
+
+          <!-- 6. SUCESIÓN DE FIBONACCI -->
+          <div class="custom-card mb-5">
+            <div class="custom-card-header">
+              6. Sucesión de Fibonacci (Recursiva)
+            </div>
+            <div class="card-body">
+              <p>
+                Se define recursivamente: cada término es la suma de los dos
+                anteriores.
+              </p>
+              <div class="math-formula">uₙ₊₁ = uₙ + uₙ₋₁ | Para n ≥ 2</div>
+              <p class="mt-3 small">
+                Primeros términos: 1, 1, 2, 3, 5, 8, 13...
+              </p>
+              <div class="alert alert-info py-2 small border-dark mt-2">
+                <strong>Relación con Software:</strong> Para calcular sucesiones
+                en C# se recomienda el uso de ciclos, condicionales y arreglos
+                sin librerías externas de cálculo.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer
+      class="mt-5 pt-4 border-top border-secondary opacity-40 text-center pb-5"
+    >
+      <p class="text-uppercase tracking-widest fw-bold small">
+        Simulacro Matemática | Módulo 3.3
+      </p>
+    </footer>
+  </body>
+</html>
