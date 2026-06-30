@@ -45,6 +45,20 @@ const etiquetasMateria = {
       mix: "Integral",
     },
   },
+  quimica: {
+    titulo: "Química General",
+    temas: {
+      sistemas: "Sistemas Materiales",
+      mezclas: "Mezclas y Soluciones",
+      atomos: "Estructura del Átomo",
+      tabla: "Tabla Periódica",
+      enlaces: "Enlaces Químicos",
+      compuestos: "Compuestos Inorgánicos",
+      reacciones: "Reacciones y Mol",
+      organica: "Orgánica Básica",
+      mix: "Temas mixtos",
+    },
+  },
 };
 
 /**

@@ -32,8 +32,8 @@ body {
 .bg-grid {
   background-size: 30px 30px;
   background-image:
-    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
 }
 
 /* Contenedor principal del Hub */
@@ -140,6 +140,72 @@ body {
   padding: 3px 8px;
   text-decoration: none;
   font-size: 0.8rem;
+}
+
+/* Estilo para MATEMÁTICA */
+.opt-matematica:hover {
+  background-color: #00d4ff !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+.opt-matematica .status-tag {
+  background-color: #001e2b;
+  color: #00d4ff;
+}
+
+/* Estilo para INGLÉS TÉCNICO */
+.opt-ingles:hover {
+  background-color: #6610f2 !important; /* Índigo */
+  color: #fff !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+
+/* Aseguramos que el texto descriptivo cambie a blanco en hover para inglés */
+.opt-ingles:hover p,
+.opt-ingles:hover div {
+  color: #fff !important;
+}
+
+.opt-ingles .status-tag {
+  background-color: #210d4a; /* Violeta muy oscuro */
+  color: #e0d0ff;
+}
+
+/* --- IDENTIDAD VISUAL: FÍSICA Y MECÁNICA --- */
+.opt-fisica:hover {
+  background-color: #b91d1d !important; /* Rojo Industrial */
+  color: #fff !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+
+.opt-fisica:hover p,
+.opt-fisica:hover div {
+  color: #fff !important;
+}
+
+.opt-fisica .status-tag {
+  background-color: #421216; /* Rojo muy oscuro */
+  color: #ff9d9d;
+}
+
+/* --- IDENTIDAD VISUAL: QUÍMICA Y REACCIONES --- */
+.opt-quimica:hover {
+  background-color: #f472b6 !important; /* Rosa Pastel Vibrante (Fucsia suave) */
+  color: #fff !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+
+.opt-quimica:hover p,
+.opt-quimica:hover div {
+  color: #fff !important;
+}
+
+.opt-quimica .status-tag {
+  background-color: #501d36; /* Magenta/Rosa Neorrecatado muy oscuro */
+  color: #fbcfe8; /* Rosa Pastel Claro para texto legible */
 }
 
 /* --- UTILIDADES RESPONSIVE --- */

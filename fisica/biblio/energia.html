@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bibliografía: Trabajo y Energía</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="../index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-uppercase small">Energía y Trabajo</span>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <header class="mb-5 text-center border-bottom border-dark pb-3">
+        <h1 class="h2 fw-bold m-0 text-uppercase">
+          Tomo III: Trabajo y Energía
+        </h1>
+        <p class="text-muted small">
+          Leyes de conservación y transferencia de energía mecánica.
+        </p>
+      </header>
+
+      <div class="row">
+        <div class="col-12">
+          <!-- 1. TRABAJO MECÁNICO -->
+          <div
+            class="custom-card mb-4"
+            style="border-left: 5px solid var(--primary-color) !important"
+          >
+            <div class="custom-card-header text-uppercase">
+              1. Trabajo de una Fuerza (W)
+            </div>
+            <div class="card-body">
+              <p>
+                El trabajo es la transferencia de energía mediante una fuerza
+                [F] que provoca un desplazamiento [d]. Se mide en Julios [<span
+                  class="physics-unit"
+                  >J</span
+                >].
+              </p>
+
+              <h6 class="fw-bold text-success">Fuerza Constante:</h6>
+              <div class="physics-formula">W = F · d · cos(θ)</div>
+
+              <h6 class="fw-bold text-success mt-4">Fuerza Variable:</h6>
+              <p class="small">
+                El trabajo es igual al <strong>área bajo la curva</strong> en un
+                gráfico de Fuerza vs Posición.
+              </p>
+
+              <p class="small text-muted italic mt-3">
+                Nota: El trabajo es positivo si la fuerza favorece el
+                movimiento, negativo si se opone (fricción) y nulo si es
+                perpendicular (normal).
+              </p>
+            </div>
+          </div>
+
+          <!-- 2. POTENCIA Y EFICIENCIA -->
+          <div class="custom-card mb-4">
+            <div class="custom-card-header">2. Potencia Mecánica (P)</div>
+            <div class="card-body">
+              <p>
+                Representa la rapidez con la que se realiza un trabajo. Se mide
+                en Watts [<span class="physics-unit">W</span>].
+              </p>
+              <div class="physics-formula">
+                P = W / Δt &nbsp;&nbsp; o &nbsp;&nbsp; P = F · v
+              </div>
+              <hr />
+              <h6 class="fw-bold">Eficiencia (η):</h6>
+              <p class="small">
+                Relación entre la potencia de salida útil y la potencia de
+                entrada total.
+              </p>
+              <div class="math-block small font-monospace">
+                η = (P_útil / P_total) · 100%
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. ENERGÍA CINÉTICA Y TEOREMA -->
+          <div
+            class="custom-card mb-4"
+            style="border-left: 5px solid var(--primary-color) !important"
+          >
+            <div class="custom-card-header text-uppercase">
+              3. Energía de Movimiento
+            </div>
+            <div class="card-body">
+              <h6 class="fw-bold">Energía Cinética (Ec):</h6>
+              <div class="physics-formula">Ec = ½ · m · v²</div>
+
+              <h6 class="fw-bold mt-4">Teorema del Trabajo y la Energía:</h6>
+              <p class="small">
+                El trabajo neto realizado sobre un cuerpo es igual a su
+                variación de energía cinética.
+              </p>
+              <div class="math-block">W_neto = ΔEc = Ec_final - Ec_inicial</div>
+              <p class="small text-muted italic">
+                Ejemplo técnico: Calcular el trabajo necesario para detener un
+                vehículo de <span class="physics-unit">1500 kg</span>.
+              </p>
+            </div>
+          </div>
+
+          <!-- 4. ENERGÍA POTENCIAL -->
+          <div class="custom-card mb-4">
+            <div class="custom-card-header">4. Energías de Posición</div>
+            <div class="card-body">
+              <div class="row g-3">
+                <div class="col-md-6 border-end">
+                  <p class="mb-1 fw-bold">Potencial Gravitatoria (Eg):</p>
+                  <div class="physics-formula">Eg = m · g · h</div>
+                  <small class="text-muted italic"
+                    >Depende de la altura respecto a un nivel cero.</small
+                  >
+                </div>
+                <div class="col-md-6">
+                  <p class="mb-1 fw-bold">Potencial Elástica (Ee):</p>
+                  <div class="physics-formula">Ee = ½ · k · x²</div>
+                  <small class="text-muted italic"
+                    >k: constante del resorte. x: deformación.</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. CONSERVACIÓN DE ENERGÍA -->
+          <div class="custom-card mb-5">
+            <div class="custom-card-header text-uppercase">
+              5. Sistemas Aislados y Fuerzas NC
+            </div>
+            <div class="card-body">
+              <p>
+                <strong>Fuerzas Conservativas:</strong> Su trabajo no depende de
+                la trayectoria (ej. Gravedad). <br />
+                <strong>Fuerzas NO Conservativas:</strong> Disipan energía en
+                forma de calor (ej. Fricción).
+              </p>
+
+              <h6 class="fw-bold text-success mt-3">
+                Ley de Conservación (Si W_nc = 0):
+              </h6>
+              <div class="physics-formula">
+                Em₁ = Em₂ &nbsp; → &nbsp; (Ec + Ep)₁ = (Ec + Ep)₂
+              </div>
+
+              <h6 class="fw-bold text-danger mt-4">Presencia de Fricción:</h6>
+              <div class="math-block">
+                W_fricción = ΔEm = Em_final - Em_inicial
+              </div>
+              <p class="small text-muted mt-2">
+                Nomenclatura: <strong>Em</strong> es la Energía Mecánica total.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
