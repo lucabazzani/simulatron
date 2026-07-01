@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LUCABAZZADEV | Technical Profile</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="common/global.css" />
+    <style>
+      /* Estilos específicos de Landing Autor */
+      .avatar-frame {
+        width: 150px;
+        height: 150px;
+        border: 2px solid #282828;
+        background: #fff;
+        padding: 5px;
+        box-shadow: 4px 4px 0px #282828;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .avatar-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .status-online {
+        color: #d0ff41;
+        font-weight: 800;
+        text-shadow: 0 0 5px rgba(208, 255, 65, 0.5);
+      }
+
+      .stack-pill {
+        border: 1px solid #282828;
+        background: white;
+        padding: 4px 10px;
+        font-size: 0.7rem;
+        font-weight: bold;
+        display: inline-block;
+        margin: 2px;
+      }
+
+      .info-label {
+        font-size: 0.65rem;
+        color: #888;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* Hover técnico para proyectos */
+      .interactive-card:hover {
+        border-color: #6610f2 !important;
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px #000;
+        transition: all 0.2s;
+      }
+    </style>
+  </head>
+  <body class="bg-grid">
+    <!-- BARRA SUPERIOR SIMÉTRICA -->
+    <nav
+      class="sticky-nav shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid #282828;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold small text-uppercase">LUCABAZZADEV</span>
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- HEADER / HERO INTEGRADO -->
+      <header
+        class="row align-items-center mb-5 g-4 animate__animated animate__fadeIn"
+      >
+        <div class="col-md-auto d-flex justify-content-center">
+          <div class="avatar-frame">
+            <!-- Aquí pones tu imagen real. Mientras, dejo el logo o placeholder -->
+            <img src="common/assets/logo.png" alt="Luca Bazzani" />
+          </div>
+        </div>
+        <div class="col-md text-center text-md-start text-center">
+          <h1 class="display-3 fw-bold m-0 text-dark">Luca Bazzani</h1>
+          <p class="h5 fw-bold opacity-75">Desarrollador Full Stack</p>
+        </div>
+      </header>
+
+      <div class="row g-4">
+        <!-- COLUMNA IZQUIERDA: BIOGRAFÍA Y FILOSOFÍA -->
+        <div class="col-lg">
+          <div class="custom-card mb-4 animate__animated animate__fadeInUp">
+            <div class="custom-card-header bg-dark text-white">
+              Sobre mi y TodoNerds
+            </div>
+            <div class="card-body">
+              <p class="mb-4" style="font-size: 1.1rem; line-height: 1.8">
+                Desarrollador apasionado por la intersección entre el
+                <strong>diseño estético</strong> y la
+                <strong>ingeniería de precisión</strong>. Mi objetivo no es solo
+                que una web se vea bien, sino que funcione como un motor de alta
+                gama bajo el capó.
+              </p>
+              <p class="mb-4">
+                Con experiencia en arquitecturas modernas como
+                <strong>Astro y React</strong>, me especializo en crear
+                ecosistemas digitales escalables. Mi enfoque en
+                <strong>TodoNerds</strong> se centra en eliminar la fricción
+                técnica para que el negocio de mis clientes crezca sin límites.
+              </p>
+            </div>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <a
+                href="https://todonerdsagency.web.app/"
+                target="_blank"
+                class="text-decoration-none"
+              >
+                <div class="custom-card interactive-card">
+                  <div class="card-body p-3">
+                    <h6 class="fw-bold m-0">TodoNerds</h6>
+                    <p class="small text-muted mb-0 mt-1">
+                      Explora soluciones digitales y servicios de desarrollo
+                      web.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-6">
+              <a
+                href="https://lucabazzadev.web.app/"
+                target="_blank"
+                class="text-decoration-none"
+              >
+                <div class="custom-card interactive-card">
+                  <div class="card-body p-3">
+                    <h6 class="fw-bold m-0">LUCABAZZADEV</h6>
+                    <p class="small text-muted mb-0 mt-1">
+                      Descubre mi perfil técnico y proyectos destacados.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center pb-5">
+      <p class="small text-muted fw-bold">SIMULATRÓN © 2026 | LUCABAZZADEV</p>
+    </footer>
+  </body>
+</html>
