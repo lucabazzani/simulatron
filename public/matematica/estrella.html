@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ByLuca | Laboratorio de Lógica</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- Usamos el estilo Cian específico de Matemática -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/png" href="../icono.png" />
+    <style>
+      /* Estilos específicos para la terminal lógica */
+      .logic-terminal {
+        background: #1a1a1a;
+        border: 2px solid var(--text-main);
+        min-height: 400px;
+        padding: 20px;
+        position: relative;
+      }
+
+      .formula-box {
+        background: #001e2b;
+        color: var(--primary-color);
+        padding: 20px;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 800;
+        border: 1px solid var(--primary-color);
+        margin-bottom: 25px;
+        letter-spacing: 5px;
+      }
+
+      /* Grilla de la Tabla de Verdad */
+      .table-container {
+        max-width: 400px;
+        margin: 0 auto;
+        background: white;
+        border: 2px solid #000;
+      }
+
+      .cell-input {
+        cursor: pointer;
+        user-select: none;
+        font-weight: 800;
+        transition: 0.2s;
+      }
+
+      .cell-input:hover {
+        background-color: #f0f9ff;
+      }
+
+      .status-panel {
+        border-left: 5px solid var(--primary-color);
+        background: #fff;
+      }
+
+      .instruction-tag {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: var(--primary-color);
+        display: block;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-3">
+          <a href="index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+          <span class="fw-bold text-muted small text-uppercase"
+            >Validador Lógico</span
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="container pb-5">
+      <div class="row g-4">
+        <!-- COLUMNA IZQUIERDA: INSTRUCCIONES Y REGLAS -->
+        <div class="col-lg-5">
+          <div class="custom-card status-panel mb-4">
+            <div class="card-body">
+              <span class="instruction-tag">Misión de Procesamiento</span>
+              <h5 id="mision-title" class="fw-bold text-dark mb-3">
+                Iniciando unidad...
+              </h5>
+              <p id="mision-desc" class="small text-muted mb-0">
+                Cargando leyes de Morgan y conectivos lógicos...
+              </p>
+            </div>
+          </div>
+
+          <!-- AYUDA TÉCNICA -->
+          <div class="custom-card mb-4">
+            <div class="custom-card-header bg-dark text-white">
+              Guía de Leyes Lógicas
+            </div>
+            <div class="card-body">
+              <p class="small text-muted mb-2">
+                Resuelva los valores de la columna
+                <strong>Resultado</strong> basándose en:
+              </p>
+              <div
+                id="ayuda-texto"
+                class="p-3 border bg-light font-monospace small"
+                style="border-style: dashed !important"
+              >
+                Seleccione una fase para ver la ayuda.
+              </div>
+            </div>
+          </div>
+
+          <!-- MENSAJES DE ERROR O ÉXITO -->
+          <div id="feedback-panel" class="d-none"></div>
+        </div>
+
+        <!-- COLUMNA DERECHA: CONSOLA DE INTERACCIÓN -->
+        <div class="col-lg-7">
+          <div class="custom-card">
+            <div class="custom-card-header">Unidad de Verificación Lógica</div>
+            <div class="card-body logic-terminal shadow-lg">
+              <span class="instruction-tag text-muted"
+                >Analizando Proposición:</span
+              >
+              <div
+                class="formula-box animate__animated animate__pulse animate__infinite"
+              >
+                <span id="formula-display">? ∧ ?</span>
+              </div>
+
+              <!-- AQUÍ EL JS RENDERIZA LA TABLA -->
+              <div id="logica-grid" class="table-container mb-4"></div>
+
+              <div class="text-center mt-4">
+                <button
+                  id="verify-btn"
+                  class="btn btn-tech btn-lg w-100 shadow"
+                >
+                  COMPROBAR
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL DE CERTIFICACIÓN MATEMÁTICA -->
+    <div
+      id="modal-logro"
+      class="d-none"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 20, 30, 0.9);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      "
+    >
+      <div
+        class="custom-card animate__animated animate__zoomIn"
+        style="max-width: 500px; width: 100%"
+      >
+        <div class="custom-card-header bg-dark text-white">
+          <span>Unidad Verificada</span>
+        </div>
+        <div class="card-body text-center p-5">
+          <h2 class="fw-bold mb-3" style="color: var(--primary-color)">
+            ¡Sistema Lógico Estable!
+          </h2>
+          <p class="text-muted mb-4 small">
+            Ha demostrado capacidad de análisis para tablas compuestas y
+            conectivos complejos. El entrenamiento matemático ha concluido
+            satisfactoriamente.
+          </p>
+          <a href="index.html" class="btn btn-tech w-100">Finalizar Sesión</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LÓGICA DE PROCESAMIENTO -->
+    <script src="js/estrella.js"></script>
+  </body>
+</html>

@@ -1,0 +1,196 @@
+/* tecnologia/css/style.css */
+
+/* --- VARIABLES DE DISEÑO (Tecnología - Tema Azul Industrial) --- */
+:root {
+  --bg-surface: #f1f1e6; /* Fondo beige técnico original */
+  --primary-color: #3b82f6; /* Azul Industrial/Tecnológico */
+  --border-color: #282828;
+  --text-main: #282828;
+  --card-header: #e0e7ff; /* Azul muy suave para encabezados */
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+  --shadow-retro: 4px 4px 0px #000;
+  --dark-accent: #1e3a8a; /* Azul marino profundo para bibliografías */
+}
+
+body {
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+  font-family: var(--font-mono);
+  line-height: 1.6;
+}
+
+/* --- ESTILO DE "VENTANAS" (TARJETAS) --- */
+.custom-card {
+  border: 2px solid var(--text-main) !important;
+  background: white;
+  box-shadow: var(--shadow-retro);
+  border-radius: 0 !important;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  padding: 0 !important;
+}
+
+.custom-card-header {
+  background-color: var(--card-header);
+  border-bottom: 2px solid var(--text-main);
+  padding: 8px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.window-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.win-btn {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--text-main);
+  background: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.custom-card .card-body {
+  padding: 25px !important;
+}
+
+.custom-card .d-grid {
+  gap: 12px !important;
+}
+
+/* --- COMPONENTES --- */
+
+/* Botones principales de la materia */
+.btn-tech {
+  background-color: var(--primary-color);
+  color: #fff; /* Texto blanco para mejor contraste en azul */
+  border: 2px solid var(--text-main);
+  border-radius: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  transition: all 0.1s;
+}
+
+.btn-tech:hover {
+  background-color: var(--text-main);
+  color: var(--primary-color);
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px 0px #000;
+}
+
+.btn-outline-tech {
+  background: transparent;
+  border: 2px solid var(--border-color);
+  color: var(--text-main);
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 0;
+}
+
+/* Botones de bibliografía (Azul profundo técnico) */
+.btn-biblio {
+  background-color: var(--dark-accent) !important;
+  color: #ffffff !important;
+  border: 2px solid var(--text-main);
+  border-radius: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-biblio:hover {
+  background-color: var(--text-main) !important;
+  color: var(--primary-color) !important;
+}
+
+/* EFECTO CUADRÍCULA TECNOLÓGICA (Ajustado a Azul) */
+.bg-grid {
+  background-size: 30px 30px;
+  background-image:
+    linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+/* Coloreamos las palabras clave */
+.text-tech-color {
+  color: var(--primary-color) !important;
+}
+
+/* RECUADROS DE CALIFICACIÓN (Ajuste a Azul) */
+.border-success-tech {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3) !important;
+}
+
+.alert-success-tech {
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: bold;
+  box-shadow: var(--shadow-retro);
+  border: 2px solid var(--text-main);
+}
+
+/* Utilidades para Bibliografía */
+.tech-block {
+  background-color: #f8f9fa;
+  border: 1px dashed var(--primary-color);
+  padding: 15px;
+  font-size: 1.1rem;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.highlight-card {
+  border-left: 5px solid var(--primary-color) !important;
+}
+
+code {
+  color: #1e40af;
+  font-weight: bold;
+  background: #eff6ff;
+  padding: 2px 4px;
+}
+
+/* Estilos específicos para el Nivel Estrella (Diagramador) */
+.system-diagram {
+  min-height: 300px;
+  border: 2px dashed #999;
+  padding: 20px;
+  background: #fcfcfc;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.diagram-block {
+  padding: 15px;
+  border: 2px solid var(--text-main);
+  background: white;
+  box-shadow: var(--shadow-retro);
+  cursor: grab;
+  font-weight: bold;
+  text-align: center;
+  width: 120px;
+}

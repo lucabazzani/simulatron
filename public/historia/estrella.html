@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ByLuca | Cronología Interactiva</title>
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Animate CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- Estilos de Historia -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/png" href="../icono.png" />
+  </head>
+  <body class="bg-grid">
+    <!-- Navbar -->
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-muted small text-uppercase"
+          >Cronología Interactiva</span
+        >
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container pb-5">
+      <div class="row g-4">
+        <!-- Columna Izquierda: Instrucciones y Pool de eventos -->
+        <div class="col-lg-4">
+          <div class="custom-card">
+            <div class="custom-card-header">Misión de Cronología</div>
+            <div class="card-body">
+              <h5 id="mision-title" class="fw-bold text-dark mb-3">
+                Iniciando...
+              </h5>
+              <p id="mision-desc" class="small text-muted mb-3">...</p>
+
+              <div
+                class="text-uppercase fw-bold text-hist mb-2"
+                style="font-size: 0.7rem"
+              >
+                Hitos para ordenar:
+              </div>
+              <!-- Aquí aparecen los bloques de eventos -->
+              <div
+                id="event-pool"
+                class="d-flex flex-wrap gap-2 p-3 border border-dark border-dashed"
+              ></div>
+            </div>
+          </div>
+
+          <div id="feedback-panel" class="d-none"></div>
+        </div>
+
+        <!-- Columna Derecha: Línea de tiempo -->
+        <div class="col-lg-8">
+          <div class="custom-card h-100">
+            <div class="custom-card-header">
+              Línea de Tiempo (Arrastre aquí)
+            </div>
+            <div class="card-body">
+              <!-- Zona de soltar -->
+              <div
+                id="timeline-container"
+                class="timeline-track d-flex flex-wrap gap-3 align-items-center justify-content-center"
+                style="min-height: 200px"
+              >
+                <!-- El JS inyecta los eventos aquí -->
+              </div>
+            </div>
+            <div class="card-footer bg-light p-3">
+              <button id="verify-btn" class="btn btn-tech btn-lg w-100 d-none">
+                VERIFICAR SECUENCIA
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Logro -->
+    <div
+      id="modal-logro"
+      class="d-none"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 20, 30, 0.9);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div
+        class="custom-card"
+        style="max-width: 400px; padding: 20px !important"
+      >
+        <h2 class="text-hist fw-bold text-center">¡Secuencia Validada!</h2>
+        <p class="text-muted text-center">
+          Ha reconstruido correctamente el proceso histórico.
+        </p>
+        <a href="index.html" class="btn btn-tech w-100">FINALIZAR SESIÓN</a>
+      </div>
+    </div>
+
+    <!-- Script de lógica -->
+    <script src="js/estrella.js"></script>
+  </body>
+</html>

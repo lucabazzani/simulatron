@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bibliografía: Gestión de Tiempos y Modelos</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../../icono.png" />
+    <style>
+      .math-logic {
+        background: #1e1e1e;
+        color: #ff9100;
+        padding: 10px;
+        border-radius: 4px;
+        font-family: var(--font-mono);
+      }
+      .text-orange {
+        color: #ff9100;
+        font-weight: bold;
+      }
+      .comparison-grid {
+        border-left: 4px solid #282828;
+        padding-left: 20px;
+      }
+    </style>
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="../index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-uppercase">Tiempos y Modelos</span>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <header class="mb-5 text-center">
+        <h1 class="h2 fw-bold border-bottom border-dark pb-2">
+          Gestión de Tiempos y Modelos
+        </h1>
+        <p class="text-muted">
+          Cálculos técnicos de cronograma y metodologías de ingeniería de
+          software.
+        </p>
+      </header>
+
+      <!-- 1. CÁLCULO DE TIEMPOS -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">
+          1. Lógica del Diagrama de Red (AON)
+        </div>
+        <div class="card-body">
+          <p>
+            Para determinar la duración total, se realizan dos pasadas sobre los
+            nodos:
+          </p>
+          <div class="row">
+            <div class="col-md-6">
+              <h6 class="fw-bold">Hacia Adelante (Forward Pass)</h6>
+              <p class="small">Determina las fechas tempranas:</p>
+              <div class="math-logic mb-2">EF = ES + Duración</div>
+              <small class="text-muted"
+                >* El ES es el mayor EF de sus predecesoras.</small
+              >
+            </div>
+            <div class="col-md-6">
+              <h6 class="fw-bold">Hacia Atrás (Backward Pass)</h6>
+              <p class="small">Determina las fechas tardías:</p>
+              <div class="math-logic mb-2">LS = LF - Duración</div>
+              <small class="text-muted"
+                >* El LF es el menor LS de sus sucesoras.</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. HOLGURA Y RUTA CRÍTICA -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">2. Holguras y Ruta Crítica</div>
+        <div class="card-body">
+          <ul>
+            <li>
+              <strong>Holgura Total:</strong> Tiempo que una tarea puede
+              retrasarse sin afectar el fin del proyecto.
+            </li>
+          </ul>
+          <div class="math-logic w-50 mx-auto text-center">
+            Holgura = LF - EF (o LS - ES)
+          </div>
+          <hr />
+          <p>
+            <strong>Ruta Crítica:</strong> Es la secuencia de tareas de mayor
+            duración. Su principal característica es que su
+            <strong>Holgura es Cero</strong>.
+          </p>
+          <div class="alert alert-success-tech py-2 small">
+            Nivelación de Recursos: Técnica para minimizar las fluctuaciones en
+            el personal requerido y mantener un equipo estable.
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. MODELOS TRADICIONALES -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">3. Modelos Tradicionales (Pesados)</div>
+        <div class="card-body">
+          <div class="mb-3">
+            <h6 class="fw-bold text-orange">
+              Cascada (Waterfall) - Royce, 1970
+            </h6>
+            <p class="small">
+              Proceso lineal y escalonado. Inflexible ante cambios. El cliente
+              no ve el producto hasta el final.
+            </p>
+          </div>
+          <div class="mb-3">
+            <h6 class="fw-bold text-orange">Prototipado</h6>
+            <p class="small">
+              Enfoque de "Prueba y Error". Útil cuando el cliente tiene
+              requisitos poco claros o hay dudas técnicas.
+            </p>
+          </div>
+          <div class="mb-3">
+            <h6 class="fw-bold text-orange">Espiral - Boehm, 1986</h6>
+            <p class="small">
+              Eje central: <strong>Análisis y Gestión de Riesgos</strong>. Cada
+              iteración pasa por: Planificación, Riesgo, Ingeniería y
+              Evaluación.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. MODELOS ÁGILES -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">4. Metodologías Ágiles</div>
+        <div class="card-body">
+          <p>
+            Enfatizan la <strong>comunicación sobre la documentación</strong> y
+            el desarrollo evolutivo.
+          </p>
+          <div class="row">
+            <div class="col-md-6 border-end">
+              <h6 class="fw-bold">Scrum</h6>
+              <p class="small">
+                Roles: Product Owner (Gestor), Scrum Master (Facilitador), Dev
+                Team (Equipo). Se divide en ciclos llamados
+                <strong>Sprints</strong>.
+              </p>
+            </div>
+            <div class="col-md-6 ps-md-4">
+              <h6 class="fw-bold">Lean</h6>
+              <p class="small">
+                Origen en manufactura. Foco: Eliminar desperdicios. Concepto
+                clave: <strong>MVP (Producto Mínimo Viable)</strong>.
+              </p>
+            </div>
+          </div>
+          <hr />
+          <p class="small mb-1">
+            <strong>Kanban:</strong> Basado en flujo visual (To Do, Doing,
+            Done).
+          </p>
+          <p class="small">
+            <strong>XP (Programación Extrema):</strong> Foco en calidad de
+            código y respuesta inmediata al cliente.
+          </p>
+        </div>
+      </div>
+
+      <!-- 5. VALORES DEL MANIFIESTO ÁGIL -->
+      <div class="custom-card mb-5">
+        <div class="custom-card-header">
+          5. Los 4 Valores Ágiles (Feb. 2001)
+        </div>
+        <div class="card-body">
+          <div class="comparison-grid small">
+            <p>
+              1. Individuos e interacciones <strong>sobre</strong> procesos y
+              herramientas.
+            </p>
+            <p>
+              2. Software en funcionamiento <strong>sobre</strong> documentación
+              completa.
+            </p>
+            <p>
+              3. Colaboración con el cliente <strong>sobre</strong> negociación
+              de contrato.
+            </p>
+            <p>
+              4. Respuesta ante el cambio <strong>sobre</strong> seguir un plan.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="text-center pb-5">
+      <p class="small text-muted fw-bold">BYLUCA © 2026 | LUCABAZZADEV</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bibliografía: Lógica Proposicional</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../../icono.png" />
+    <style>
+      .logic-table {
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+      }
+      .logic-table th {
+        background: #282828;
+        color: #00d4ff;
+        padding: 10px;
+      }
+      .logic-table td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        font-weight: bold;
+      }
+      .val-v {
+        color: #28a745;
+      }
+      .val-f {
+        color: #dc3545;
+      }
+      .precedence-list span {
+        font-weight: 800;
+        color: var(--primary-color);
+      }
+      .highlight-term {
+        color: #00d4ff;
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="../index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-uppercase small">Lógica Matemática</span>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <header class="mb-5 text-center">
+        <h1 class="h2 fw-bold border-bottom border-dark pb-2">
+          Lógica Proposicional
+        </h1>
+        <p class="text-muted">
+          Proposiciones, conectivos lógicos y leyes fundamentales.
+        </p>
+      </header>
+
+      <div class="row">
+        <div class="col-12">
+          <!-- 1. DEFINICIÓN DE PROPOSICIÓN -->
+          <div class="custom-card mb-4">
+            <div class="custom-card-header">1. ¿Qué es una proposición?</div>
+            <div class="card-body">
+              <p>
+                Es una sentencia declarativa que puede ser verdadera (V) o falsa
+                (F), pero <strong>no ambas a la vez</strong>. Su veracidad se
+                conoce como <span class="highlight-term">Valor de Verdad</span>.
+              </p>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="p-3 border bg-light small">
+                    <strong>Son proposiciones:</strong>
+                    <ul class="mb-0">
+                      <li>"Hoy es sábado."</li>
+                      <li>"2 + 2 = 5" (es una prop. falsa).</li>
+                      <li>"Juan va al trabajo en tren."</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 border bg-white small">
+                    <strong>NO son proposiciones:</strong>
+                    <ul class="mb-0">
+                      <li>¡Viva la patria! (Exclamación)</li>
+                      <li>¿Está lloviendo? (Interrogación)</li>
+                      <li>Oprima la tecla Enter (Orden)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. CONECTIVOS Y TABLAS -->
+          <div class="custom-card mb-4">
+            <div class="custom-card-header">
+              2. Conectivos Lógicos y Tablas de Verdad
+            </div>
+            <div class="card-body">
+              <p>
+                Los conectivos permiten combinar proposiciones simples para
+                formar compuestas.
+              </p>
+
+              <div class="table-responsive">
+                <table class="logic-table mb-4">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Símbolo</th>
+                      <th>Condición de Verdad</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Negación</td>
+                      <td>¬</td>
+                      <td>Invierte el valor de verdad.</td>
+                    </tr>
+                    <tr>
+                      <td>Conjunción</td>
+                      <td>∧</td>
+                      <td>Verdadera <strong>solo si ambas</strong> son V.</td>
+                    </tr>
+                    <tr>
+                      <td>Disyunción Inclusiva</td>
+                      <td>∨</td>
+                      <td>Falsa <strong>solo si ambas</strong> son F.</td>
+                    </tr>
+                    <tr>
+                      <td>Disyunción Exclusiva</td>
+                      <td>⊻</td>
+                      <td>V si los valores son <strong>distintos</strong>.</td>
+                    </tr>
+                    <tr>
+                      <td>Condicional (Implicación)</td>
+                      <td>⇒</td>
+                      <td>Falsa solo si <strong>V implica F</strong>.</td>
+                    </tr>
+                    <tr>
+                      <td>Bicondicional</td>
+                      <td>⇔</td>
+                      <td>V si ambos valores son <strong>iguales</strong>.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. DETALLE CONDICIONAL -->
+          <div class="custom-card mb-4">
+            <div class="custom-card-header">3. Variantes del Condicional</div>
+            <div class="card-body">
+              <p>
+                A partir de una implicación
+                <span class="highlight-term">p ⇒ q</span> (donde <i>p</i> es el
+                antecedente y <i>q</i> el consecuente), se derivan:
+              </p>
+              <div class="row text-center g-2">
+                <div class="col-md-4">
+                  <div class="p-2 border bg-light">
+                    Recíproca<br /><code>q ⇒ p</code>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="p-2 border bg-light">
+                    Inversa<br /><code>¬p ⇒ ¬q</code>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="p-2 border bg-light">
+                    Contrarrecíproca<br /><code>¬q ⇒ ¬p</code>
+                  </div>
+                </div>
+              </div>
+              <div class="alert alert-info mt-3 py-2 small border-dark">
+                <strong>Nota Técnica:</strong> El condicional original
+                <code>p ⇒ q</code> y su <strong>contrarrecíproca</strong> son
+                lógicamente equivalentes.
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. LEYES DE MORGAN Y PRIORIDAD -->
+          <div class="custom-card mb-5">
+            <div class="custom-card-header">4. Reglas de Operación</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6 border-end">
+                  <h6 class="fw-bold text-cian">Leyes de De Morgan:</h6>
+                  <pre class="bg-dark text-light p-2 small">
+¬(p ∧ q) ≡ ¬p ∨ ¬q
+¬(p ∨ q) ≡ ¬p ∧ ¬q</pre
+                  >
+                </div>
+                <div class="col-md-6 ps-md-4">
+                  <h6 class="fw-bold text-cian">Prioridad (Precedencia):</h6>
+                  <p class="small precedence-list">
+                    1. <span>¬</span> (Negación)<br />
+                    2. <span>∧</span> (Conjunción)<br />
+                    3. <span>∨</span> (Disyunción)<br />
+                    4. <span>⇒</span> (Implicación)<br />
+                    5. <span>⇔</span> (Doble implicación)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="text-center pb-5">
+      <p class="small text-muted fw-bold">BYLUCA © 2026 | LUCABAZZADEV</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ByLuca | Editor Crítico</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/png" href="../icono.png" />
+    <style>
+      .instruction-tag {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: var(--primary-color);
+        display: block;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body class="bg-grid">
+    <!-- Navbar -->
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-muted small text-uppercase"
+          >Editor Crítico</span
+        >
+      </div>
+    </nav>
+
+    <div class="container pb-5">
+      <div class="row g-4">
+        <!-- Columna Izquierda: Instrucciones y Opciones -->
+        <div class="col-lg-5">
+          <!-- Guía de ayuda -->
+          <div class="custom-card mb-4">
+            <div class="custom-card-header bg-dark text-white">
+              Guía de Corrección
+            </div>
+            <div class="card-body">
+              <p class="small text-muted mb-2">Pista para la identificación:</p>
+              <div
+                id="ayuda-texto"
+                class="p-3 border bg-light font-monospace small"
+                style="
+                  border-style: dashed !important;
+                  border-color: var(--primary-color);
+                "
+              >
+                Seleccione una misión para ver la pista.
+              </div>
+            </div>
+          </div>
+
+          <!-- Misión -->
+          <div class="custom-card mb-4">
+            <div class="card-body">
+              <span class="instruction-tag">Misión de Edición</span>
+              <h5 id="mision-title" class="fw-bold text-dark mb-3">
+                Iniciando...
+              </h5>
+              <p id="mision-desc" class="small text-muted mb-3">...</p>
+              <div id="opciones-grid"></div>
+            </div>
+          </div>
+
+          <!-- Feedback -->
+          <div id="feedback-panel" class="d-none"></div>
+        </div>
+
+        <!-- Columna Derecha: Consola de Edición -->
+        <div class="col-lg-7">
+          <div class="custom-card">
+            <div class="custom-card-header">Consola de Texto</div>
+            <div class="card-body editor-console" id="editor-console">
+              <!-- Aquí inyecta el JS el texto a corregir -->
+            </div>
+            <div class="card-footer bg-light p-3">
+              <button id="verify-btn" class="btn btn-tech btn-lg w-100 d-none">
+                CONFIRMAR CORRECCIÓN
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Logro -->
+    <div
+      id="modal-logro"
+      class="d-none"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 20, 30, 0.9);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div class="custom-card" style="max-width: 500px">
+        <div class="custom-card-header bg-dark text-white">
+          <span>Edición Finalizada</span>
+        </div>
+        <div class="card-body text-center p-5">
+          <h2 class="fw-bold mb-3" style="color: var(--primary-color)">
+            ¡Texto Restaurado!
+          </h2>
+          <p class="text-muted">
+            Ha corregido todos los errores de estilo y gramática. El manuscrito
+            está listo para su publicación.
+          </p>
+          <a href="index.html" class="btn btn-tech w-100">Finalizar Sesión</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script de lógica -->
+    <script src="js/estrella.js"></script>
+  </body>
+</html>

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minijuego Interactivo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/png" href="../icono.png" />
+    <style>
+      /* ESPACIADO: Arreglamos que el contenido no pegue a los bordes */
+      .custom-card .card-body {
+        padding: 30px !important;
+      }
+
+      /* ESCENARIO SUPERPUESTO: El truco para la lógica tipo Froggy */
+      .view-container {
+        position: relative;
+        background: #282828;
+        height: 450px;
+        border: 3px solid #000;
+        overflow: hidden;
+      }
+
+      /* Capa de fondo donde están las metas (casas) */
+      #stage-target {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        padding: 15px;
+        z-index: 1;
+      }
+
+      /* Capa superior donde está el robot del jugador */
+      #stage-player {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        padding: 15px;
+        z-index: 2;
+        background: transparent;
+      }
+
+      .base-house {
+        width: 100px;
+        height: 100px;
+        border: 3px dashed rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        background: rgba(255, 255, 255, 0.05);
+        transition: all 0.5s ease; /* Para que la casa aparezca suavemente */
+      }
+
+      .robot-player {
+        width: 100px;
+        height: 100px;
+        background-color: var(--primary-green);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        border: 3px solid #000;
+
+        /* El truco del movimiento suave */
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+        /* Z-index alto para que el robot siempre pase POR ENCIMA de la casa */
+        z-index: 100;
+        position: relative;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
+      #code-editor {
+        width: 100%;
+        height: 120px;
+        background: #111;
+        color: var(--primary-green);
+        font-family: "JetBrains Mono", monospace;
+        border: 1px solid #444;
+        padding: 15px;
+        outline: none;
+        resize: none;
+        font-size: 1.1rem;
+      }
+
+      .ayuda-comando-panel {
+        background: #f8f9fa;
+        border-top: 2px solid #ddd;
+      }
+    </style>
+  </head>
+  <body class="bg-grid">
+    <div class="container py-4">
+      <header class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="m-0 fw-bold">Minijuego</h2>
+        <a href="index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+      </header>
+
+      <div class="row g-4">
+        <!-- Columna Izquierda: Instrucciones y Editor -->
+        <div class="col-lg-5">
+          <div class="custom-card shadow-sm mb-4">
+            <div class="custom-card-header bg-white">
+              <span id="level-title">Misión 1</span>
+              <span class="badge bg-dark" id="lvl-counter">1 de 3</span>
+            </div>
+            <div class="card-body">
+              <p id="level-instr" class="text-muted"></p>
+            </div>
+          </div>
+
+          <div class="custom-card mb-4">
+            <div class="custom-card-header">Editor CSS</div>
+            <div class="card-body bg-dark">
+              <pre class="text-white-50 mb-0">.escenario { display: flex;</pre>
+              <textarea id="code-editor"></textarea>
+              <pre class="text-white-50 mb-0">}</pre>
+            </div>
+          </div>
+
+          <div class="custom-card mb-0 ayuda-comando-panel">
+            <div class="custom-card-header">Ayuda de atributos</div>
+            <div id="ayuda-comandos" class="card-body small"></div>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: El Juego -->
+        <div class="col-lg-7">
+          <div class="view-container">
+            <!-- Capa Metas -->
+            <div id="stage-target">
+              <div id="ghost" class="base-house">🏠</div>
+            </div>
+            <!-- Capa Jugador -->
+            <div id="stage-player">
+              <div id="actor" class="robot-player">🤖</div>
+            </div>
+          </div>
+
+          <!-- Barra de control inferior: Aparece justo abajo del juego -->
+          <div class="mt-4 d-flex justify-content-end align-items-center gap-3">
+            <div
+              id="feedback"
+              class="d-none animate__animated animate__fadeIn p-2 px-3 alert-success-tech border-2"
+            >
+              ¡Logrado!
+            </div>
+            <button id="next-lvl" class="btn btn-tech btn-lg d-none">
+              Siguiente
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="js/estrella.js"></script>
+    <!-- Cuadro de Logro Integrado (Se activa al finalizar el juego) -->
+    <div
+      id="modal-logro"
+      class="d-none"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      "
+    >
+      <div
+        class="custom-card animate__animated animate__zoomIn"
+        style="max-width: 500px; width: 100%"
+      >
+        <div class="custom-card-header bg-dark text-white">
+          <span>Misión completada</span>
+        </div>
+        <div class="card-body text-center p-5">
+          <h2 class="fw-bold mb-3">¡Felicitaciones!</h2>
+          <p class="text-muted mb-4">
+            Has superado todos los desafíos de este entrenamiento con éxito.
+          </p>
+          <a href="index.html" class="btn btn-tech w-100">Cerrar</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bibliografía: Fluidos y Termo</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../../icono.png" />
+    <style>
+      .fluid-box {
+        border-left: 5px solid #007bff;
+        background-color: #f0f7ff;
+      } /* Azul para fluidos */
+      .termo-box {
+        border-left: 5px solid #ff4500;
+        background-color: #fff5f0;
+      } /* Naranja para calor */
+      .math-term {
+        font-weight: 800;
+        color: var(--primary-color);
+      }
+    </style>
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="../index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-uppercase small"
+          >Fluidos y Termodinámica</span
+        >
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <header class="mb-5 text-center border-bottom border-dark pb-3">
+        <h1 class="h2 fw-bold m-0 text-uppercase">
+          Tomo IV: Sistemas Complejos
+        </h1>
+        <p class="text-muted small">
+          Mecánica de fluidos y leyes de la termofísica aplicada.
+        </p>
+      </header>
+
+      <div class="row">
+        <div class="col-12">
+          <!-- 1. ESTÁTICA DE FLUIDOS -->
+          <div class="custom-card mb-4 fluid-box">
+            <div class="custom-card-header">
+              1. Hidrostática: Pascal y Presión
+            </div>
+            <div class="card-body">
+              <p>
+                Un fluido (líquido o gas) ejerce presión en todas direcciones.
+                Se define como la fuerza normal por unidad de área.
+              </p>
+              <div class="physics-formula">
+                P = F / A | Se mide en Pascales [Pa]
+              </div>
+
+              <h6 class="fw-bold mt-4">Principio de Pascal:</h6>
+              <p class="small">
+                La presión aplicada a un fluido encerrado se transmite
+                íntegramente a todos los puntos del mismo.
+              </p>
+              <div class="math-block">F₁ / A₁ = F₂ / A₂</div>
+              <p class="small text-muted italic">
+                Ejemplo: Una prensa hidráulica que multiplica la fuerza usando
+                diferentes diámetros de pistón.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2. PRINCIPIO DE ARQUÍMEDES -->
+          <div class="custom-card mb-4 fluid-box">
+            <div class="custom-card-header">2. Flotabilidad (Empuje)</div>
+            <div class="card-body">
+              <p>
+                Todo cuerpo sumergido recibe una fuerza vertical hacia arriba
+                llamada Empuje [E], igual al peso del fluido desplazado.
+              </p>
+              <div class="physics-formula">E = ρ_fluido · g · V_sumergido</div>
+              <ul class="small mt-3">
+                <li>
+                  <strong>Densidad (ρ):</strong> Relación masa/volumen [kg/m³].
+                </li>
+                <li>
+                  <strong>Condición de flotación:</strong> El objeto flota si E
+                  > Peso del cuerpo.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 3. DINÁMICA DE FLUIDOS -->
+          <div class="custom-card mb-4 fluid-box">
+            <div class="custom-card-header text-uppercase">
+              3. Hidrodinámica e Idealidad
+            </div>
+            <div class="card-body">
+              <h6 class="fw-bold">Ecuación de Continuidad:</h6>
+              <p class="small">
+                En un fluido incompresible, el Caudal [Q] se mantiene constante
+                a lo largo de una tubería.
+              </p>
+              <div class="physics-formula">Q = A₁ · v₁ = A₂ · v₂</div>
+
+              <h6 class="fw-bold mt-4">Ecuación de Bernoulli:</h6>
+              <p class="small">
+                Conservación de energía mecánica para fluidos ideales (sin
+                viscosidad ni fricción).
+              </p>
+              <div class="language-block small font-monospace">
+                P + ½ρv² + ρgh = Constante
+              </div>
+              <p class="small text-muted italic">
+                Aplicación técnica: Sustentación en alas de avión y
+                venturímetros industriales.
+              </p>
+            </div>
+          </div>
+
+          <!-- 4. TERMOMETRÍA Y CALORIMETRÍA -->
+          <div class="custom-card mb-4 termo-box">
+            <div class="custom-card-header">4. Escalas y Caloría</div>
+            <div class="card-body">
+              <p>
+                La temperatura [T] es la medida de la energía cinética promedio
+                de las moléculas.
+              </p>
+              <div class="row text-center mb-3">
+                <div class="col-4 small">
+                  °C + 273.15 = <strong>Kelvin</strong>
+                </div>
+                <div class="col-4 small">
+                  (°C × 9/5) + 32 = <strong>°F</strong>
+                </div>
+              </div>
+
+              <h6 class="fw-bold mt-3">Calor Sensible:</h6>
+              <div class="physics-formula">Q = m · ce · ΔT</div>
+              <p class="small">
+                ce: calor específico. ΔT: variación de temperatura.
+              </p>
+
+              <h6 class="fw-bold mt-3">Cambio de Fase (Calor Latente):</h6>
+              <p class="small">
+                Energía necesaria para cambiar el estado sin variar la
+                temperatura.
+              </p>
+              <div class="math-block">Q = m · L</div>
+            </div>
+          </div>
+
+          <!-- 5. TERMODINÁMICA -->
+          <div class="custom-card mb-5 termo-box">
+            <div class="custom-card-header">
+              5. Primera Ley: Conservación Térmica
+            </div>
+            <div class="card-body">
+              <p>
+                La energía interna [U] de un sistema varía según el intercambio
+                de calor [Q] y el trabajo realizado [W].
+              </p>
+              <div class="physics-formula">ΔU = Q - W</div>
+              <hr />
+              <p class="small">
+                <strong>Trabajo Térmico:</strong> En un gas, se produce al
+                variar su volumen bajo una presión [P].
+              </p>
+              <div class="math-block">W = P · ΔV (Si P es constante)</div>
+              <p class="small text-muted italic mt-3">
+                Ejemplo: Un motor de combustión interna comprimiendo un gas
+                ideal.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="text-center pb-5">
+      <p class="small text-muted fw-bold">BYLUCA © 2026 | LUCABAZZADEV</p>
+    </footer>
+  </body>
+</html>

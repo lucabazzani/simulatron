@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ByLuca | Laboratorio de Química</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/png" href="../icono.png" />
+    <style>
+      /* Estilos para el visor del laboratorio químico */
+      .lab-display {
+        background-color: #1a1a1a;
+        border: 2px solid var(--text-main);
+        color: #fff;
+        padding: 30px;
+        min-height: 350px;
+        position: relative;
+        box-shadow: inset 0 0 50px rgba(244, 114, 182, 0.1);
+      }
+
+      .formula-reference {
+        background-color: #000;
+        border-left: 4px solid var(--primary-color);
+        padding: 15px;
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: var(--primary-color);
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      .input-section {
+        background: #f1f1e6;
+        border: 2px solid #000;
+        padding: 20px;
+      }
+
+      .label-tech {
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+        color: var(--primary-color);
+        display: block;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-3">
+          <a href="index.html" class="btn btn-outline-tech btn-sm"
+            >Regresar al menú</a
+          >
+          <span class="fw-bold text-muted small text-uppercase"
+            >Laboratorio virtual v1.7.0</span
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="container pb-5">
+      <div class="row g-4">
+        <!-- COLUMNA IZQUIERDA: CONTEXTO E INSTRUCCIONES -->
+        <div class="col-lg-5">
+          <div class="custom-card mb-4">
+            <div class="custom-card-header bg-dark text-white">
+              <span id="fase-header">Cargando fase...</span>
+            </div>
+            <div class="card-body">
+              <div id="escenario-texto">
+                <p class="text-muted">Iniciando práctica de química...</p>
+              </div>
+
+              <hr />
+              <span class="label-tech">Referencia sugerida:</span>
+              <div
+                id="formula-ref"
+                class="formula-reference animate__animated animate__pulse animate__infinite"
+              >
+                ---
+              </div>
+
+              <p class="small text-muted mt-3">
+                <strong>Ayuda técnica:</strong>
+                <span id="ayuda-hint"
+                  >Seleccione la cifra correcta basándose en el modelo de
+                  arriba.</span
+                >
+              </p>
+            </div>
+          </div>
+
+          <!-- PANEL DE MENSAJES DINÁMICO -->
+          <div id="feedback-panel" class="d-none"></div>
+        </div>
+
+        <!-- COLUMNA DERECHA: ENTRADA DE DATOS -->
+        <div class="col-lg-7">
+          <div class="custom-card">
+            <div class="custom-card-header">
+              Unidad de validación de resultados
+            </div>
+            <div class="card-body lab-display">
+              <div class="mb-5 mt-4 text-center">
+                <span class="label-tech" style="color: #aaa"
+                  >Resultado requerido</span
+                >
+                <p class="text-white-50 small">
+                  Use el dato indicado en la fase y escriba solo el valor
+                  numérico.
+                </p>
+              </div>
+
+              <div id="inputs-area" class="mt-auto pt-5">
+                <div class="text-center">
+                  <div class="spinner-border text-light" role="status"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL DE CERTIFICACIÓN QUÍMICA -->
+    <div
+      id="modal-logro"
+      class="d-none"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      "
+    >
+      <div
+        class="custom-card animate__animated animate__zoomIn"
+        style="max-width: 600px; width: 100%"
+      >
+        <div class="custom-card-header bg-dark text-white">
+          <span>Práctica verificada</span>
+        </div>
+        <div class="card-body text-center p-5">
+          <h1 class="fw-bold mb-3" style="color: var(--primary-color)">
+            Cálculos aprobados
+          </h1>
+          <hr />
+          <p class="mb-4">
+            Has resuelto correctamente cálculos de concentración, masa molar y
+            balanceo básico. El laboratorio de química ha sido superado
+            satisfactoriamente.
+          </p>
+          <a href="index.html" class="btn btn-tech w-100"
+            >Cerrar práctica de laboratorio</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Carga de lógica específica de la materia -->
+    <script src="js/estrella.js"></script>
+  </body>
+</html>

@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bibliografía: Calidad, Mantenimiento y Ambiente</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../../icono.png" />
+    <style>
+      .text-orange {
+        color: #ff9100;
+        font-weight: bold;
+      }
+      .table-tech {
+        font-size: 0.85rem;
+        border: 2px solid #282828;
+      }
+      .table-tech thead {
+        background-color: #282828;
+        color: #fff;
+      }
+      .formula-box {
+        background: #1a1a1a;
+        color: #ff9100;
+        padding: 15px;
+        border-radius: 4px;
+        font-family: var(--font-mono);
+        text-align: center;
+      }
+      .highlight-card {
+        border-left: 5px solid #ff9100 !important;
+      }
+      .badge-env {
+        background-color: #1a3014;
+        color: #d0ff41;
+        border: 1px solid #d0ff41;
+      }
+    </style>
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="../index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-uppercase">Calidad, Mant. y Ambiente</span>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <header class="mb-5 text-center">
+        <h1 class="h2 fw-bold border-bottom border-dark pb-2 text-uppercase">
+          Gestión de Calidad, Mantenimiento y Sostenibilidad
+        </h1>
+        <p class="text-muted">
+          Directrices para la excelencia técnica, operativa y responsabilidad
+          ambiental en proyectos de software.
+        </p>
+      </header>
+
+      <!-- --- SECCIÓN 1: GESTIÓN DE CALIDAD --- -->
+      <section class="mb-5">
+        <h3 class="fw-bold mb-4 text-orange">I. Gestión de la Calidad</h3>
+
+        <div class="custom-card mb-4 highlight-card">
+          <div class="custom-card-header">1. Definiciones y Procesos</div>
+          <div class="card-body">
+            <p>
+              <strong>Calidad (PMBOK):</strong> El grado en que un conjunto de
+              características inherentes cumple con los requisitos. En software,
+              esto implica que el producto funcione correctamente y satisfaga
+              las expectativas del cliente/stakeholder.
+            </p>
+            <h6 class="fw-bold">Procesos de Calidad:</h6>
+            <ul>
+              <li>
+                <strong>Planificar:</strong> Identificar requisitos y normas.
+                Documentar cómo demostrar el cumplimiento.
+              </li>
+              <li>
+                <strong>Gestionar:</strong> Ejecutar actividades planificadas y
+                monitorear resultados para evaluar desempeño.
+              </li>
+              <li>
+                <strong>Controlar:</strong> Inspeccionar entregables para
+                verificar que cumplen el estándar y recomendar correcciones.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="custom-card h-100">
+              <div class="custom-card-header bg-dark text-white">QA vs QC</div>
+              <div class="card-body">
+                <table class="table table-sm small">
+                  <thead>
+                    <tr>
+                      <th>QA (Aseguramiento)</th>
+                      <th>QC (Control)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Orientado al <strong>proceso</strong></td>
+                      <td>Orientado al <strong>producto</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Prevención de defectos</td>
+                      <td>Detección y corrección</td>
+                    </tr>
+                    <tr>
+                      <td>Proactivo: "¿Seguimos el proceso?"</td>
+                      <td>Reactivo: "¿El producto cumple?"</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="custom-card h-100">
+              <div class="custom-card-header bg-dark text-white">
+                Verificación vs Validación
+              </div>
+              <div class="card-body small">
+                <p>
+                  <strong>Verificación:</strong> "¿Estamos construyendo el
+                  producto correctamente?". Evalúa si cumple las
+                  especificaciones (revisiones de código, unit tests).
+                </p>
+                <p>
+                  <strong>Validación:</strong> "¿Estamos construyendo el
+                  producto correcto?". Evalúa si el producto es adecuado para el
+                  usuario (UAT, Pruebas Alfa/Beta).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="custom-card mt-4">
+          <div class="custom-card-header">Costos de la Calidad (COQ)</div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <h6 class="fw-bold">1. Conformidad (Prevención)</h6>
+                <p class="small text-muted">
+                  Invertidos para evitar fallos: capacitación, procesos
+                  robustos, revisiones, diseño.
+                </p>
+              </div>
+              <div class="col-md-6 border-start">
+                <h6 class="fw-bold text-danger">2. No Conformidad (Fallas)</h6>
+                <p class="small text-muted">
+                  Gastos generados por defectos: retrabajos, garantías, pérdida
+                  de reputación.
+                </p>
+              </div>
+            </div>
+            <div class="alert alert-success-tech mt-3">
+              Invertir más en prevención reduce drásticamente los costos de
+              falla total.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- --- SECCIÓN 2: GESTIÓN DE MANTENIMIENTO --- -->
+      <section class="mb-5">
+        <h3 class="fw-bold mb-4 text-orange">II. Mantenimiento del Software</h3>
+        <div class="custom-card mb-4 highlight-card">
+          <div class="custom-card-header">
+            1. Conceptos Fundamentales (ISO/IEC 14764)
+          </div>
+          <div class="card-body">
+            <p>
+              Conjunto de actividades ejecutadas tras la entrega para asegurar
+              la eficiencia del sistema y preservar su valor en el tiempo.
+            </p>
+            <ul>
+              <li>
+                <strong>Mantenibilidad:</strong> Facilidad para realizar cambios
+                con mínimo esfuerzo.
+              </li>
+              <li>
+                <strong>Fiabilidad:</strong> Capacidad de funcionar sin fallos
+                bajo condiciones establecidas.
+              </li>
+              <li>
+                <strong>Disponibilidad:</strong> Proporción de tiempo operativo.
+              </li>
+              <li>
+                <strong>Deuda Técnica:</strong> Consecuencia de tomar atajos
+                técnicos que dificultan el mantenimiento futuro.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="custom-card mb-4">
+          <div class="custom-card-header">2. Técnicas de Mantenimiento</div>
+          <div class="card-body">
+            <div class="row g-4 text-center">
+              <div class="col-6 col-md-3">
+                <strong>CORRECTIVO</strong><br /><small
+                  >Reactivo. Corrige bugs o fallos manifestados.</small
+                >
+              </div>
+              <div class="col-6 col-md-3">
+                <strong>ADAPTATIVO</strong><br /><small
+                  >Ajusta el SW a nuevos entornos (OS, BD).</small
+                >
+              </div>
+              <div class="col-6 col-md-3">
+                <strong>PERFECTIVO</strong><br /><small
+                  >Mejora rendimiento por nuevas necesidades.</small
+                >
+              </div>
+              <div class="col-6 col-md-3">
+                <strong>PREVENTIVO</strong><br /><small
+                  >Acciones proactivas para evitar fallos futuros.</small
+                >
+              </div>
+            </div>
+            <hr />
+            <p>
+              <strong>Refactoring:</strong> Reestructurar el código sin cambiar
+              su comportamiento externo para mejorar legibilidad y reducir deuda
+              técnica.
+            </p>
+          </div>
+        </div>
+
+        <div class="custom-card">
+          <div class="custom-card-header">3. SLA y Plan de Mantenimiento</div>
+          <div class="card-body">
+            <p>
+              <strong>SLA (Service Level Agreement):</strong> Acuerdos de nivel
+              de servicio. Define tiempos de respuesta por severidad:
+            </p>
+            <ul>
+              <li>Crítica: 1 hora de respuesta / 4 horas resolución.</li>
+              <li>Baja: 24 horas respuesta / 1 semana resolución.</li>
+            </ul>
+            <h6 class="fw-bold mt-4">Plan de mantenimiento en 10 elementos:</h6>
+            <div class="small columns-2" style="column-count: 2">
+              1. Objetivos | 2. Alcances | 3. Tipos | 4. Procedimientos | 5.
+              Roles y Respons. | 6. Herramientas | 7. Métricas (KPIs) | 8.
+              Cronograma y Presupuesto | 9. Estrategia Comunicación | 10.
+              Proceso de revisión del plan.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- --- SECCIÓN 3: CUIDADO AMBIENTAL Y EFICIENCIA --- -->
+      <section class="mb-5">
+        <h3 class="fw-bold mb-4 text-orange">III. Ambiente y Sostenibilidad</h3>
+
+        <div class="custom-card mb-4 highlight-card">
+          <div class="custom-card-header">
+            1. Estrategia de Impacto Ambiental
+          </div>
+          <div class="card-body">
+            <p>
+              La integración de sostenibilidad desde el diseño genera ventajas
+              competitivas y reduce riesgos regulatorios/reputacionales.
+            </p>
+            <ul>
+              <li>
+                <strong>EIA (Evaluación de Impacto Ambiental):</strong> Estudio
+                previo para identificar y mitigar efectos del proyecto.
+              </li>
+              <li>
+                <strong>Gestión de Residuos (Jerarquía 4R):</strong> Reducir (en
+                origen), Reutilizar (materiales), Reciclar y Tratar.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="custom-card h-100">
+              <div class="custom-card-header">
+                Eficiencia Energética y Green IT
+              </div>
+              <div class="card-body">
+                <ul>
+                  <li>
+                    <strong>Green IT (TI Verde):</strong> Prácticas de
+                    virtualización y optimización de código para reducir el
+                    consumo eléctrico en data centers.
+                  </li>
+                  <li>
+                    <strong>Diseño Bioclimático:</strong> Aprovechar condiciones
+                    locales (luz solar, ventilación) para climatización.
+                  </li>
+                  <li>
+                    <strong>Certificaciones:</strong> LEED (Edificaciones), ISO
+                    14001 (Ambiental), ISO 50001 (Energía).
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="custom-card h-100">
+              <div class="custom-card-header">ODS y ESG</div>
+              <div class="card-body">
+                <p>
+                  <strong
+                    >ODS (Objetivos de Desarrollo Sostenible - ONU
+                    2030):</strong
+                  >
+                  Especial foco en energía asequible (ODS 7) y clima (ODS 13).
+                </p>
+                <p>
+                  <strong>ESG:</strong> Marco evaluativo de
+                  <em>Environmental, Social and Governance</em> para inversores.
+                </p>
+                <hr />
+                <p>
+                  <strong>Economía Circular:</strong> Opuesto al modelo lineal
+                  (extraer-producir-usar-desechar); promueve ciclos cerrados.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer class="text-center pb-5">
+      <p class="small text-muted fw-bold">BYLUCA © 2026 | LUCABAZZADEV</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,308 @@
+/* --- VARIABLES GLOBALES DE DISEÑO --- */
+:root {
+  --bg-surface: #f1f1e6;
+  --text-main: #282828;
+  --border-color: #282828;
+  --card-header: #e0e0e0;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+  --shadow-retro: 6px 6px 0px #000;
+
+  /* Colores de identidad */
+  --color-frontend: #d0ff41; /* Verde */
+  --color-gestion: #ff9100; /* Naranja */
+  --color-accent: #00d4ff; /* Cian para enlaces personales */
+}
+
+/* --- BASE RESPONSIVE --- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+  font-family: var(--font-mono);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Efecto cuadriculado técnico de fondo */
+.bg-grid {
+  background-size: 30px 30px;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+}
+
+/* Contenedor principal del Hub */
+.hub-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* --- ESTILO DE VENTANAS (Tarjetas) --- */
+.custom-card {
+  background: white;
+  border: 2px solid var(--border-color);
+  box-shadow: 4px 4px 0px #000;
+  margin-bottom: 2rem;
+  overflow: hidden; /* Obliga al contenido a respetar los bordes del contenedor */
+  width: 100%;
+}
+
+.custom-card-header {
+  background-color: var(--card-header);
+  border-bottom: 2px solid var(--border-color);
+  padding: 8px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.card-body {
+  padding: 25px;
+}
+
+/* --- SELECTOR DE MATERIAS (Index Hub) --- */
+.matter-option {
+  border: 2px solid var(--border-color);
+  padding: 30px;
+  text-decoration: none;
+  color: var(--text-main);
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+}
+
+.matter-option h2 {
+  font-size: 1.8rem;
+  margin: 15px 0;
+  letter-spacing: -1px;
+}
+
+.matter-option .status-tag {
+  font-weight: bold;
+  font-size: 0.7rem;
+  background: #000;
+  color: #fff;
+  padding: 4px 8px;
+  align-self: flex-start;
+}
+
+/* Hover dinámico por materia */
+.opt-frontend:hover {
+  background-color: var(--color-frontend);
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+
+.opt-gestion:hover {
+  background-color: var(--color-gestion);
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+
+/* --- BOTONES Y COMPONENTES GENÉRICOS --- */
+.btn-tech {
+  background-color: var(--border-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-outline-tech {
+  background: transparent;
+  border: 2px solid var(--border-color);
+  color: var(--text-main);
+  padding: 6px 12px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.badge-version {
+  background-color: #000;
+  color: #fff;
+  padding: 3px 8px;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.sticky-nav {
+  background-color: var(--bg-surface);
+  border-bottom: 2px solid #282828;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Estilo para MATEMÁTICA */
+.opt-matematica:hover {
+  background-color: #00d4ff !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+.opt-matematica .status-tag {
+  background-color: #001e2b;
+  color: #00d4ff;
+}
+
+/* Estilo para INGLÉS TÉCNICO */
+.opt-ingles:hover {
+  background-color: #6610f2 !important; /* Índigo */
+  color: #fff !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+
+/* Aseguramos que el texto descriptivo cambie a blanco en hover para inglés */
+.opt-ingles:hover p,
+.opt-ingles:hover div {
+  color: #fff !important;
+}
+
+.opt-ingles .status-tag {
+  background-color: #210d4a; /* Violeta muy oscuro */
+  color: #e0d0ff;
+}
+
+/* --- IDENTIDAD VISUAL: FÍSICA Y MECÁNICA --- */
+.opt-fisica:hover {
+  background-color: #b91d1d !important; /* Rojo Industrial */
+  color: #fff !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+
+.opt-fisica:hover p,
+.opt-fisica:hover div {
+  color: #fff !important;
+}
+
+.opt-fisica .status-tag {
+  background-color: #421216; /* Rojo muy oscuro */
+  color: #ff9d9d;
+}
+
+/* --- IDENTIDAD VISUAL: QUÍMICA Y REACCIONES --- */
+.opt-quimica:hover {
+  background-color: #f472b6 !important; /* Rosa Pastel Vibrante (Fucsia suave) */
+  color: #fff !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+
+.opt-quimica:hover p,
+.opt-quimica:hover div {
+  color: #fff !important;
+}
+
+.opt-quimica .status-tag {
+  background-color: #501d36; /* Magenta/Rosa Neorrecatado muy oscuro */
+  color: #fbcfe8; /* Rosa Pastel Claro para texto legible */
+}
+
+/* --- NUEVOS TOKENS PARA MATERIAS SECUNDARIAS --- */
+.opt-biologia:hover {
+  background-color: #22c55e !important;
+  color: #000 !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+.opt-biologia .status-tag {
+  background-color: #064e3b;
+  color: #a7f3d0;
+}
+
+.opt-lengua:hover {
+  background-color: #ef4444 !important;
+  color: #fff !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+.opt-lengua .status-tag {
+  background-color: #7f1d1d;
+  color: #fecaca;
+}
+
+.opt-tecnologia:hover {
+  background-color: #3b82f6 !important;
+  color: #fff !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+.opt-tecnologia .status-tag {
+  background-color: #1e3a8a;
+  color: #bfdbfe;
+}
+
+.opt-ciudadania:hover {
+  background-color: #a855f7 !important;
+  color: #fff !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+.opt-ciudadania .status-tag {
+  background-color: #581c87;
+  color: #ddd6fe;
+}
+
+.opt-historia:hover {
+  background-color: #f59e0b !important;
+  color: #000 !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+.opt-historia .status-tag {
+  background-color: #78350f;
+  color: #fde68a;
+}
+
+/* --- DIVISORES DE SECCIÓN --- */
+.section-title {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid #282828;
+  padding-bottom: 0.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* --- UTILIDADES RESPONSIVE --- */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem !important;
+  }
+  .card-body {
+    padding: 15px;
+  }
+  .matter-option {
+    padding: 20px;
+  }
+  .matter-option h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hub-wrapper {
+    padding: 20px 10px;
+  }
+  .custom-card-header span:last-child {
+    display: none;
+  } /* Oculta controles extra en móviles muy pequeños */
+}

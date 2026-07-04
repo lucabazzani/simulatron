@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bibliografía: Cinemática y Estática</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../../icono.png" />
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="../index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-uppercase small">Cinemática y Estática</span>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <header class="mb-5 text-center border-bottom border-dark pb-3">
+        <h1 class="h2 fw-bold m-0 text-uppercase">
+          Tomo I: Fundamentos Mecánicos
+        </h1>
+        <p class="text-muted small">
+          Estudio del movimiento y equilibrio de los sistemas físicos.
+        </p>
+      </header>
+
+      <div class="row">
+        <div class="col-12">
+          <!-- 1. INTRODUCCIÓN Y VECTORES -->
+          <div class="custom-card mb-4">
+            <div class="custom-card-header">1. Magnitudes y Vectores</div>
+            <div class="card-body">
+              <p>
+                La física se basa en magnitudes. El Sistema Internacional (<span
+                  class="physics-unit"
+                  >SI</span
+                >) utiliza el metro [m], el segundo [s] y el kilogramo [kg].
+              </p>
+              <ul>
+                <li>
+                  <strong>Escalares:</strong> Definidos por un número y unidad
+                  (ej. Masa, Tiempo).
+                </li>
+                <li>
+                  <strong>Vectoriales:</strong> Requieren magnitud, dirección y
+                  sentido (ej. Fuerza, Velocidad).
+                </li>
+              </ul>
+              <div class="language-block small font-monospace">
+                Componentes: Vx = V · cos(θ) | Vy = V · sin(θ)
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. MOVIMIENTO EN UNA DIMENSIÓN -->
+          <div
+            class="custom-card mb-4"
+            style="border-left: 5px solid var(--primary-color) !important"
+          >
+            <div class="custom-card-header text-uppercase">
+              2. Cinemática Lineal: MRU y MRUV
+            </div>
+            <div class="card-body">
+              <h6 class="fw-bold text-success">
+                Movimiento Rectilíneo Uniforme (MRU):
+              </h6>
+              <p class="small">Velocidad constante, aceleración nula.</p>
+              <div class="physics-formula">Δx = v · Δt</div>
+
+              <h6 class="fw-bold text-success mt-4">
+                Movimiento Rectilíneo Uniforme Variado (MRUV):
+              </h6>
+              <p class="small">
+                Velocidad cambia de forma constante debido a una aceleración
+                fija.
+              </p>
+              <div class="physics-formula">
+                Vf = Vi + a · t <br />
+                Xf = Xi + Vi · t + ½ · a · t²
+              </div>
+              <p class="small italic text-muted mt-2">
+                Ejemplo: Un vehículo frenando a razón de
+                <span class="physics-unit">2 m/s²</span>.
+              </p>
+            </div>
+          </div>
+
+          <!-- 3. CAÍDA LIBRE Y TIRO VERTICAL -->
+          <div class="custom-card mb-4">
+            <div class="custom-card-header">
+              3. Gravedad y Proyectiles Verticales
+            </div>
+            <div class="card-body">
+              <p>
+                Caso particular del MRUV donde la aceleración es la gravedad
+                (<span class="physics-unit">g ≈ 9.8 m/s²</span> o
+                <span class="physics-unit">10 m/s²</span> para cálculos
+                rápidos).
+              </p>
+              <ul>
+                <li>
+                  <strong>Caída Libre:</strong> El objeto se suelta (Vi = 0).
+                </li>
+                <li>
+                  <strong>Tiro Vertical:</strong> Se lanza hacia arriba,
+                  alcanzando Vf = 0 en su altura máxima.
+                </li>
+              </ul>
+              <div class="physics-formula">Hmax = -(Vi)² / (2 · g)</div>
+            </div>
+          </div>
+
+          <!-- 4. MOVIMIENTO EN 2D -->
+          <div class="custom-card mb-4">
+            <div class="custom-card-header text-uppercase">
+              4. Tiro Parabólico
+            </div>
+            <div class="card-body">
+              <p>
+                Combinación de un MRU horizontal y un tiro vertical con
+                gravedad. Se debe descomponer el vector velocidad inicial.
+              </p>
+              <div class="row text-center">
+                <div class="col-6 p-2 border-end border-dashed">
+                  <strong>Eje X (Horizontal)</strong><br /><small
+                    >Velocidad Constante</small
+                  >
+                </div>
+                <div class="col-6 p-2">
+                  <strong>Eje Y (Vertical)</strong><br /><small
+                    >Aceleración de gravedad</small
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. ESTÁTICA -->
+          <div
+            class="custom-card mb-4"
+            style="border-left: 5px solid var(--primary-color) !important"
+          >
+            <div class="custom-card-header">5. Sistemas de Fuerzas</div>
+            <div class="card-body">
+              <p>
+                La fuerza [F] se mide en Newtons [<span class="physics-unit"
+                  >N</span
+                >]. El equilibrio ocurre cuando la suma de todas las fuerzas es
+                cero.
+              </p>
+              <ul>
+                <li>
+                  <strong>Concurrentes:</strong> Sus líneas de acción se cruzan
+                  en un punto.
+                </li>
+                <li>
+                  <strong>Coplanares:</strong> Actúan sobre el mismo plano.
+                </li>
+              </ul>
+              <div class="math-block">ΣFx = 0 | ΣFy = 0</div>
+            </div>
+          </div>
+
+          <!-- 6. MOMENTO DE UNA FUERZA (TORQUE) -->
+          <div class="custom-card mb-5">
+            <div class="custom-card-header">
+              6. Equilibrio del Cuerpo Rígido
+            </div>
+            <div class="card-body">
+              <p>
+                El torque (<span class="term-technical">τ</span>) es la
+                capacidad de una fuerza para generar rotación alrededor de un
+                punto.
+              </p>
+              <div class="physics-formula">M = F · d · sin(θ)</div>
+              <p class="small mt-3">
+                Para que un objeto extendido esté en
+                <strong>equilibrio total</strong> se deben cumplir dos
+                condiciones:
+              </p>
+              <ol class="small fw-bold">
+                <li>Suma de Fuerzas = 0 (No hay traslación).</li>
+                <li>Suma de Momentos = 0 (No hay rotación).</li>
+              </ol>
+              <p class="small text-muted italic">
+                Ejemplo técnico: Una llave francesa aplicando una fuerza de
+                <span class="physics-unit">50 N</span> a una distancia de
+                <span class="physics-unit">0.2 m</span>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="text-center pb-5">
+      <p class="small text-muted fw-bold">BYLUCA © 2026 | LUCABAZZADEV</p>
+    </footer>
+  </body>
+</html>

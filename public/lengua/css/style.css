@@ -1,0 +1,173 @@
+/* lengua/css/style.css */
+
+/* --- VARIABLES DE DISEÑO (Lengua y Literatura - Tema Carmesí/Crítico) --- */
+:root {
+  --bg-surface: #f1f1e6; /* Fondo beige técnico original */
+  --primary-color: #ef4444; /* Carmesí Vibrante (Literatura) */
+  --border-color: #282828;
+  --text-main: #282828;
+  --card-header: #fee2e2; /* Rosado muy suave para encabezados */
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+  --shadow-retro: 4px 4px 0px #000;
+  --dark-accent: #7f1d1d; /* Rojo vino oscuro para bibliografías */
+}
+
+body {
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+  font-family: var(--font-mono);
+  line-height: 1.6;
+}
+
+/* --- ESTILO DE "VENTANAS" (TARJETAS) --- */
+.custom-card {
+  border: 2px solid var(--text-main) !important;
+  background: white;
+  box-shadow: var(--shadow-retro);
+  border-radius: 0 !important;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  padding: 0 !important;
+}
+
+.custom-card-header {
+  background-color: var(--card-header);
+  border-bottom: 2px solid var(--text-main);
+  padding: 8px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.custom-card .card-body {
+  padding: 25px !important;
+}
+
+.custom-card .d-grid {
+  gap: 12px !important;
+}
+
+/* --- COMPONENTES --- */
+
+/* Botones principales de la materia */
+.btn-tech {
+  background-color: var(--primary-color);
+  color: #fff; /* Texto blanco para mejor contraste en rojo */
+  border: 2px solid var(--text-main);
+  border-radius: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  transition: all 0.1s;
+}
+
+.btn-tech:hover {
+  background-color: var(--text-main);
+  color: var(--primary-color);
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px 0px #000;
+}
+
+.btn-outline-tech {
+  background: transparent;
+  border: 2px solid var(--border-color);
+  color: var(--text-main);
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 0;
+}
+
+/* Botones de bibliografía (Rojo vino técnico) */
+.btn-biblio {
+  background-color: var(--dark-accent) !important;
+  color: #ffffff !important;
+  border: 2px solid var(--text-main);
+  border-radius: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-biblio:hover {
+  background-color: var(--text-main) !important;
+  color: var(--primary-color) !important;
+}
+
+/* EFECTO CUADRÍCULA LITERARIA (Ajustado a Rojo) */
+.bg-grid {
+  background-size: 30px 30px;
+  background-image:
+    linear-gradient(to right, rgba(239, 68, 68, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(239, 68, 68, 0.05) 1px, transparent 1px);
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+/* Coloreamos las palabras clave */
+.text-lit {
+  color: var(--primary-color) !important;
+}
+
+/* RECUADROS DE CALIFICACIÓN (Ajuste a Rojo) */
+.border-lit-tech {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3) !important;
+}
+
+.alert-lit-tech {
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: bold;
+  box-shadow: var(--shadow-retro);
+  border: 2px solid var(--text-main);
+}
+
+/* Utilidades para Contenido LITERARIO (Biblio) */
+.lit-block {
+  background-color: #f8f9fa;
+  border: 1px dashed var(--primary-color);
+  padding: 15px;
+  font-size: 1.1rem;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.highlight-card {
+  border-left: 5px solid var(--primary-color) !important;
+}
+
+code {
+  color: #b91c1c;
+  font-weight: bold;
+  background: #fef2f2;
+  padding: 2px 4px;
+}
+
+/* Utilidades Editor Crítico (Nivel Estrella) */
+.editor-console {
+  background: #1a1a1a;
+  color: #fff;
+  border: 2px solid var(--text-main);
+  min-height: 200px;
+  padding: 20px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.text-error {
+  color: #f87171;
+  text-decoration: underline;
+  cursor: pointer;
+}

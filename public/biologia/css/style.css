@@ -1,0 +1,244 @@
+/* biologia/css/style.css */
+
+/* --- VARIABLES DE DISEÑO (Biología - Tema Verde Orgánico) --- */
+:root {
+  --bg-surface: #f1f1e6; /* Fondo beige técnico original */
+  --primary-color: #22c55e; /* Verde Vivo (Biología) */
+  --border-color: #282828; /* Bordes oscuros técnicos */
+  --text-main: #282828;
+  --card-header: #e6f4ea; /* Verde muy suave para encabezados */
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+  --shadow-retro: 4px 4px 0px #000;
+  --dark-accent: #064e3b; /* Verde Bosque oscuro para bibliografías */
+}
+
+body {
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+  font-family: var(--font-mono);
+  line-height: 1.6;
+}
+
+/* --- ESTILO DE "VENTANAS" (TARJETAS) --- */
+.custom-card {
+  border: 2px solid var(--text-main) !important;
+  background: white;
+  box-shadow: var(--shadow-retro);
+  border-radius: 0 !important;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  padding: 0 !important;
+}
+
+.custom-card-header {
+  background-color: var(--card-header);
+  border-bottom: 2px solid var(--text-main);
+  padding: 8px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.window-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.win-btn {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--text-main);
+  background: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.custom-card .card-body {
+  padding: 25px !important;
+}
+
+.custom-card .d-grid {
+  gap: 12px !important;
+}
+
+/* --- COMPONENTES --- */
+
+/* Botones principales de la materia */
+.btn-tech {
+  background-color: var(--primary-color);
+  color: #000; /* Letras negras para mejor contraste con el verde */
+  border: 2px solid var(--text-main);
+  border-radius: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  transition: all 0.1s;
+}
+
+.btn-tech:hover {
+  background-color: var(--text-main);
+  color: var(--primary-color);
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px 0px #000;
+}
+
+.btn-outline-tech {
+  background: transparent;
+  border: 2px solid var(--border-color);
+  color: var(--text-main);
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 0;
+}
+
+/* Botones de bibliografía (Verde bosque técnico) */
+.btn-biblio {
+  background-color: var(--dark-accent) !important;
+  color: #ffffff !important;
+  border: 2px solid var(--text-main);
+  border-radius: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-biblio:hover {
+  background-color: var(--text-main) !important;
+  color: var(--primary-color) !important;
+}
+
+/* EFECTO CUADRÍCULA CIENTÍFICA (Ajustado a Verde) */
+.bg-grid {
+  background-size: 30px 30px;
+  background-image:
+    linear-gradient(to right, rgba(34, 197, 94, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(34, 197, 94, 0.06) 1px, transparent 1px);
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+/* Coloreamos las palabras clave del Hub o del Examen */
+.text-success {
+  color: var(--primary-color) !important;
+}
+
+/* RECUADROS DE CALIFICACIÓN (Ajuste a Verde) */
+.border-success-tech {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3) !important;
+}
+
+.alert-success-tech {
+  background-color: var(--primary-color);
+  color: #000;
+  font-weight: bold;
+  box-shadow: var(--shadow-retro);
+  border: 2px solid var(--text-main);
+}
+
+/* Utilidades para Conceptos Biológicos */
+.bio-block {
+  background-color: #f8f9fa;
+  border: 1px dashed var(--primary-color);
+  padding: 15px;
+  font-size: 1.1rem;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.microscope-lens {
+  background: #000;
+  border: 10px solid #333;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Contenedor de la muestra */
+.sample-viewer {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  animation: fadeIn 0.5s;
+}
+
+/* Efecto de cristal circular */
+.lens-glass {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 15px solid #222;
+  background: radial-gradient(circle, transparent 50%, rgba(0, 0, 0, 0.6) 100%);
+  pointer-events: none; /* Para que no bloquee el click */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.text-green {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+.organelle-box {
+  font-size: 1rem;
+  color: var(--dark-accent);
+  background: #f0fdf4;
+  padding: 10px;
+  border: 1px solid var(--primary-color);
+  text-align: center;
+  height: 100%;
+}
+.highlight-card {
+  border-left: 5px solid var(--primary-color) !important;
+}
+code {
+  color: #15803d;
+  font-weight: bold;
+  background: #fff;
+  padding: 0 4px;
+}
+
+.vital-box {
+  font-size: 0.9rem;
+  background: #f0fdf4;
+  padding: 15px;
+  border: 1px solid var(--primary-color);
+  height: 100%;
+}
+
+.eco-box {
+  font-size: 0.9rem;
+  background: #f0fdf4;
+  padding: 15px;
+  border: 1px solid var(--primary-color);
+  height: 100%;
+}

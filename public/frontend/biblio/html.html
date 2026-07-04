@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bibliografía: HTML5</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../../icono.png" />
+    <style>
+      code {
+        color: #e83e8c;
+      }
+      pre {
+        background: #1e1e1e;
+        color: #d0ff41;
+        padding: 15px;
+        border: 1px solid var(--border-color);
+        font-size: 0.9rem;
+      }
+      .seccion-estudio {
+        margin-bottom: 40px;
+      }
+    </style>
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="../index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-uppercase">Material de Estudio</span>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <header class="mb-5">
+        <h1 class="h2 fw-bold border-bottom border-dark pb-2">
+          Guía de Estudio HTML5
+        </h1>
+        <p class="text-muted">
+          Resumen técnico basado en el contenido de la bibliografía.
+        </p>
+      </header>
+
+      <div class="row">
+        <div class="col-12">
+          <!-- 1. FUNDAMENTOS -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">1. Fundamentos e Historia</div>
+            <div class="card-body">
+              <ul>
+                <li>
+                  <strong>Origen:</strong> Creado por Timothy John Berners-Lee
+                  en el C.E.R.N. (1989-1991).
+                </li>
+                <li>
+                  <strong>El Trío Fundacional:</strong> Berners-Lee desarrolló
+                  el HTML (Marcado), el HTTP (Protocolo) y la URL (Localizador).
+                </li>
+                <li>
+                  <strong>Definición:</strong> Significa
+                  <em>HyperText Markup Language</em>. Define la estructura y el
+                  contenido.
+                </li>
+                <li>
+                  <strong>El Estándar:</strong> Definido por la
+                  <strong>W3C</strong> (World Wide Web Consortium).
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 2. REGLAS GRAMATICALES -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">
+              2. Reglas Gramaticales Obligatorias
+            </div>
+            <div class="card-body">
+              <p>Para evitar errores de lectura en el navegador:</p>
+              <ul>
+                <li>
+                  <strong>Cierre de Etiquetas:</strong> Todas deben cerrarse.
+                  <code>&lt;p&gt;Texto&lt;/p&gt;</code>.
+                </li>
+                <li>
+                  <strong>Huérfanas:</strong> No tienen cierre manual. Ejemplo:
+                  <code>&lt;br /&gt;</code>, <code>&lt;img /&gt;</code>.
+                </li>
+                <li>
+                  <strong>Anidamiento:</strong> El último elemento en abrir debe
+                  ser el primero en cerrar.
+                </li>
+                <li>
+                  <strong>Atributos:</strong> Sus valores deben ir siempre entre
+                  comillas.
+                </li>
+              </ul>
+              <pre>
+&lt;!-- Ejemplo de anidamiento correcto --&gt;
+&lt;p&gt;Este es un texto &lt;strong&gt;importante&lt;/strong&gt;&lt;/p&gt;</pre
+              >
+            </div>
+          </div>
+
+          <!-- 3. ESTRUCTURA BÁSICA -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">
+              3. Estructura Básica del Documento
+            </div>
+            <div class="card-body">
+              <pre>
+&lt;!DOCTYPE html&gt; &lt;!-- Indica que es HTML5 --&gt;
+&lt;html&gt;          &lt;!-- Contenedor principal --&gt;
+  &lt;head&gt;        &lt;!-- Información técnica y lógica --&gt;
+    &lt;meta charset="utf-8"&gt; &lt;!-- Acentos y caracteres especiales --&gt;
+    &lt;title&gt;Título de la pestaña&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;        &lt;!-- Todo el contenido visual --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre
+              >
+            </div>
+          </div>
+
+          <!-- 4. ELEMENTOS DE TEXTO -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">
+              4. Elementos de Texto y Jerarquía
+            </div>
+            <div class="card-body">
+              <ul>
+                <li>
+                  <strong>Títulos:</strong> Van del
+                  <code>&lt;h1&gt;</code> (principal) al
+                  <code>&lt;h6&gt;</code> (menor importancia).
+                </li>
+                <li>
+                  <strong>Énfasis y Resaltado:</strong>
+                  <ul>
+                    <li><code>&lt;em&gt;</code>: Enfatiza (cursiva).</li>
+                    <li>
+                      <code>&lt;strong&gt;</code>: Importancia fuerte (negrita).
+                    </li>
+                    <li>
+                      <code>&lt;mark&gt;</code>: Resaltado visual (amarillo por
+                      defecto).
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Comentarios:</strong> No se ven en el sitio:
+                  <code>&lt;!-- Comentario --&gt;</code>.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 5. LISTAS Y ENLACES -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">5. Listas y Enlaces</div>
+            <div class="card-body">
+              <p><strong>Listas:</strong></p>
+              <pre>
+&lt;ul&gt; &lt;!-- No ordenada (puntos) --&gt;
+  &lt;li&gt;Item&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt; &lt;!-- Ordenada (1, 2, 3) --&gt;
+  &lt;li&gt;Item&lt;/li&gt;
+&lt;/ol&gt;</pre
+              >
+              <p>
+                <strong>Enlaces:</strong> El atributo clave es
+                <code>href</code>.
+              </p>
+              <pre>
+&lt;a href="https://google.com"&gt;Ir a Google&lt;/a&gt;</pre
+              >
+            </div>
+          </div>
+
+          <!-- 6. IMÁGENES -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">6. Imágenes (&lt;img /&gt;)</div>
+            <div class="card-body">
+              <p>Atributos fundamentales:</p>
+              <ul>
+                <li><strong>src:</strong> Ruta o fuente de la imagen.</li>
+                <li>
+                  <strong>alt:</strong> Texto alternativo. Indispensable para
+                  accesibilidad y SEO.
+                </li>
+                <li>
+                  <strong>title:</strong> Texto opcional que se ve al posar el
+                  ratón.
+                </li>
+              </ul>
+              <pre>
+&lt;img src="logo.png" alt="Logotipo de la empresa" title="Ver inicio" /&gt;</pre
+              >
+            </div>
+          </div>
+
+          <!-- 7. TABLAS -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">7. Tablas (&lt;table&gt;)</div>
+            <div class="card-body">
+              <ul>
+                <li><code>&lt;tr&gt;</code>: Fila.</li>
+                <li><code>&lt;td&gt;</code>: Celda normal.</li>
+                <li><code>&lt;th&gt;</code>: Celda de encabezado (negrita).</li>
+                <li>
+                  <strong>Fusión:</strong> <code>colspan</code> (unir columnas),
+                  <code>rowspan</code> (unir filas).
+                </li>
+              </ul>
+              <p>
+                <strong>Estructura avanzada:</strong> Es buena práctica poner
+                <code>tfoot</code> antes de <code>tbody</code> para la
+                optimización de carga.
+              </p>
+              <pre>
+&lt;table&gt;
+  &lt;thead&gt;...&lt;/thead&gt;
+  &lt;tfoot&gt;...&lt;/tfoot&gt;
+  &lt;tbody&gt;...&lt;/tbody&gt;
+&lt;/table&gt;</pre
+              >
+            </div>
+          </div>
+
+          <!-- 8. FORMULARIOS -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">8. Formularios (&lt;form&gt;)</div>
+            <div class="card-body">
+              <p>
+                <strong>Atributos:</strong> <code>action</code> (a donde va) y
+                <code>method</code> (get o post).
+              </p>
+              <ul>
+                <li>
+                  <strong>Input types:</strong> password, email, number,
+                  checkbox, radio.
+                </li>
+                <li>
+                  <strong>Label:</strong> Debe usar <code>for</code> vinculado
+                  al <code>id</code> del input.
+                </li>
+                <li>
+                  <strong>Autofocus:</strong> El cursor aparece allí
+                  automáticamente al abrir.
+                </li>
+                <li>
+                  <strong>Button:</strong> El tipo por defecto es
+                  <code>submit</code>.
+                </li>
+              </ul>
+              <pre>
+&lt;label for="usr"&gt;Usuario:&lt;/label&gt;
+&lt;input type="text" id="usr" required autofocus&gt;</pre
+              >
+            </div>
+          </div>
+
+          <!-- 9. HTML5 SEMÁNTICO -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">9. HTML5 Semántico</div>
+            <div class="card-body">
+              <p>Contenedores con significado para el SEO:</p>
+              <div class="row">
+                <div class="col-md-4 mb-2">
+                  <div class="p-2 border border-dark bg-light">
+                    <code>&lt;header&gt;</code> Cabecera
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  <div class="p-2 border border-dark bg-light">
+                    <code>&lt;nav&gt;</code> Navegación
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  <div class="p-2 border border-dark bg-light">
+                    <code>&lt;section&gt;</code> Temas
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  <div class="p-2 border border-dark bg-light">
+                    <code>&lt;article&gt;</code> Noticia/Post
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  <div class="p-2 border border-dark bg-light">
+                    <code>&lt;aside&gt;</code> Lateral
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  <div class="p-2 border border-dark bg-light">
+                    <code>&lt;footer&gt;</code> Pie
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3">
+                También destaca <code>&lt;figure&gt;</code> y
+                <code>&lt;figcaption&gt;</code> para imágenes con pie de foto.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="text-center pb-5">
+      <p class="small text-muted fw-bold">BYLUCA © 2026 | LUCABAZZADEV</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bibliografía: Bootstrap 5</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../../icono.png" />
+    <style>
+      code {
+        color: #e83e8c;
+        font-weight: bold;
+      }
+      pre {
+        background: #1e1e1e;
+        color: #d0ff41;
+        padding: 15px;
+        border: 1px solid var(--border-color);
+        font-size: 0.85rem;
+      }
+      .seccion-estudio {
+        margin-bottom: 40px;
+      }
+      .table-tech {
+        font-size: 0.9rem;
+        border: 1px solid #ccc;
+      }
+      .grid-demo {
+        background: #e0e0e0;
+        border: 1px solid #999;
+        text-align: center;
+        padding: 5px;
+        margin-bottom: 5px;
+        font-size: 0.7rem;
+      }
+    </style>
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="../index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-uppercase">Material de Estudio</span>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <header class="mb-5">
+        <h1 class="h2 fw-bold border-bottom border-dark pb-2">
+          Guía de Estudio Bootstrap
+        </h1>
+        <p class="text-muted">
+          Conceptos de framework, grilla, componentes y utilidades.
+        </p>
+      </header>
+
+      <div class="row">
+        <div class="col-12">
+          <!-- 1. HISTORIA -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">1. Historia y Orígenes</div>
+            <div class="card-body">
+              <ul>
+                <li><strong>Nombre Original:</strong> Blueprint de Twitter.</li>
+                <li><strong>Creadores:</strong> Mark Otto y Jacob Thornton.</li>
+                <li>
+                  <strong>Definición:</strong> Framework de UI que combina HTML,
+                  CSS y JS para desarrollo rápido y responsivo.
+                </li>
+                <li><strong>Hito:</strong> Código abierto en 2011.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 2. VERSIONADO -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">2. Versionado Semántico</div>
+            <div class="card-body">
+              <p>Esquema <strong>Principal . Menor . Parche</strong>:</p>
+              <ul>
+                <li>
+                  <strong>Principal:</strong> Cambios incompatibles (ej: de v4 a
+                  v5).
+                </li>
+                <li><strong>Menor:</strong> Nuevas funciones compatibles.</li>
+                <li><strong>Parche:</strong> Corrección de errores.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 3. INSTALACIÓN -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">3. Instalación y Dependencias</div>
+            <div class="card-body">
+              <ul>
+                <li>
+                  <strong>Popper.js:</strong> Requerido obligatoriamente para
+                  que funcionen los dropdowns y modales.
+                </li>
+                <li>
+                  <strong>jsDelivr:</strong> La Red de Distribución de Contenido
+                  (CDN) recomendada.
+                </li>
+              </ul>
+              <p>
+                <strong>Ubicación sugerida:</strong> CSS en
+                <code>&lt;head&gt;</code> y JS al final del
+                <code>&lt;body&gt;</code>.
+              </p>
+            </div>
+          </div>
+
+          <!-- 4 Y 5. BREAKPOINTS -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">
+              4. Puntos de Interrupción (Breakpoints)
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-tech table-bordered table-striped">
+                  <thead class="table-dark">
+                    <tr>
+                      <th>Nivel</th>
+                      <th>Infijo</th>
+                      <th>Dimensión</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Extra Pequeño</td>
+                      <td>xs</td>
+                      <td>&lt; 576px</td>
+                    </tr>
+                    <tr>
+                      <td>Pequeño</td>
+                      <td>sm</td>
+                      <td>&ge; 576px</td>
+                    </tr>
+                    <tr>
+                      <td>Medio</td>
+                      <td>md</td>
+                      <td>&ge; 768px</td>
+                    </tr>
+                    <tr>
+                      <td>Grande</td>
+                      <td>lg</td>
+                      <td>&ge; 992px</td>
+                    </tr>
+                    <tr>
+                      <td>Extra Grande</td>
+                      <td>xl</td>
+                      <td>&ge; 1200px</td>
+                    </tr>
+                    <tr>
+                      <td>Extra-Extra</td>
+                      <td>xxl</td>
+                      <td>&ge; 1400px</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. SISTEMA DE GRILLAS -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">5. Sistema de Grillas (Grid)</div>
+            <div class="card-body">
+              <p>
+                Basado en <strong>Flexbox</strong> con un total de
+                <strong>12 columnas</strong>.
+              </p>
+              <div class="container border p-2 bg-light mb-3">
+                <div class="row g-1">
+                  <div class="col-4"><div class="grid-demo">.col-4</div></div>
+                  <div class="col-8"><div class="grid-demo">.col-8</div></div>
+                  <div class="col-6"><div class="grid-demo">.col-6</div></div>
+                  <div class="col-6"><div class="grid-demo">.col-6</div></div>
+                </div>
+              </div>
+              <pre>
+              &lt;div class="container"&gt;
+                &lt;div class="row"&gt;
+                  &lt;div class="col-md-6"&gt;Mitad en pantallas medianas&lt;/div&gt;
+                  &lt;div class="col-md-6"&gt;Mitad en pantallas medianas&lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;</pre
+              >
+            </div>
+          </div>
+
+          <!-- 7. COMPONENTES -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">6. Componentes Comunes</div>
+            <div class="card-body">
+              <ul>
+                <li>
+                  <strong>Imágenes:</strong>
+                  <code>.img-fluid</code> (responsiva).
+                </li>
+                <li>
+                  <strong>Tablas:</strong> Requiere siempre <code>.table</code>.
+                </li>
+                <li>
+                  <strong>Alertas:</strong> <code>.alert</code> + color (ej:
+                  <code>.alert-danger</code>).
+                </li>
+                <li>
+                  <strong>Modales:</strong> Eliminan acceso al fondo. Solo uno a
+                  la vez.
+                </li>
+                <li>
+                  <strong>Navbar:</strong> Empieza con la clase
+                  <code>.navbar</code>.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 8. FORMULARIOS -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">7. Formularios y Validación</div>
+            <div class="card-body">
+              <ul>
+                <li>Etiqueta: <code>.form-label</code>.</li>
+                <li>Input: <code>.form-control</code>.</li>
+                <li>Check/Radio: Contenedor <code>.form-check</code>.</li>
+                <li>
+                  Validación: Se activa con la clase
+                  <code>.was-validated</code> en el padre.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 9. UTILIDADES -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">8. Utilidades de Diseño</div>
+            <div class="card-body">
+              <p>
+                <strong>Colores:</strong> primary, secondary, success, danger,
+                warning, info, light, dark.
+              </p>
+              <p>
+                <strong>Espaciado:</strong>
+                <code>{propiedad}{lado}-{tamaño}</code>
+              </p>
+              <ul>
+                <li>
+                  Propiedad: <strong>m</strong> (margin) o
+                  <strong>p</strong> (padding).
+                </li>
+                <li>
+                  Lados: <strong>t, b, s</strong> (start),
+                  <strong>e</strong> (end), <strong>x</strong> (eje horizontal),
+                  <strong>y</strong> (eje vertical).
+                </li>
+                <li>Ejemplo: <code>.mt-3</code> (margen superior nivel 3).</li>
+              </ul>
+              <p>
+                <strong>Ocultar:</strong> <code>.d-none</code> (oculta),
+                <code>.d-md-block</code> (muestra en medianas).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="text-center pb-5">
+      <p class="small text-muted fw-bold">BYLUCA © 2026 | LUCABAZZADEV</p>
+    </footer>
+  </body>
+</html>

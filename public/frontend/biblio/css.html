@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bibliografía: CSS3</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../../icono.png" />
+    <style>
+      code {
+        color: #e83e8c;
+        font-weight: bold;
+      }
+      pre {
+        background: #1e1e1e;
+        color: #d0ff41;
+        padding: 15px;
+        border: 1px solid var(--border-color);
+        font-size: 0.9rem;
+      }
+      .box-model-viz {
+        border: 2px dashed #666;
+        padding: 10px;
+        background: #f1f1e6;
+        text-align: center;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+      }
+      .seccion-estudio {
+        margin-bottom: 40px;
+      }
+    </style>
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="../index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-uppercase">Material de Estudio</span>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <header class="mb-5">
+        <h1 class="h2 fw-bold border-bottom border-dark pb-2">
+          Guía de Estudio CSS
+        </h1>
+        <p class="text-muted">
+          Conceptos de presentación, cascada y diseño responsivo.
+        </p>
+      </header>
+
+      <div class="row">
+        <div class="col-12">
+          <!-- 1. HISTORIA -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">1. Historia y Origen</div>
+            <div class="card-body">
+              <p>
+                Ante la falta de estándares a mediados de los 90, surgieron dos
+                propuestas principales en la W3C:
+              </p>
+              <ul>
+                <li>
+                  <strong>CHSS</strong> (Cascading HTML Style Sheets): de Håkon
+                  Wium Lie.
+                </li>
+                <li>
+                  <strong>SSP</strong> (Stream-based Style Sheet Proposal): de
+                  Bert Bos.
+                </li>
+                <li>
+                  <strong>Hito:</strong> Lie y Bos se unieron y en
+                  <strong>1996</strong> se publicó "CSS nivel 1".
+                </li>
+                <li>
+                  <strong>Actualidad:</strong> El estándar vigente es
+                  <strong>CSS 3</strong>.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 2. DEFINICIÓN -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">2. Definición y Ventajas</div>
+            <div class="card-body">
+              <p>
+                CSS significa <strong>Cascading Style Sheets</strong> (Hojas de
+                Estilo en Cascada).
+              </p>
+              <ul>
+                <li>
+                  <strong>Mantenimiento:</strong> Un solo cambio en un archivo
+                  .css afecta a todo el sitio.
+                </li>
+                <li>
+                  <strong>Accesibilidad:</strong> Permite que navegadores o
+                  usuarios apliquen estilos locales.
+                </li>
+                <li>
+                  <strong>Rendimiento:</strong> Reduce drásticamente el peso de
+                  los archivos HTML al extraer el diseño.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 3. REGLAS Y SINTAXIS -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">3. Reglas y Sintaxis</div>
+            <div class="card-body">
+              <p>
+                Una regla se compone de un selector y un bloque de
+                declaraciones:
+              </p>
+              <pre>
+selector {
+  propiedad: valor;
+}</pre
+              >
+              <ul>
+                <li>
+                  <strong>Selector:</strong> Apunta al elemento HTML (ej.
+                  <code>p</code>).
+                </li>
+                <li>
+                  <strong>Declaración:</strong> Todo lo contenido entre llaves
+                  <code>{}</code>.
+                </li>
+                <li>
+                  <strong>Propiedad:</strong> El atributo visual (ej.
+                  <code>color</code>).
+                </li>
+                <li>
+                  <strong>Valor:</strong> El dato asignado (ej.
+                  <code>blue</code>).
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 4. SELECTORES -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">4. Tipos de Selectores</div>
+            <div class="card-body">
+              <ul>
+                <li>
+                  <strong>Universal <code>*</code>:</strong> Aplica a todos los
+                  elementos.
+                </li>
+                <li>
+                  <strong>De tipo:</strong> Usa el nombre de la etiqueta (ej.
+                  <code>h1</code>).
+                </li>
+                <li>
+                  <strong>Descendente (espacio):</strong> Elementos dentro de
+                  otros (ej. <code>div p</code>).
+                </li>
+                <li>
+                  <strong>Hijo directo <code>&gt;</code>:</strong> Solo al nivel
+                  inmediato (ej. <code>ul &gt; li</code>).
+                </li>
+                <li>
+                  <strong>Clase <code>.clase</code>:</strong> Reutilizable en
+                  varios elementos.
+                </li>
+                <li>
+                  <strong>ID <code>#identificador</code>:</strong> Único por
+                  página, alta prioridad.
+                </li>
+              </ul>
+              <p>
+                <strong>Tip:</strong> Se pueden agrupar con comas
+                <code>h1, h2 { color: red; }</code>.
+              </p>
+            </div>
+          </div>
+
+          <!-- 5. INSERTAR CSS Y PRIORIDAD -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">
+              5. Métodos de Inserción y Prioridades
+            </div>
+            <div class="card-body">
+              <p>Orden de prioridad de menor (1) a mayor (3):</p>
+              <ol>
+                <li>
+                  <strong>Externa:</strong> Mediante la etiqueta
+                  <code>&lt;link&gt;</code>. Recomendado.
+                </li>
+                <li>
+                  <strong>Interna:</strong> Mediante
+                  <code>&lt;style&gt;</code> dentro del
+                  <code>&lt;head&gt;</code>.
+                </li>
+                <li>
+                  <strong>En línea:</strong> Atributo <code>style="..."</code>.
+                  <strong>Gana sobre los demás.</strong>
+                </li>
+              </ol>
+              <p class="small text-muted italic">
+                Nota: Si dos reglas tienen la misma prioridad, se aplica la
+                última escrita en el código.
+              </p>
+            </div>
+          </div>
+
+          <!-- 6. UNIDADES -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">6. Unidades de Medida</div>
+            <div class="card-body">
+              <p><strong>Relativas (Recomendadas):</strong></p>
+              <ul>
+                <li><code>em</code>: Respecto al tamaño de letra actual.</li>
+                <li><code>ex</code>: Respecto a la altura de la letra 'x'.</li>
+                <li>
+                  <code>px</code>: Respecto a la pantalla del usuario (píxel).
+                </li>
+                <li><code>%</code>: Porcentaje del contenedor padre.</li>
+              </ul>
+              <p>
+                <strong>Absolutas:</strong> Medidas físicas fijas (<code
+                  >cm, mm, in, pt, pc</code
+                >).
+              </p>
+            </div>
+          </div>
+
+          <!-- 7. MODELO DE CAJAS -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">
+              7. El Modelo de Cajas (Box Model)
+            </div>
+            <div class="card-body">
+              <div class="box-model-viz mb-3 border border-dark p-4">
+                <div
+                  class="border p-3"
+                  style="border: 2px solid #ccc !important"
+                >
+                  MARGEN
+                  <div
+                    class="border p-3"
+                    style="
+                      border: 2px solid #282828 !important;
+                      background: #e0e0e0;
+                    "
+                  >
+                    BORDE
+                    <div
+                      class="border p-3"
+                      style="
+                        border: 2px solid #666 !important;
+                        background: white;
+                      "
+                    >
+                      PADDING (Relleno)
+                      <div
+                        class="border p-2"
+                        style="background: var(--primary-green)"
+                      >
+                        CONTENIDO
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul>
+                <li>
+                  <strong>Width/Height:</strong> Definen las dimensiones del
+                  contenido.
+                </li>
+                <li>
+                  <strong>Lados:</strong>
+                  <code>-top, -right, -bottom, -left</code> (orden horario).
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 8. DISEÑO RESPONSIVE -->
+          <div class="custom-card seccion-estudio">
+            <div class="custom-card-header">8. Diseño Web Responsive</div>
+            <div class="card-body">
+              <p>
+                <strong>Regla de oro:</strong> Adaptar, no omitir información.
+              </p>
+              <ul>
+                <li>
+                  <strong>Viewport:</strong> Etiqueta Meta esencial en HTML para
+                  configurar el área visible.
+                </li>
+                <li>
+                  <strong>Media Queries:</strong> Bloques condicionales basados
+                  en el tamaño de pantalla.
+                </li>
+              </ul>
+              <pre>
+@media screen and (max-width: 600px) {
+  body { background: white; }
+}</pre
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="text-center pb-5">
+      <p class="small text-muted fw-bold">BYLUCA © 2026 | LUCABAZZADEV</p>
+    </footer>
+  </body>
+</html>
