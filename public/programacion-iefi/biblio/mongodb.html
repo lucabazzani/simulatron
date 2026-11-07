@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulatrón | IEFI - MongoDB y NoSQL</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../../icono.png" />
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="../index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-uppercase small">MongoDB</span>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <header class="mb-5 text-center">
+        <h1 class="h2 fw-bold border-bottom border-dark pb-2 text-uppercase">
+          Eje 3 · Bases de Datos NoSQL: MongoDB
+        </h1>
+        <p class="text-muted">
+          Modelo documental, formato BSON, validación de esquemas, operaciones
+          en mongosh, índices y modelado de datos.
+        </p>
+      </header>
+
+      <!-- 17. Por qué existen las bases de datos no relacionales -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          <span>17. Por qué existen las bases de datos no relacionales</span>
+          <span>Evolución & Paradigma</span>
+        </div>
+        <div class="card-body">
+          <p>
+            El modelo relacional tradicional (SQL) sobresale en la garantía de
+            integridad referencial, normalización formal, transacciones ACID
+            estrictas y cruces mediante <code>JOIN</code>. Sin embargo, surgen
+            fricciones críticas ante determinados requerimientos del desarrollo
+            moderno:
+          </p>
+          <ul>
+            <li>
+              <strong>Estructuras variables o polimórficas:</strong> Entidades
+              cuyos atributos cambian dinámicamente según la categoría o
+              subtipo. En SQL esto obliga a proliferar columnas nulas dispersas
+              o recurrir al antipatrón EAV (Entity-Attribute-Value),
+              complejizando el mantenimiento.
+            </li>
+            <li>
+              <strong>Desajuste de impedancia objeto-relacional:</strong> Los
+              objetos del código suelen presentar estructuras anidadas naturales
+              (listas, direcciones, propiedades compuestas). En el modelo
+              relacional deben desensamblarse artificialmente en múltiples
+              tablas normalizadas y recomponerse con múltiples joins en cada
+              lectura.
+            </li>
+            <li>
+              <strong>Crecimiento y escalabilidad horizontal:</strong> Las bases
+              relacionales escalan fundamentalmente de manera vertical
+              (agregando más CPU y RAM a un único servidor). Las soluciones
+              NoSQL fueron concebidas desde su arquitectura nativa para escalar
+              horizontalmente (distribución de nodos en clústeres mediante
+              particionamiento o <em>sharding</em>).
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 18. Las cuatro familias NoSQL -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">
+          <span>18. Las cuatro familias NoSQL</span>
+          <span>Taxonomía de Motores</span>
+        </div>
+        <div class="card-body">
+          <p>
+            El universo no relacional clasifica sus tecnologías según el modelo
+            de datos subyacente y el caso de uso óptimo:
+          </p>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="p-3 border border-dark bg-light h-100">
+                <h6 class="fw-bold">
+                  1. Documentales (MongoDB, CouchDB, Firestore)
+                </h6>
+                <p class="small text-muted mb-0">
+                  Almacenan información en documentos estructurados jerárquicos
+                  (JSON/BSON) que admiten anidamiento y esquemas flexibles.
+                  Ideales para catálogos comerciales, perfiles de usuario,
+                  bitácoras de auditoría y formularios dinámicos.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 border border-dark bg-light h-100">
+                <h6 class="fw-bold">
+                  2. Clave-Valor (Redis, DynamoDB, Memcached)
+                </h6>
+                <p class="small text-muted mb-0">
+                  Asocian un valor binario opaco a una clave única, operando
+                  primariamente en memoria RAM con tiempos de respuesta
+                  submilimétricos. Indicadas para sesiones distribuidas, memoria
+                  caché, tablas de clasificación y contadores.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 border border-dark bg-light h-100">
+                <h6 class="fw-bold">
+                  3. Columnares / Column-Family (Cassandra, HBase)
+                </h6>
+                <p class="small text-muted mb-0">
+                  Organizan los datos por columnas en lugar de filas,
+                  optimizando lecturas masivas y compresiones sobre volúmenes
+                  gigantescos distribuidos. Diseñadas para series temporales,
+                  telemetría IoT y analítica Big Data.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 border border-dark bg-light h-100">
+                <h6 class="fw-bold">4. De Grafos (Neo4j, Amazon Neptune)</h6>
+                <p class="small text-muted mb-0">
+                  Estructuran nodos (entidades) interconectados por aristas
+                  (relaciones dirigidas tipificadas con propiedades).
+                  Especializadas en redes sociales, motores de recomendación,
+                  detección de fraudes y trazabilidad de rutas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 19. Modelo documental: documento, BSON, _id y colecciones -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          <span>19. Modelo documental: documento, BSON, _id y colecciones</span>
+          <span>Fundamentos en MongoDB</span>
+        </div>
+        <div class="card-body">
+          <p>
+            MongoDB modela el almacenamiento basándose en agrupaciones flexibles
+            y formatos binarios optimizados:
+          </p>
+          <ul>
+            <li>
+              <strong>Documento:</strong> Unidad básica de registro compuesta
+              por pares clave-valor que admite estructuras jerárquicas embebidas
+              (subdocumentos) y listas ordenadas (arreglos).
+            </li>
+            <li>
+              <strong>BSON (Binary JSON):</strong> Serialización binaria de JSON
+              utilizada internamente por el motor. Agrega eficiencia de
+              recorrido y tipos de datos que JSON no soporta nativamente: fechas
+              exactas (<code>Date</code>), identificadores unívocos
+              (<code>ObjectId</code>), números de punto flotante de alta
+              precisión (<code>Decimal128</code>), enteros de 32/64 bits y
+              flujos binarios (<code>BinData</code>).
+            </li>
+            <li>
+              <strong
+                >Identificador <code>_id</code> y <code>ObjectId</code>:</strong
+              >
+              Todo documento exige un campo <code>_id</code> primario e
+              inmutable. Si no es asignado por el usuario, el motor genera un
+              <code>ObjectId</code> de 12 bytes compuesto por una marca de
+              tiempo (timestamp de 4 bytes), un valor aleatorio de
+              máquina/proceso (5 bytes) y un contador incremental (3 bytes),
+              garantizando unicidad global sin coordinación central de red.
+            </li>
+            <li>
+              <strong>Equivalencias léxicas con el modelo relacional:</strong>
+              <div class="font-monospace small bg-light p-2 border mt-2">
+                Colección ≈ Tabla | Documento ≈ Fila/Registro | Campo ≈ Columna
+                | Embeber / $lookup ≈ JOIN
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 20. Esquema flexible y validación de esquema -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">
+          <span>20. Esquema flexible y validación de esquema</span>
+          <span>Gobernanza de Datos</span>
+        </div>
+        <div class="card-body">
+          <p>
+            La propiedad de <strong>esquema flexible</strong> establece que
+            documentos pertenecientes a la misma colección pueden presentar
+            estructuras, nombres de campos y tipos de datos dispares entre sí.
+          </p>
+          <ul>
+            <li>
+              <strong>Ventajas y riesgos:</strong> Acelera la iteración ágil y
+              la evolución del código sin requerir migraciones bloqueantes
+              (<code>ALTER TABLE</code>). No obstante, introduce el riesgo de
+              inconsistencias graves, degradación de datos por errores
+              tipográficos en nombres de campos o presencia de formatos
+              incompatibles.
+            </li>
+            <li>
+              <strong>Validación con <code>$jsonSchema</code>:</strong> Regla
+              formal que puede aplicarse al crear o modificar una colección
+              (<code>validator: { $jsonSchema: { ... } }</code>). Permite
+              imponer obligatoriedad de campos (<code>required</code>), validar
+              tipos BSON (<code>bsonType</code>), restringir rangos numéricos y
+              acotar valores mediante enumeraciones (<code>enum</code>).
+            </li>
+            <li>
+              <strong>Límite físico de 16 MB:</strong> Ningún documento BSON
+              individual puede superar los 16 megabytes. Si una relación o
+              subdocumento amenaza con exceder este umbral, el modelado impone
+              desacoplar y referenciar en colecciones separadas.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 21. Operaciones CRUD en mongosh -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          <span>21. Operaciones CRUD en mongosh</span>
+          <span>Comandos del Shell</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Sintaxis canónica para la manipulación directa de datos desde la
+            consola de comandos de MongoDB:
+          </p>
+          <ul>
+            <li>
+              <strong>Inserción:</strong>
+              <code>db.coleccion.insertOne({ ... })</code> para un solo
+              documento y
+              <code>db.coleccion.insertMany([ { ... }, { ... } ])</code> para
+              lotes.
+              <em
+                >Si la base de datos o la colección no existen al momento de
+                insertar, el motor las crea de forma automática.</em
+              >
+            </li>
+            <li>
+              <strong>Lectura:</strong>
+              <code>db.coleccion.find(filtro, proyeccion)</code> y
+              <code>db.coleccion.findOne(filtro)</code>. La proyección delimita
+              los campos devueltos mediante indicadores binarios (ej.
+              <code>{ nombre: 1, email: 1, _id: 0 }</code>). Admite
+              encadenamiento de
+              <code>.sort({ fecha: -1 })</code> (ordenamiento),
+              <code>.skip(10)</code> (desplazamiento) y
+              <code>.limit(10)</code> (paginación).
+            </li>
+            <li>
+              <strong>Actualización:</strong>
+              <code>updateOne(filtro, actualizacion)</code> y
+              <code>updateMany(filtro, actualizacion)</code>. Exigen operadores
+              de mutación atómica: <code>$set</code> (modifica o añade campos),
+              <code>$inc</code> (incrementa contadores),
+              <code>$push</code> (agrega elementos a un arreglo) y
+              <code>$unset</code> (remueve campos). El método
+              <code>replaceOne()</code> reemplaza la totalidad del documento
+              preservando únicamente el <code>_id</code>.
+            </li>
+            <li>
+              <strong>Eliminación:</strong>
+              <code>db.coleccion.deleteOne(filtro)</code> y
+              <code>db.coleccion.deleteMany(filtro)</code>.
+              <em
+                >Precaución: pasar un filtro vacío <code>{}</code> en deleteMany
+                vacía la colección por completo.</em
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 22. Operadores de consulta e índices -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">
+          <span>22. Operadores de consulta e índices</span>
+          <span>Optimización de Consultas</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Mecanismos para filtrar y optimizar el rendimiento de recuperación
+            sobre grandes volúmenes de documentos:
+          </p>
+          <ul>
+            <li>
+              <strong>Operadores de comparación:</strong>
+              <code>$eq</code> (igual), <code>$ne</code> (distinto),
+              <code>$gt</code>/<code>$gte</code> (mayor / mayor o igual),
+              <code>$lt</code>/<code>$lte</code> (menor / menor o igual),
+              <code>$in</code> (dentro de una lista de valores) y
+              <code>$nin</code> (no contenido).
+            </li>
+            <li>
+              <strong>Operadores lógicos y de evaluación:</strong>
+              <code>$and</code>, <code>$or</code>, <code>$not</code>,
+              <code>$nor</code>; operadores de existencia y tipo como
+              <code>$exists: true</code> y <code>$type</code>; y coincidencias
+              por patrones mediante expresiones regulares (<code>$regex</code>).
+            </li>
+            <li>
+              <strong>Consultas en arreglos:</strong> <code>$all</code> (debe
+              contener todos los elementos indicados),
+              <code>$size</code> (longitud exacta) y
+              <code>$elemMatch</code> (condición compuesta sobre elementos de un
+              subdocumento en arreglo).
+            </li>
+            <li>
+              <strong>Índices (B-Tree):</strong> Estructuras auxiliares creadas
+              con <code>db.coleccion.createIndex({ campo: 1 })</code> que evitan
+              el escaneo secuencial de toda la colección
+              (<strong>COLLSCAN</strong>), transformándolo en una búsqueda
+              indexada eficiente (<strong>IXSCAN</strong>). En índices
+              compuestos el orden de los campos es determinante (regla de
+              igualdad primero, luego ordenamiento y rango).
+            </li>
+            <li>
+              <strong
+                >Diagnóstico con <code>explain('executionStats')</code>:</strong
+              >
+              Herramienta de auditoría analítica que expone las métricas del
+              planificador: cantidad de documentos examinados
+              (<em>totalDocsExamined</em>) frente a documentos devueltos
+              (<em>nReturned</em>).
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 23. Modelado documental: embeber o referenciar -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          <span>23. Modelado documental: embeber o referenciar</span>
+          <span>Decisión Arquitectónica Central</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Dilema fundamental del diseño en bases de datos orientadas a
+            documentos:
+          </p>
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <div class="p-3 border border-dark bg-light h-100">
+                <strong>Embeber (Documentos Anidados):</strong><br />
+                <small class="text-muted"
+                  >El dato secundario vive dentro del documento raíz. Ventaja:
+                  recuperación en una única lectura sin joins y modificaciones
+                  atómicas. Desventaja: riesgo de duplicación de datos y de
+                  colisión contra el límite de 16 MB.</small
+                >
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 border border-dark bg-light h-100">
+                <strong>Referenciar (Vínculo por Clave):</strong><br />
+                <small class="text-muted"
+                  >El dato reside en una colección independiente vinculada
+                  mediante el <code>_id</code>. Ventaja: previene el crecimiento
+                  desmedido y elimina la duplicación. Desventaja: exige
+                  múltiples consultas o el uso de la etapa agregada
+                  <code>$lookup</code>.</small
+                >
+              </div>
+            </div>
+          </div>
+          <h6>Reglas prácticas de decisión según cardinalidad:</h6>
+          <ul class="small mb-0">
+            <li>
+              <strong>Uno a pocos (1:few):</strong> Embeber directamente (ej.
+              direcciones de un usuario o números de teléfono).
+            </li>
+            <li>
+              <strong>Uno a muchos acotado (1:many):</strong> Embeber si la
+              lista tiene un límite previsible; de lo contrario, referenciar.
+            </li>
+            <li>
+              <strong>Uno a muchísimos (1:squillions):</strong> Referenciar
+              obligatoriamente (ej. logs de un servidor o transacciones de un
+              sensor).
+            </li>
+            <li>
+              <strong>Muchos a muchos (N:M):</strong> Referenciar mediante
+              colecciones separadas, o embeber únicamente en el documento del
+              lado que se consulta con mayor frecuencia.
+            </li>
+            <li>
+              <strong>Datos históricos congelados:</strong> Si el dato no debe
+              modificarse cuando cambie el maestro (ej. precio unitario o
+              descripción del producto al momento de emitir una factura), debe
+              <strong>embeberse</strong> para preservar la foto histórica.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 24. Cuándo conviene MongoDB y la arquitectura híbrida -->
+      <div class="custom-card mb-5">
+        <div class="custom-card-header">
+          <span>24. Cuándo conviene MongoDB y la arquitectura híbrida</span>
+          <span>Criterio de Selección Tecnológica</span>
+        </div>
+        <div class="card-body">
+          <p>
+            La elección entre una base relacional y un motor documental debe
+            fundarse en las restricciones del dominio:
+          </p>
+          <ul>
+            <li>
+              <strong>Conviene usar MongoDB cuando:</strong> La estructura de
+              las entidades es variable, se consulta predominantemente el
+              documento completo en una sola operación, existen jerarquías
+              naturales anidadas, se necesita prototipar a alta velocidad, o se
+              implementan módulos de auditoría, eventos, catálogos y sistemas de
+              alto volumen con escalabilidad horizontal.
+            </li>
+            <li>
+              <strong>Conviene mantener una base Relacional cuando:</strong> El
+              esquema es rígido y altamente estable, la lógica de negocio
+              depende de transacciones ACID distribuidas sobre múltiples tablas
+              críticas (facturación, contabilidad, reservas bancarias), o el
+              sistema depende de complejas herramientas de Business Intelligence
+              y reportes analíticos SQL consolidados.
+            </li>
+            <li>
+              <strong>Arquitectura Híbrida (Políglota):</strong> Enfoque moderno
+              donde conviven ambos motores sin necesidad de migrar la totalidad
+              del sistema. Se conserva una base de datos relacional (ej.
+              PostgreSQL) para el núcleo transaccional financiero y se integra
+              MongoDB para módulos complementarios de alto dinamismo
+              (historiales de auditoría, catálogo de atributos variables o
+              notificaciones).
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center pb-5">
+      <p class="small text-muted fw-bold">SIMULATRÓN © 2026 | LUCABAZZADEV</p>
+    </footer>
+  </body>
+</html>

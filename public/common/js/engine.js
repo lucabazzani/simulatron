@@ -12,6 +12,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const materiaActiva = urlParams.get("materia") || "frontend";
 const nivelActual = parseInt(urlParams.get("nivel")) || 1;
 const temaActual = urlParams.get("tema") || "mix";
+const dificultadActual = urlParams.get("dificultad") || "mix";
 
 // Elementos del DOM
 const contenedor = document.getElementById("quiz-engine");
@@ -106,6 +107,26 @@ const etiquetasMateria = {
       mix: "Integral",
     },
   },
+  verificacion: {
+    titulo: "Verificación y Validación",
+    temas: {
+      "unidad-1": "Unidad 1",
+      "unidad-2": "Unidad 2",
+      "unidad-3": "Unidad 3",
+      "unidad-4": "Unidad 4",
+    },
+  },
+  "programacion-iefi": {
+    titulo: "Programación III",
+    temas: {
+      frontend: "Frontend",
+      spring: "Spring Boot",
+      mongodb: "MongoDB",
+      docker: "Docker",
+      archivos: "Almacenamiento",
+      mix: "Los cinco ejes",
+    },
+  },
 };
 
 /**
@@ -137,8 +158,10 @@ function inicializarExamen(banco) {
 
   let bancoFiltrado = banco.filter((p) => {
     const nivelCoincide = p.nivel === nivelActual;
-    if (temaActual === "mix") return nivelCoincide;
-    return nivelCoincide && temasAFiltrar.includes(p.tema);
+    const temaCoincide = temaActual === "mix" || temasAFiltrar.includes(p.tema);
+    const dificultadCoincide =
+      dificultadActual === "mix" || p.dificultad === dificultadActual;
+    return nivelCoincide && temaCoincide && dificultadCoincide;
   });
 
   preguntasSeleccionadas = barajar(bancoFiltrado).slice(0, 20);
@@ -148,7 +171,9 @@ function inicializarExamen(banco) {
     temas: {},
   };
   const nombreTema = infoMateria.temas[temaActual] || temaActual.toUpperCase();
-  headerTitulo.innerText = `${infoMateria.titulo} - Nivel ${nivelActual}: ${nombreTema}`;
+  const nombreDificultad =
+    dificultadActual === "mix" ? "Mixto" : dificultadActual.toUpperCase();
+  headerTitulo.innerText = `${infoMateria.titulo} - Nivel ${nivelActual}: ${nombreTema} - ${nombreDificultad}`;
 
   if (preguntasSeleccionadas.length === 0) {
     contenedor.innerHTML = `<div class="col-12 p-5 text-center alert-error-tech">No se encontraron preguntas suficientes.</div>`;

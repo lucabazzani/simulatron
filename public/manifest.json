@@ -1,7 +1,7 @@
 {
-  "name": "ByLuca",
-  "short_name": "ByLuca",
-  "start_url": "./index.html", 
+  "name": "Simulatrón",
+  "short_name": "Simulatrón",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f1f1e6",

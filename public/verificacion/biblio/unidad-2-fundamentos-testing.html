@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Bibliografía: Unidad 2 - Fundamentos del Testing y Ciclo de Vida
+    </title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../../icono.png" />
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="../index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-uppercase">Fundamentos del Testing</span>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <header class="mb-5 text-center">
+        <h1 class="h2 fw-bold border-bottom border-dark pb-2">
+          Fundamentos del Testing y Ciclo de Vida
+        </h1>
+        <p class="text-muted">
+          Definiciones, cadena causal IEEE 610.12, los 7 principios ISTQB y el
+          proceso ISO 29119.
+        </p>
+      </header>
+
+      <!-- 1. TESTING, QA, QC Y DEBUGGING -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          1. Definiciones y Distinción Operativa
+        </div>
+        <div class="card-body">
+          <p>
+            <strong>Testing de Software:</strong> Proceso sistemático,
+            planificado y disciplinado que consiste en ejecutar un programa bajo
+            condiciones controladas con la intención deliberada de provocar que
+            falle para descubrir defectos ocultos antes de su paso a producción.
+          </p>
+          <div class="row g-3 mt-3">
+            <div class="col-md-4">
+              <div class="p-3 border border-dark bg-light h-100">
+                <strong>Paradigma de Myers:</strong><br />
+                <small class="text-muted"
+                  >El testing no busca demostrar que el software "funciona
+                  adecuadamente" (sesgo de confirmación), sino maximizar la
+                  probabilidad de encontrar errores no detectados.</small
+                >
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="p-3 border border-dark bg-light h-100">
+                <strong>QA vs. QC:</strong><br />
+                <small class="text-muted"
+                  ><strong>QA (Aseguramiento):</strong> Preventivo, orientado a
+                  procesos. <br /><strong>QC (Control / Testing):</strong>
+                  Correctivo/detectivo, orientado al producto.</small
+                >
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="p-3 border border-dark bg-light h-100">
+                <strong>Debugging:</strong><br />
+                <small class="text-muted"
+                  >Actividad técnica posterior ejecutada por desarrolladores
+                  para localizar la causa raíz (defecto en código) tras
+                  descubrir la falla.</small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. LA CADENA CAUSAL -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">
+          2. La Cadena Causal: Error-Defecto-Falla (IEEE 610.12)
+        </div>
+        <div class="card-body">
+          <p class="text-center font-monospace mb-3">
+            <code>Error Humano</code> ➔ <code>Defecto / Falta (Bug)</code> ➔
+            <code>Falla (Comportamiento anómalo)</code>
+          </p>
+          <ul>
+            <li>
+              <strong>Error (Equivocación humana):</strong> Acción o desvío
+              cognitivo del profesional durante modelado, diseño o codificación.
+            </li>
+            <li>
+              <strong>Defecto / Falta (Fault / Bug):</strong> Consecuencia
+              física o lógica del error, plasmada de forma estática y latente
+              (Principio de Latencia: permanece inerte si no se ejecuta su ruta
+              lógica).
+            </li>
+            <li>
+              <strong>Falla (Failure):</strong> Manifestación dinámica externa
+              observable en tiempo de ejecución al activar el bloque defectuoso.
+            </li>
+          </ul>
+          <hr />
+          <p class="small mb-0">
+            <strong>Anomalías de Ejecución:</strong>
+            <em>Falso Positivo</em> (reporta fallo inexistente por fallas de
+            entorno o script) y <em>Falso Negativo</em> (pasa por alto un
+            defecto real por oráculos laxos).
+          </p>
+        </div>
+      </div>
+
+      <!-- 3. LOS 7 PRINCIPIOS DEL TESTING -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          3. Los 7 Principios del Testing (ISTQB / Myers)
+        </div>
+        <div class="card-body">
+          <ol class="small mb-0">
+            <li class="mb-2">
+              <strong
+                >El testing muestra presencia de defectos, no su
+                ausencia:</strong
+              >
+              Nunca prueba ausencia total de errores.
+            </li>
+            <li class="mb-2">
+              <strong>El testing exhaustivo es imposible:</strong> Requiere
+              priorización basada en riesgo.
+            </li>
+            <li class="mb-2">
+              <strong>Testing temprano (Shift-Left):</strong> Iniciar análisis
+              desde requisitos reduce costos drásticamente.
+            </li>
+            <li class="mb-2">
+              <strong>Agrupamiento de defectos (Defect Clustering):</strong>
+              Principio de Pareto; pocos módulos concentran la mayoría de
+              fallos.
+            </li>
+            <li class="mb-2">
+              <strong>La paradoja del pesticida (Pesticide Paradox):</strong>
+              Repetir los mismos casos pierde efectividad; hay que
+              evolucionarlos.
+            </li>
+            <li class="mb-2">
+              <strong>El testing depende del contexto:</strong> Varía según el
+              riesgo operativo (médico vs. e-commerce).
+            </li>
+            <li class="mb-2">
+              <strong>La falacia de la ausencia de errores:</strong> Un sistema
+              sin bugs técnicos fracasa si no satisface al usuario.
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- 4. PROCESO FUNDAMENTAL E ISO 29119 -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">
+          4. Proceso Fundamental de Pruebas (ISO/IEC/IEEE 29119)
+        </div>
+        <div class="card-body">
+          <p class="small">El ciclo formal de actividades comprende:</p>
+          <ol class="small mb-3">
+            <li>
+              <strong>Planificación:</strong> Estrategia y alcance (Plan de
+              Pruebas, Criterios de Entrada/Salida).
+            </li>
+            <li>
+              <strong>Monitoreo y Control:</strong> Seguimiento y métricas de
+              avance.
+            </li>
+            <li>
+              <strong>Análisis:</strong> Evaluación de testabilidad y
+              condiciones de prueba.
+            </li>
+            <li>
+              <strong>Diseño:</strong> Creación de casos de prueba y definición
+              del oráculo.
+            </li>
+            <li>
+              <strong>Implementación:</strong> Configuración de ambientes y
+              Smoke Testing.
+            </li>
+            <li>
+              <strong>Ejecución:</strong> Corridas, <em>Retesting</em> (reprueba
+              de defecto) y <em>Pruebas de Regresión</em>.
+            </li>
+            <li>
+              <strong>Finalización:</strong> Recopilación de métricas, reporte
+              de cierre y lecciones aprendidas.
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- 5. FACTORES DE CALIDAD DE MCCALL -->
+      <div class="custom-card mb-5">
+        <div class="custom-card-header">
+          5. Factores de Calidad (McCall / Pressman)
+        </div>
+        <div class="card-body">
+          <div class="row g-2 small">
+            <div class="col-md-4">
+              <strong>Corrección:</strong> Cumplimiento de especificaciones.
+            </div>
+            <div class="col-md-4">
+              <strong>Confiabilidad:</strong> Operación consistente temporal.
+            </div>
+            <div class="col-md-4">
+              <strong>Eficiencia:</strong> Uso óptimo de recursos.
+            </div>
+            <div class="col-md-4">
+              <strong>Usabilidad:</strong> Esfuerzo cognitivo mínimo.
+            </div>
+            <div class="col-md-4">
+              <strong>Mantenibilidad:</strong> Simplicidad de corrección.
+            </div>
+            <div class="col-md-4">
+              <strong>Portabilidad:</strong> Migración entre plataformas.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center pb-5">
+      <p class="small text-muted fw-bold">SIMULATRÓN © 2026 | LUCABAZZADEV</p>
+    </footer>
+  </body>
+</html>

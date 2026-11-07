@@ -306,3 +306,119 @@ body {
     display: none;
   } /* Oculta controles extra en móviles muy pequeños */
 }
+
+/* ==========================================================================
+   IDENTIDAD VISUAL Y ANIMACIONES HOVER - MATERIAS NUEVAS TERCIARIO
+   ========================================================================== */
+
+/* --- MATERIA 7: ALMACENAMIENTO DE ARCHIVOS (Ámbar / Storage) --- */
+.opt-archivos:hover {
+  background-color: #f59e0b !important;
+  color: #000 !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+.opt-archivos:hover p,
+.opt-archivos:hover div {
+  color: #000 !important;
+}
+.opt-archivos .status-tag {
+  background-color: #78350f;
+  color: #fef3c7;
+}
+
+/* --- MATERIA 8: NOSQL & MONGODB (Verde Esmeralda) --- */
+.opt-mongodb:hover {
+  background-color: #10b981 !important;
+  color: #000 !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+.opt-mongodb:hover p,
+.opt-mongodb:hover div {
+  color: #000 !important;
+}
+.opt-mongodb .status-tag {
+  background-color: #064e3b;
+  color: #a7f3d0;
+}
+
+/* --- MATERIA 9: BACKEND JAVA & SPRING BOOT (Rojo Carmesí) --- */
+.opt-backend:hover {
+  background-color: #dc2626 !important;
+  color: #fff !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+.opt-backend:hover p,
+.opt-backend:hover div {
+  color: #fff !important;
+}
+.opt-backend .status-tag {
+  background-color: #450a0a;
+  color: #fca5a5;
+}
+
+/* --- MATERIA 10: DESARROLLO FRONTEND CON REACT (Cian React) --- */
+.opt-react:hover {
+  background-color: #06b6d4 !important;
+  color: #000 !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+.opt-react:hover p,
+.opt-react:hover div {
+  color: #000 !important;
+}
+.opt-react .status-tag {
+  background-color: #083344;
+  color: #cffafe;
+}
+
+/* --- MATERIA 11: TYPESCRIPT PARA JAVA DEVS (Azul TS) --- */
+.opt-typescript:hover {
+  background-color: #2563eb !important;
+  color: #fff !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+.opt-typescript:hover p,
+.opt-typescript:hover div {
+  color: #fff !important;
+}
+.opt-typescript .status-tag {
+  background-color: #1e3a8a;
+  color: #bfdbfe;
+}
+
+/* --- MATERIA 12: VERIFICACIÓN Y VALIDACIÓN DE SISTEMAS (Teal / QA) --- */
+.opt-verificacion:hover {
+  background-color: #14b8a6 !important;
+  color: #000 !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+.opt-verificacion:hover p,
+.opt-verificacion:hover div {
+  color: #000 !important;
+}
+.opt-verificacion .status-tag {
+  background-color: #042f2e;
+  color: #99f6e4;
+}
+
+/* --- MATERIA IEFI PROGRAMACIÓN (Violeta / Indigo Técnico) --- */
+.opt-iefi:hover {
+  background-color: #8b5cf6 !important;
+  color: #fff !important;
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000;
+}
+.opt-iefi:hover p,
+.opt-iefi:hover div {
+  color: #fff !important;
+}
+.opt-iefi .status-tag {
+  background-color: #3b0764;
+  color: #f3e8ff;
+}

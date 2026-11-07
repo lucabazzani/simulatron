@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulatrón | IEFI - Almacenamiento de Archivos</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../../icono.png" />
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="../index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-uppercase small">Almacenamiento</span>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <header class="mb-5 text-center">
+        <h1 class="h2 fw-bold border-bottom border-dark pb-2 text-uppercase">
+          Eje 5 · Almacenamiento de Archivos
+        </h1>
+        <p class="text-muted">
+          Metadatos, estrategias de almacenamiento, Object Storage (S3/MinIO),
+          consistencia en patrones híbridos y seguridad.
+        </p>
+      </header>
+
+      <!-- 33. El archivo como dato particular y sus metadatos -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          <span>33. El archivo como dato particular y sus metadatos</span>
+          <span>Naturaleza & Atributos</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Un archivo informático no puede gestionarse como un dato
+            convencional (texto, números o fechas). Posee una naturaleza
+            volumétrica extensa, es binario, no se indexa ni consulta por su
+            contenido directo y se transfiere de forma secuencial por
+            <em>streaming</em>:
+          </p>
+          <ul>
+            <li>
+              <strong>Impacto sistémico:</strong> Manipular binarios
+              directamente sobre el motor de base de datos degrada el
+              rendimiento de la memoria caché, satura el pool de conexiones y
+              multiplica exponencialmente el tamaño de los respaldos (backups).
+            </li>
+            <li>
+              <strong>Persistencia de metadatos:</strong> Independientemente de
+              dónde resida el binario, la base de datos debe almacenar
+              formalmente sus descriptores estructurales:
+              <ul>
+                <li>
+                  Nombre original enviado por el cliente (para preservar la
+                  semántica del usuario).
+                </li>
+                <li>
+                  Nombre o clave interna única generada por el sistema (UUID).
+                </li>
+                <li>
+                  Tipo MIME verificado (ej. <code>application/pdf</code>,
+                  <code>image/webp</code>).
+                </li>
+                <li>Tamaño exacto del archivo en bytes.</li>
+                <li>Fecha y hora de carga.</li>
+                <li>Entidad o usuario propietario responsable.</li>
+                <li>
+                  Ubicación lógica (identificador del bucket, clave o ruta
+                  relativa).
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Ventaja operativa:</strong> Permite consultar, ordenar,
+              paginar y evaluar autorizaciones de descarga sin necesidad de
+              abrir ni transferir el archivo binario real.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 34. Estrategias para almacenar archivos -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">
+          <span>34. Estrategias para almacenar archivos</span>
+          <span>Comparativa de Arquitecturas</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Existen tres aproximaciones para resolver la persistencia de
+            binarios en sistemas de software:
+          </p>
+          <div class="table-responsive">
+            <table class="table table-bordered small">
+              <thead>
+                <tr>
+                  <th>Estrategia</th>
+                  <th>Ubicación del Binario</th>
+                  <th>Ubicación de Metadatos</th>
+                  <th>Diagnóstico en Entornos Cloud</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>En Base de Datos</strong></td>
+                  <td>Campos BLOB / bytea / GridFS</td>
+                  <td>En la misma fila/documento</td>
+                  <td>
+                    Sobrecarga copias de seguridad y memoria RAM; justificado
+                    solo en volúmenes pequeños con transaccionalidad estricta.
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>En Disco del Servidor</strong></td>
+                  <td>Sistema de archivos local (filesystem)</td>
+                  <td>Ruta relativa en la base de datos</td>
+                  <td>
+                    <strong>Inviable en la nube:</strong> los sistemas PaaS
+                    (Render, Railway, Heroku) operan con discos efímeros que
+                    borran archivos en cada reinicio, y las instancias escaladas
+                    no comparten almacenamiento local.
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Object Storage</strong></td>
+                  <td>Servicio externo (S3, R2, MinIO)</td>
+                  <td>Clave del objeto en la base de datos</td>
+                  <td>
+                    <strong>Estándar de la industria:</strong> almacenamiento
+                    ilimitado, alta disponibilidad, distribución geográfica y
+                    desacoplamiento total del backend.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 35. Binarios en la base de datos relacional -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          <span>35. Binarios en la base de datos relacional</span>
+          <span>Tipos BLOB & JPA</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Persistencia directa de secuencias de bytes dentro de motores
+            relacionales:
+          </p>
+          <ul>
+            <li>
+              <strong>Tipos nativos por motor:</strong> <code>bytea</code> en
+              PostgreSQL; <code>TINYBLOB</code>, <code>BLOB</code>,
+              <code>MEDIUMBLOB</code> y <code>LONGBLOB</code> (hasta 4 GB) en
+              MySQL; <code>VARBINARY(MAX)</code> en SQL Server.
+            </li>
+            <li>
+              <strong>Mapeo mediante JPA:</strong> Se utiliza el tipo
+              <code>byte[]</code> anotado con <code>@Lob</code> (Large Object).
+            </li>
+            <li>
+              <strong>Buenas prácticas obligatorias:</strong>
+              <ul>
+                <li>
+                  Separar el arreglo binario en una entidad secundaria vinculada
+                  (<code>@OneToOne</code>), evitando que las consultas generales
+                  sobre el registro carguen los megabytes del archivo a la
+                  memoria.
+                </li>
+                <li>
+                  Configurar la relación con <code>FetchType.LAZY</code> para
+                  transferir los bytes únicamente bajo demanda explícita.
+                </li>
+                <li>
+                  Utilizar streaming en el controlador mediante
+                  <code>StreamingResponseBody</code> o flujos
+                  <code>InputStream</code> para evitar el agotamiento de memoria
+                  del servidor al servir descargas.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Criterio de aplicación:</strong> Recomendable
+              exclusivamente para sistemas cerrados con bajo volumen de archivos
+              pequeños (ej. firmas digitales o sellos notariales) donde la
+              transaccionalidad atómica indivisible con el registro sea un
+              requisito excluyente.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 36. Archivos en MongoDB: BinData y GridFS -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">
+          <span>36. Archivos en MongoDB: BinData y GridFS</span>
+          <span>BinData vs. GridFS</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Mecanismos provistos por el motor documental para la persistencia
+            binaria:
+          </p>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="p-3 border border-dark bg-light h-100">
+                <strong>Tipo BinData (En documento):</strong><br />
+                <small class="text-muted">
+                  El archivo se almacena como un campo binario nativo dentro del
+                  documento BSON. Aplica únicamente a archivos pequeños (iconos,
+                  avatares o thumbnails), ya que el archivo sumado al resto de
+                  los campos de la entidad
+                  <strong
+                    >no puede superar el límite estricto de 16 MB por
+                    documento</strong
+                  >.
+                </small>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 border border-dark bg-light h-100">
+                <strong>Especificación GridFS (Chunky Storage):</strong><br />
+                <small class="text-muted">
+                  Especializado para archivos que exceden los 16 MB. Segmenta el
+                  binario en fragmentos contiguos (<em>chunks</em> de 255 KB por
+                  defecto) y los administra automáticamente mediante dos
+                  colecciones acopladas: <code>fs.files</code> (metadatos
+                  generales) y <code>fs.chunks</code> (fragmentos binarios con
+                  índice de orden). Permite lectura y escritura por streaming
+                  sin cargar el archivo completo en memoria.
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 37. Object storage: Amazon S3 y compatibles -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          <span>37. Object storage: Amazon S3 y compatibles</span>
+          <span>Estándar S3 & Buckets</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Paradigma de almacenamiento optimizado para la nube donde los datos
+            se administran como <strong>objetos</strong> autónomos en lugar de
+            bloques de disco o jerarquías de archivos:
+          </p>
+          <ul>
+            <li>
+              <strong>Anatomía del objeto:</strong> Constituido por el flujo
+              binario, un identificador de clave única (<em>Object Key</em>) y
+              metadatos extensibles. Se alojan en contenedores raíz llamados
+              <strong>Buckets</strong>. No existe un concepto real de carpetas
+              en el sistema de almacenamiento; los prefijos en la clave (ej.
+              <code>usuarios/12/foto.jpg</code>) son cadenas de texto planas que
+              las interfaces visuales interpretan como carpetas lógicas.
+            </li>
+            <li>
+              <strong>Ecosistema API de S3:</strong> La interfaz de Amazon S3 se
+              convirtió en el estándar <em>de facto</em> del mercado. Motores de
+              código abierto como <strong>MinIO</strong> y proveedores en la
+              nube como Cloudflare R2 o Backblaze B2 implementan la misma
+              especificación, permitiendo utilizar el cliente oficial de AWS SDK
+              en Spring Boot sin modificar una sola línea de código, variando
+              únicamente el <code>endpoint</code>, credenciales y región.
+            </li>
+            <li>
+              <strong>Seguridad de buckets:</strong> Por directiva canónica de
+              seguridad, los buckets deben permanecer
+              <strong>estrictamente privados</strong> (bloqueo total de acceso
+              público), autorizando la lectura o carga mediante credenciales de
+              servicio o URLs prefirmadas.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 38. Subida por backend (proxy) vs URL prefirmada -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">
+          <span>38. Subida por backend (proxy) vs URL prefirmada</span>
+          <span>Flujos de Transferencia</span>
+        </div>
+        <div class="card-body">
+          <div class="row g-3">
+            <div class="col-md-6 border-end">
+              <h6 class="fw-bold text-dark">1. Subida vía Backend (Proxy)</h6>
+              <p class="small text-muted">
+                El cliente envía el archivo como
+                <code>multipart/form-data</code> a la API de Spring Boot. El
+                backend lo recibe, valida el tamaño y tipo en memoria/disco
+                temporal, lo sube al bucket S3 y finalmente registra los
+                metadatos en la base de datos.
+              </p>
+              <ul class="small mb-0">
+                <li>
+                  <strong>Ventaja:</strong> Simple de implementar, control
+                  absoluto y validación previa estricta.
+                </li>
+                <li>
+                  <strong>Desventaja:</strong> Satura el ancho de banda del
+                  servidor, bloquea hilos de ejecución de la API y consume
+                  memoria RAM de forma crítica ante cargas concurrentes.
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6 ps-md-4">
+              <h6 class="fw-bold text-dark">
+                2. Subida con URL Prefirmada (Presigned URL)
+              </h6>
+              <p class="small text-muted">
+                El cliente solicita autorización a la API. El backend valida
+                permisos y genera una URL temporal firmada criptográficamente
+                con expiración breve (ej. 15 minutos). El cliente sube el
+                binario directamente desde el navegador al bucket vía
+                <code>PUT</code> HTTP, y luego notifica al backend para asentar
+                el registro.
+              </p>
+              <ul class="small mb-0">
+                <li>
+                  <strong>Ventaja:</strong> Descarga todo el tráfico del backend
+                  y escala masivamente.
+                </li>
+                <li>
+                  <strong>Desventaja:</strong> Exige configurar políticas CORS
+                  en el bucket y realizar validaciones reactivas posteriores.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 39. Patrón híbrido y consistencia entre base y almacenamiento -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          <span
+            >39. Patrón híbrido y consistencia entre base y almacenamiento</span
+          >
+          <span>Tolerancia a Fallas</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Al implementar el patrón híbrido (metadatos en base de datos y
+            binarios en Object Storage), las dos operaciones de escritura no
+            participan de una misma transacción ACID distribuida. Esto puede
+            originar fallas de consistencia que deben ser mitigadas:
+          </p>
+          <ul>
+            <li>
+              <strong>Objeto Huérfano:</strong> Ocurre si el archivo se sube
+              exitosamente al Object Storage pero la sentencia
+              <code>INSERT</code> de la base de datos falla por validación o
+              error de red. <em>Mitigación:</em> Implementar tareas programadas
+              en segundo plano (cron jobs) que comparen el inventario del bucket
+              contra los registros de la base y eliminen objetos huérfanos que
+              superen las 24 horas de antigüedad.
+            </li>
+            <li>
+              <strong>Enlace Roto (Broken Reference):</strong> Ocurre si se
+              asienta el registro en la base de datos pero la subida del binario
+              falla. <em>Mitigación:</em> Respetar siempre el orden seguro
+              (subir primero el archivo al almacenamiento y registrar los
+              metadatos solo tras confirmar el código HTTP 200 de subida, o
+              verificar la existencia del binario mediante la operación
+              <code>headObject</code>).
+            </li>
+            <li>
+              <strong>Limpieza de bajas:</strong> Si se elimina un registro de
+              la base pero falla el borrado en el bucket, el costo de
+              almacenamiento persiste. Se recomienda emplear
+              <strong>borrado lógico</strong> en la entidad y diferir la
+              eliminación física del binario a un proceso de limpieza por lotes.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 40. Seguridad en la carga de archivos -->
+      <div class="custom-card mb-5">
+        <div class="custom-card-header">
+          <span>40. Seguridad en la carga de archivos</span>
+          <span>Protección & Directivas</span>
+        </div>
+        <div class="card-body">
+          <p>
+            La carga de archivos representa uno de los vectores de ataque más
+            críticos (RCE, DoS, Path Traversal). Deben aplicarse medidas de
+            seguridad estrictas:
+          </p>
+          <ul>
+            <li>
+              <strong>Nunca confiar en los datos del cliente:</strong> El nombre
+              del archivo, la extensión y la cabecera
+              <code>Content-Type</code> son suministrados por el navegador y
+              pueden ser fácilmente falsificados por un atacante (ej. renombrar
+              un archivo ejecutable <code>.exe</code> o <code>.php</code> a
+              <code>.jpg</code>).
+            </li>
+            <li>
+              <strong>Detección de números mágicos (Magic Numbers):</strong>
+              Inspeccionar los primeros bytes del encabezado binario del archivo
+              (utilizando librerías como <strong>Apache Tika</strong>) para
+              determinar su tipo MIME real e intrínseco, contrastándolo contra
+              una <strong>lista blanca estricta</strong> de formatos permitidos.
+            </li>
+            <li>
+              <strong>Generación de nombres únicos (UUID):</strong> Jamás
+              utilizar el nombre original del archivo para guardarlo en el disco
+              o en el bucket. Se debe generar un identificador unívoco aleatorio
+              (ej. <code>UUID.randomUUID()</code>), previniendo ataques de
+              escape de directorios (<em>Path Traversal</em>:
+              <code>../../etc/passwd</code>) y colisiones accidentales de
+              nombres entre usuarios.
+            </li>
+            <li>
+              <strong>Autorización en descargas y vectores especiales:</strong>
+              La descarga de archivos privados debe validar que el usuario
+              autenticado tenga permisos específicos sobre ese recurso en
+              particular. Además, deben aplicarse límites rígidos de tamaño de
+              subida, restringir archivos con riesgo de scripts incrustados
+              (como imágenes <code>SVG</code> con código JavaScript) y
+              deshabilitar la descompresión recursiva automática para evitar
+              ataques de denegación de servicio por bombas de descompresión (<em
+                >Zip Bombs</em
+              >).
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center pb-5">
+      <p class="small text-muted fw-bold">SIMULATRÓN © 2026 | LUCABAZZADEV</p>
+    </footer>
+  </body>
+</html>

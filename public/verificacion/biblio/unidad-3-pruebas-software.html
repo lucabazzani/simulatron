@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bibliografía: Unidad 3 - Pruebas de Software y Diseño</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../../icono.png" />
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="../index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-uppercase">Pruebas de Software</span>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <header class="mb-5 text-center">
+        <h1 class="h2 fw-bold border-bottom border-dark pb-2">
+          Clasificación, Técnicas de Diseño y Documentación Evaluativa
+        </h1>
+        <p class="text-muted">
+          Niveles de prueba en el SDLC, técnicas avanzadas, Plan de Pruebas IEEE
+          829 y Matriz de Trazabilidad.
+        </p>
+      </header>
+
+      <!-- 1. CASO DE PRUEBA Y NIVELES -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          1. Caso de Prueba y Niveles de Prueba en el SDLC
+        </div>
+        <div class="card-body">
+          <p>
+            <strong>Caso de Prueba (Test Case):</strong> Unidad mínima, concreta
+            y documentada del proceso de evaluación (precondiciones, entradas de
+            datos, pasos procedurales y resultados esperados / oráculo).
+          </p>
+          <div class="table-responsive mt-3">
+            <table class="table table-bordered small">
+              <thead>
+                <tr>
+                  <th>Nivel de Prueba</th>
+                  <th>Objeto Evaluado</th>
+                  <th>Ejecutor Principal</th>
+                  <th>Técnica Predominante</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Unitarias</strong></td>
+                  <td>Componentes aislados (clases, métodos, funciones).</td>
+                  <td>Desarrollador</td>
+                  <td>Caja Blanca</td>
+                </tr>
+                <tr>
+                  <td><strong>Integración</strong></td>
+                  <td>
+                    Interconexión, interfaces y contratos de comunicación.
+                  </td>
+                  <td>Desarrollador / Tester</td>
+                  <td>Caja Blanca y Caja Negra</td>
+                </tr>
+                <tr>
+                  <td><strong>Sistema</strong></td>
+                  <td>
+                    Software completo integrado en ambiente representativo.
+                  </td>
+                  <td>Equipo de Testing (QA)</td>
+                  <td>Caja Negra</td>
+                </tr>
+                <tr>
+                  <td><strong>Aceptación</strong></td>
+                  <td>
+                    Sistema completo frente a criterios del negocio (Alfa y
+                    Beta).
+                  </td>
+                  <td>Cliente / Usuarios Finales</td>
+                  <td>Caja Negra</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. TÉCNICAS DE DISEÑO ESPECIALIZADAS -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">
+          2. Técnicas de Diseño (Caja Negra y Caja Blanca)
+        </div>
+        <div class="card-body">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="p-3 border border-dark bg-light h-100">
+                <strong>Caja Negra Avanzada:</strong><br />
+                <ul class="small mt-2 mb-0">
+                  <li>
+                    <em>Gráfico Causa-Efecto:</em> Lógica booleana de
+                    interacciones múltiples.
+                  </li>
+                  <li>
+                    <em>Pair-wise Testing (Pares):</em> Combinatorio que cubre
+                    interacciones de a pares entre parámetros.
+                  </li>
+                  <li>
+                    <em>Evaluación Basada en Estados:</em> Máquinas de estado
+                    finito para transiciones válidas/inválidas.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 border border-dark bg-light h-100">
+                <strong>Caja Blanca Avanzada:</strong><br />
+                <ul class="small mt-2 mb-0">
+                  <li>
+                    <em>Flujo de Control:</em> Recorrido de caminos lógicos y
+                    grafos de flujo (sentencias y decisiones).
+                  </li>
+                  <li>
+                    <em>Flujo de Datos:</em> Rastreo del ciclo de vida de
+                    variables (define, use, kill/modify).
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. PROPÓSITOS ESPECÍFICOS -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">3. Pruebas de Propósito Específico</div>
+        <div class="card-body">
+          <div class="row g-2 small">
+            <div class="col-md-6">
+              <strong>Smoke Testing:</strong> Verificación superficial de
+              estabilidad general de un build.
+            </div>
+            <div class="col-md-6">
+              <strong>Sanity Testing:</strong> Validación rápida y focalizada
+              tras un parche puntual.
+            </div>
+            <div class="col-md-6">
+              <strong>Retesting:</strong> Reprueba estricta de un defecto
+              corregido.
+            </div>
+            <div class="col-md-6">
+              <strong>Pruebas de Regresión:</strong> Verificación amplia de
+              estabilidad global en áreas no modificadas.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. ESTÁNDAR IEEE 829 Y TRAZABILIDAD -->
+      <div class="custom-card mb-5">
+        <div class="custom-card-header">
+          4. Plan de Pruebas (IEEE 829) y Matriz de Trazabilidad
+        </div>
+        <div class="card-body">
+          <p>
+            <strong>Plan de Prueba (IEEE 829):</strong> Estructura canónica de
+            10 puntos clave (Identificación, Objetivos, Alcance, Estrategia,
+            Criterios de Entrada, Criterios de Salida/Aceptación, Criterios de
+            Suspensión/Reanudación, Recursos, Entornos, Cronograma y Riesgos).
+          </p>
+          <p class="mt-3">
+            <strong>Matriz de Trazabilidad:</strong> Artefacto que conecta los
+            requisitos del cliente con los casos de prueba:
+          </p>
+          <ul class="small mb-0">
+            <li>
+              <em>Hacia adelante (Forward):</em> Garantiza cobertura integral de
+              requisitos.
+            </li>
+            <li>
+              <em>Hacia atrás (Backward):</em> Previene pruebas innecesarias
+              (gold plating) y facilita análisis de impacto.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center pb-5">
+      <p class="small text-muted fw-bold">SIMULATRÓN © 2026 | LUCABAZZADEV</p>
+    </footer>
+  </body>
+</html>

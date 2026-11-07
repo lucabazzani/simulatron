@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ByLuca | Hub de Estudio</title>
+    <title>Simulatrón | Hub de Estudio</title>
     <!-- Google Fonts: JetBrains Mono -->
     <link
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&display=swap"
@@ -25,7 +25,7 @@
       <!-- HEADER PRINCIPAL -->
       <header class="text-center mt-5 mb-5">
         <h1 class="fw-bolder display-1 text-uppercase" style="color: #02872a">
-          BY<span class="text-dark">LUCA</span>
+          SIMULA<span class="text-dark">TRÓN</span>
         </h1>
         <p class="text-uppercase tracking-widest opacity-75">
           Centro unificado de evaluación y bibliografía técnica
@@ -88,7 +88,7 @@
               </div>
             </a>
           </div>
-          <div class="col-md-6 col-lg-4">
+          <!-- <div class="col-md-6 col-lg-4">
             <a
               href="ingles/index.html"
               class="matter-option opt-ingles shadow h-100 d-flex flex-column"
@@ -96,7 +96,7 @@
               <span class="status-tag">MATERIA 4</span>
               <h2 class="fw-bold text-uppercase h4">English for Software</h2>
               <p class="small text-dark opacity-75">
-                Vocabulario técnico y gramática para IT.
+                Lectura, comprensión y traducción de textos técnicos.
               </p>
               <div
                 class="mt-auto pt-4 fw-bold text-end border-top border-dark border-opacity-10"
@@ -104,8 +104,8 @@
                 ACCEDER >
               </div>
             </a>
-          </div>
-          <div class="col-md-6 col-lg-4">
+          </div> -->
+          <!-- <div class="col-md-6 col-lg-4">
             <a
               href="fisica/index.html"
               class="matter-option opt-fisica shadow h-100 d-flex flex-column"
@@ -121,8 +121,8 @@
                 ACCEDER >
               </div>
             </a>
-          </div>
-          <div class="col-md-6 col-lg-4">
+          </div> -->
+          <!-- <div class="col-md-6 col-lg-4">
             <a
               href="quimica/index.html"
               class="matter-option opt-quimica shadow h-100 d-flex flex-column"
@@ -138,11 +138,52 @@
                 ACCEDER >
               </div>
             </a>
+          </div> -->
+
+          <!-- IEFI PROGRAMACIÓN III -->
+          <div class="col-md-6 col-lg-4">
+            <a
+              href="programacion-iefi/index.html"
+              class="matter-option opt-iefi shadow h-100 d-flex flex-column"
+            >
+              <span class="status-tag">MATERIA 4</span>
+              <h2 class="fw-bold text-uppercase h4">Programación III</h2>
+              <p class="small text-dark opacity-75">
+                40 conceptos de Frontend, Spring Boot, MongoDB, Docker y
+                Storage.
+              </p>
+              <div
+                class="mt-auto pt-4 fw-bold text-end border-top border-dark border-opacity-10"
+              >
+                ACCEDER >
+              </div>
+            </a>
+          </div>
+
+          <!-- MATERIA 12: VERIFICACIÓN Y VALIDACIÓN DE SISTEMAS -->
+          <div class="col-md-6 col-lg-4">
+            <a
+              href="verificacion/index.html"
+              class="matter-option opt-verificacion shadow h-100 d-flex flex-column"
+            >
+              <span class="status-tag">MATERIA 5</span>
+              <h2 class="fw-bold text-uppercase h4">
+                Verificación y Validación
+              </h2>
+              <p class="small text-dark opacity-75">
+                Pruebas de software, testing, VyV y herramientas CASE.
+              </p>
+              <div
+                class="mt-auto pt-4 fw-bold text-end border-top border-dark border-opacity-10"
+              >
+                ACCEDER >
+              </div>
+            </a>
           </div>
         </div>
 
         <!-- SECCIÓN SECUNDARIO -->
-        <h3 class="section-title">Materias Secundario</h3>
+        <!-- <h3 class="section-title">Materias Secundario</h3>
         <div class="row g-4 justify-content-center">
           <div class="col-md-6 col-lg-4">
             <a
@@ -229,7 +270,7 @@
               </div>
             </a>
           </div>
-        </div>
+        </div> -->
       </main>
 
       <!-- FOOTER DEL HUB -->
@@ -245,21 +286,9 @@
           >
           <br />
           Versión:
-          <a href="notas.html" class="badge-version">1.7.0</a>
+          <a href="notas.html" class="badge-version">1.8.0</a>
         </p>
       </footer>
     </div>
-    <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-          navigator.serviceWorker
-            .register("/sw.js")
-            .then(() => console.log("ByLuca: Service Worker registrado."))
-            .catch((err) =>
-              console.log("Error al registrar Service Worker:", err),
-            );
-        });
-      }
-    </script>
   </body>
 </html>

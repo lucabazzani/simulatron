@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulatrón | IEFI - Docker y Contenedores</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../../icono.png" />
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="../index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-uppercase small">Docker</span>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <header class="mb-5 text-center">
+        <h1 class="h2 fw-bold border-bottom border-dark pb-2 text-uppercase">
+          Eje 4 · Contenedores con Docker
+        </h1>
+        <p class="text-muted">
+          Aislamiento de entornos, ciclo de vida de imágenes, Dockerfile
+          multi-etapa, redes internas y orquestación con Compose.
+        </p>
+      </header>
+
+      <!-- 25. Contenedores frente a máquinas virtuales -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          <span>25. Contenedores frente a máquinas virtuales</span>
+          <span>Aislamiento & Virtualización</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Los contenedores resuelven el histórico problema del
+            <em>«en mi máquina funciona»</em>, originado por discrepancias de
+            versiones de software, librerías del sistema, variables no
+            documentadas y dependencias divergentes entre los puestos de
+            desarrollo y los servidores de producción:
+          </p>
+          <ul>
+            <li>
+              <strong>Máquinas Virtuales (VM):</strong> Virtualizan el hardware
+              completo a través de un hipervisor (Type 1 o Type 2). Cada máquina
+              virtual exige la instalación y ejecución de un Sistema Operativo
+              invitado (Guest OS) independiente con sus propios drivers,
+              servicios en segundo plano y kernels redundantes. Demandan
+              gigabytes de almacenamiento y minutos en iniciar.
+            </li>
+            <li>
+              <strong>Contenedores Docker:</strong> Virtualizan a nivel del
+              Sistema Operativo. Comparten directamente el kernel del host
+              anfitrión y aíslan los procesos de la aplicación mediante
+              mecanismos nativos de Linux (<em>namespaces</em> para aislamiento
+              de procesos/red y <em>cgroups</em> para limitación de recursos).
+              Ocupan megabytes de disco y se inicializan en fracciones de
+              segundo.
+            </li>
+            <li>
+              <strong>Reproducibilidad total:</strong> Empaquetan el código
+              fuente compilado junto con su entorno exacto de ejecución,
+              garantizando que el comportamiento sea idéntico en desarrollo,
+              pruebas de integración y despliegue final.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 26. Imagen, contenedor y registro -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">
+          <span>26. Imagen, contenedor y registro</span>
+          <span>Artefactos & Ciclo Operativo</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Ecosistema de artefactos que articula el flujo de construcción,
+            distribución y ejecución de software:
+          </p>
+          <ul>
+            <li>
+              <strong>Imagen Docker:</strong> Plantilla inmutable de solo
+              lectura construida por capas superpuestas (<em>layers</em>).
+              Contiene el código de la aplicación, binarios del runtime,
+              variables de entorno predeterminadas y dependencias. Se define
+              formalmente mediante un archivo de instrucciones
+              <code>Dockerfile</code>.
+            </li>
+            <li>
+              <strong>Contenedor:</strong> Instancia activa en ejecución de una
+              imagen. Al inicializarse, Docker agrega una capa superior de
+              lectura/escritura (<em>writable layer</em>) donde el proceso
+              realiza modificaciones temporales en memoria o disco. Una única
+              imagen puede respaldar múltiples contenedores concurrentes
+              idénticos.
+            </li>
+            <li>
+              <strong>Registro (Registry):</strong> Repositorio centralizado o
+              distribuido para catalogar y compartir imágenes (ej. Docker Hub,
+              GitHub Container Registry). Permite versionar mediante etiquetas
+              (<em>tags</em> como <code>:latest</code> o <code>:1.0.0</code>).
+            </li>
+            <li>
+              <strong>Ciclo completo y comandos canónicos:</strong>
+              <div class="font-monospace small bg-light p-2 border mt-2">
+                Dockerfile ──(docker build)──► Imagen ──(docker push/pull)──►
+                Registry ──(docker run)──► Contenedor
+              </div>
+              <p class="small text-muted mt-2 mb-0">
+                Comandos clave: <code>docker build -t app .</code>,
+                <code
+                  >docker run -d -p 8080:8080 -v volumen:/data --name mi-app
+                  app</code
+                >, <code>docker ps</code>, <code>docker logs -f [id]</code>,
+                <code>docker exec -it [id] sh</code>, <code>docker stop</code> y
+                <code>docker rm</code>.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 27. Dockerfile multi-etapa para Spring Boot -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          <span>27. Dockerfile multi-etapa para Spring Boot</span>
+          <span>Optimización de Builds & Seguridad</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Patrón de empaquetado que divide el proceso de construcción en fases
+            secuenciales para generar imágenes de producción mínimas, livianas y
+            seguras:
+          </p>
+          <ul>
+            <li>
+              <strong>Etapa de compilación (Builder):</strong> Utiliza una
+              imagen pesada con el JDK completo y Maven/Gradle para compilar el
+              proyecto y empaquetar el ejecutable <code>.jar</code>.
+            </li>
+            <li>
+              <strong>Etapa de ejecución (Runtime):</strong> Descarta las
+              herramientas de compilación y parte de una imagen base limpia que
+              solo contiene el JRE liviano (ej.
+              <code>eclipse-temurin:17-jre-alpine</code>), copiando
+              exclusivamente el <code>.jar</code> generado en la fase previa.
+            </li>
+            <li>
+              <strong>Aprovechamiento de la caché de capas:</strong> Copiar el
+              archivo <code>pom.xml</code> y ejecutar la descarga de
+              dependencias (<code>mvn dependency:go-offline</code>)
+              <em>antes</em> de copiar el código fuente. Esto previene que
+              Docker vuelva a descargar todas las librerías en cada modificación
+              menor de código.
+            </li>
+            <li>
+              <strong>Ejecución como usuario sin privilegios:</strong> Por
+              defecto, los contenedores ejecutan sus procesos como
+              <code>root</code>. Definir un usuario y grupo acotado del sistema
+              operativo (<code
+                >RUN addgroup -S app && adduser -S app -G app</code
+              >) limita drásticamente la superficie de ataque en caso de
+              vulnerabilidades.
+            </li>
+            <li>
+              <strong>Archivo <code>.dockerignore</code>:</strong> Excluye
+              archivos innecesarios o sensibles (<code>target</code>,
+              <code>.git</code>, <code>.env</code>, <code>node_modules</code>),
+              reduciendo el tamaño del contexto de build enviado al daemon y
+              previniendo la fuga de credenciales.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 28. Volúmenes y persistencia de datos -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">
+          <span>28. Volúmenes y persistencia de datos</span>
+          <span>Gestión de Estado</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Por diseño, el almacenamiento dentro de un contenedor es
+            <strong>efímero</strong>: toda información escrita sobre la capa
+            superior se destruye irrevocablemente al detener y eliminar el
+            contenedor (<code>docker rm</code>). La persistencia exige
+            desacoplar los datos hacia el host:
+          </p>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="p-3 border border-dark bg-light h-100">
+                <strong>Volúmenes Nombrados (Named Volumes):</strong><br />
+                <small class="text-muted">
+                  Áreas de almacenamiento creadas y administradas íntegramente
+                  por el motor de Docker en rutas protegidas del host (ej.
+                  <code>postgres_data:/var/lib/postgresql/data</code>). Es el
+                  estándar obligatorio para bases de datos relacionales y NoSQL
+                  por su rendimiento y seguridad.
+                </small>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 border border-dark bg-light h-100">
+                <strong>Montajes Vinculados (Bind Mounts):</strong><br />
+                <small class="text-muted">
+                  Mapean un directorio o archivo específico y explícito de la
+                  máquina anfitriona hacia el contenedor (ej.
+                  <code>./uploads:/app/uploads</code>). Permiten sincronización
+                  bidireccional inmediata, resultando altamente útiles en
+                  entornos de desarrollo local.
+                </small>
+              </div>
+            </div>
+          </div>
+          <p class="small text-muted mt-3 mb-0">
+            <em>Comando Compose:</em> <code>docker compose down</code> detiene y
+            destruye los contenedores preservando intactos los volúmenes; la
+            bandera <code>docker compose down -v</code> elimina deliberadamente
+            los volúmenes asociados.
+          </p>
+        </div>
+      </div>
+
+      <!-- 29. Redes en Docker y el error de localhost -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          <span>29. Redes en Docker y el error de localhost</span>
+          <span>Resolución DNS Interna</span>
+        </div>
+        <div class="card-body">
+          <p>
+            El error de conexión más frecuente en entornos contenerizados radica
+            en configurar la dirección <code>localhost</code> o
+            <code>127.0.0.1</code> en la cadena de conexión de una API para
+            alcanzar la base de datos:
+          </p>
+          <ul>
+            <li>
+              <strong>Aislamiento de la interfaz loopback:</strong> Dentro de un
+              contenedor, <code>localhost</code> apunta estrictamente a su
+              propia pila de red aislada, no al sistema operativo del host ni a
+              otros contenedores. Al intentar conectar con
+              <code>localhost:5432</code>, la API busca el motor de base de
+              datos dentro de su propio contenedor, arrojando
+              <code>Connection refused</code>.
+            </li>
+            <li>
+              <strong>Redes virtuales de Docker Compose:</strong> Al iniciar un
+              entorno, Compose crea una red puente (<em>bridge network</em>)
+              privada compartida. En esta red opera un servidor DNS interno que
+              asocia automáticamente el
+              <strong>nombre del servicio</strong> definido en el archivo YAML
+              con su dirección IP dinámica.
+            </li>
+            <li>
+              <strong>Reglas de resolución según el origen:</strong>
+              <ul>
+                <li>
+                  <strong>Contenedor API ➔ Contenedor Base de Datos:</strong> Se
+                  utiliza el nombre del servicio de Compose y el puerto interno
+                  no mapeado (ej.
+                  <code>jdbc:postgresql://db:5432/mi_base</code>).
+                </li>
+                <li>
+                  <strong
+                    >Herramientas del Host (DBeaver/Navicat) ➔ Contenedor
+                    Base:</strong
+                  >
+                  Se utiliza <code>localhost</code> y el puerto publicado
+                  expuesto a la máquina anfitriona (el lado izquierdo de
+                  <code>ports: "5433:5432"</code>).
+                </li>
+                <li>
+                  <strong>Navegador Web ➔ Contenedor API:</strong> Se utiliza
+                  <code>localhost:8080</code> (el navegador se ejecuta en el
+                  host).
+                </li>
+                <li>
+                  <strong
+                    >Contenedor ➔ Servicio local corriendo en el Host:</strong
+                  >
+                  Se utiliza el hostname especial
+                  <code>host.docker.internal</code>.
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 30. Docker Compose: API + base de datos -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">
+          <span>30. Docker Compose: API + base de datos</span>
+          <span>Orquestación de Servicios</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Herramienta declarativa que permite definir, configurar y levantar
+            arquitecturas compuestas por múltiples contenedores
+            interrelacionados mediante un único archivo de configuración
+            <code>docker-compose.yml</code> y un comando unificado (<code
+              >docker compose up -d</code
+            >):
+          </p>
+          <ul>
+            <li>
+              <strong>Bloque <code>services</code>:</strong> Declara los
+              componentes del sistema (ej. <code>api</code> y <code>db</code>).
+              Cada servicio especifica su origen mediante construcción local
+              (<code>build: .</code>) o descarga desde registro (<code
+                >image: postgres:15-alpine</code
+              >).
+            </li>
+            <li>
+              <strong>Mapeo de puertos (<code>ports</code>):</strong> Notación
+              <code>"host:contenedor"</code> que expone puertos al exterior.
+            </li>
+            <li>
+              <strong
+                >Inyección de entorno (<code>environment</code> /
+                <code>env_file</code>):</strong
+              >
+              Parametriza credenciales y URLs sin modificarlas en el código.
+            </li>
+            <li>
+              <strong
+                >Mecanismo de sincronización con
+                <code>healthcheck</code>:</strong
+              >
+              La directiva tradicional <code>depends_on</code> solo espera a que
+              el contenedor secundario se inicie, no a que el motor de base de
+              datos termine su proceso interno de arranque. Configurar un
+              <code>healthcheck</code> en la base permite condicionar el inicio
+              de la API a su disponibilidad operativa real:
+              <pre class="bg-dark text-light p-3 small font-monospace mt-2">
+depends_on:
+  db:
+    condition: service_healthy</pre
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 31. Configuración externalizada, variables y secretos -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          <span>31. Configuración externalizada, variables y secretos</span>
+          <span>Metodología 12-Factor App</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Principio arquitectónico que estipula que una imagen Docker debe
+            construirse una sola vez y permanecer estrictamente agnóstica al
+            entorno, adaptando su comportamiento mediante variables de
+            configuración externas:
+          </p>
+          <ul>
+            <li>
+              <strong>Placeholders en Spring Boot:</strong> En
+              <code>application.properties</code> o
+              <code>application.yml</code> se declaran sustitutos con valores de
+              respaldo predeterminados para desarrollo:
+              <div class="font-monospace small bg-light p-2 border my-2">
+                spring.datasource.url=${DB_URL:jdbc:postgresql://localhost:5432/mibase}
+              </div>
+            </li>
+            <li>
+              <strong
+                >Archivos <code>.env</code> vs.
+                <code>.env.example</code>:</strong
+              >
+              <ul>
+                <li>
+                  <code>.env</code>: Contiene credenciales operativas,
+                  contraseñas y claves criptográficas reales.
+                  <strong
+                    >Debe incluirse obligatoriamente en
+                    <code>.gitignore</code> y <code>.dockerignore</code></strong
+                  >
+                  para impedir su exposición en repositorios.
+                </li>
+                <li>
+                  <code>.env.example</code>: Plantilla versionada en el
+                  repositorio que documenta todas las variables requeridas por
+                  el sistema con valores ficticios de muestra.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Gestión de secretos:</strong> Las claves JWT y
+              credenciales de acceso a bases de datos jamás deben hardcodearse
+              en el código fuente ni quedar horneadas dentro de las capas de una
+              imagen Docker. Si un secreto se filtra en un commit, debe
+              considerarse comprometido y rotarse de inmediato.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 32. Contenerización del sistema completo -->
+      <div class="custom-card mb-5">
+        <div class="custom-card-header">
+          <span>32. Contenerización del sistema completo</span>
+          <span>Topología Multicapa</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Diseño e integración de un ecosistema desacoplado donde cada
+            componente asume una única responsabilidad técnica:
+          </p>
+          <ul>
+            <li>
+              <strong>Topología modular:</strong> Se levantan contenedores
+              independientes para el frontend web, la API backend de Spring
+              Boot, la base de datos relacional (PostgreSQL/MySQL) y el motor
+              documental (MongoDB), interconectados sobre una red interna común.
+            </li>
+            <li>
+              <strong>Contenerización de Frontend SPA (React):</strong> Se
+              implementa un Dockerfile multi-etapa donde una primera imagen con
+              Node.js compila los recursos estáticos (<code>npm run build</code
+              >), y una segunda etapa basada en un servidor Nginx ultraliviano
+              (Alpine) sirve los archivos estáticos generados y gestiona el
+              enrutamiento del lado del cliente.
+            </li>
+            <li>
+              <strong>Límites de comunicación:</strong> En una arquitectura SPA,
+              el navegador del usuario final es quien consume la API. Por lo
+              tanto, las URLs de los endpoints configuradas en React apuntan a
+              los puertos publicados en el host expuestos hacia el navegador,
+              mientras que la API y las bases se comunican privadamente por los
+              nombres internos de servicio.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center pb-5">
+      <p class="small text-muted fw-bold">SIMULATRÓN © 2026 | LUCABAZZADEV</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bibliografía: Unidad 4 - Herramientas CASE</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../../icono.png" />
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="../index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-uppercase">Herramientas CASE</span>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <header class="mb-5 text-center">
+        <h1 class="h2 fw-bold border-bottom border-dark pb-2">
+          Herramientas CASE (Computer-Aided Software Engineering)
+        </h1>
+        <p class="text-muted">
+          Automatización del ciclo de vida, taxonomías, arquitecturas (Cebolla
+          vs. Tostadora) y patologías de adopción.
+        </p>
+      </header>
+
+      <!-- 1. CONCEPTO Y FUNCIONALIDADES ESENCIALES -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          1. Concepto y Funcionalidades Esenciales
+        </div>
+        <div class="card-body">
+          <p>
+            <strong>Herramientas CASE:</strong> Aplicaciones y sistemas de
+            software diseñados para automatizar, asistir y dar soporte formal a
+            las actividades del ciclo de vida del software.
+          </p>
+          <p class="small">
+            <em>Premisa canónica (Pressman & Sommerville):</em> Las herramientas
+            CASE no reemplazan el juicio crítico ni el criterio profesional del
+            equipo; absorben tareas mecánicas y monótonas, liberando tiempo
+            analítico para decisiones complejas.
+          </p>
+          <h6 class="fw-bold mt-3">Funcionalidades Esenciales:</h6>
+          <ul class="small mb-0">
+            <li>
+              <strong>Diagramación Asistida:</strong> Comprueba reglas
+              sintácticas del metamodelo en tiempo real (diferencia técnica con
+              editores gráficos genéricos como draw.io).
+            </li>
+            <li>
+              <strong>Ingeniería Directa e Inversa:</strong> Transformación de
+              modelos a código y reconstrucción de modelos a partir de código
+              existente.
+            </li>
+            <li>
+              <strong>Repositorio Común Central:</strong> Único punto de verdad
+              (single source of truth) con persistencia e integración semántica.
+            </li>
+            <li>
+              <strong>Gestión de Configuración (SCM):</strong> Control de
+              versiones, ramas, tags y preservación de líneas base (baselines).
+            </li>
+            <li>
+              <strong>Soporte Formal para Pruebas y Documentación:</strong>
+              Automatización de suites y extracción continua de diccionarios de
+              datos y contratos de API.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2. TAXONOMÍA DE HERRAMIENTAS CASE -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">
+          2. Taxonomía de las Herramientas CASE
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered small">
+              <thead>
+                <tr>
+                  <th>Dimensión de Clasificación</th>
+                  <th>Categorías Principales</th>
+                  <th>Descripción Operativa</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Según Etapa del SDLC</strong></td>
+                  <td>
+                    Upper-CASE <br />
+                    Lower-CASE <br />
+                    I-CASE
+                  </td>
+                  <td>
+                    Fases tempranas (requisitos/diseño). <br />
+                    Fases tardías (construcción/testing). <br />
+                    Integración de punta a punta.
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Según Alcance Metodológico</strong></td>
+                  <td>
+                    Horizontales <br />
+                    Verticales
+                  </td>
+                  <td>
+                    Genéricas aplicables a cualquier dominio (ej. Git, Trello).
+                    <br />
+                    Especializadas en un dominio o paradigma estricto (ej. MySQL
+                    Workbench).
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. MODELO DE CEBOLLA VS MODELO DE TOSTADORA -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          3. Modelos Arquitectónicos: Cebolla vs. Tostadora
+        </div>
+        <div class="card-body">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="p-3 border border-dark bg-light h-100">
+                <strong>Modelo de Cebolla (Onion Model):</strong><br />
+                <ul class="small mt-2 mb-0">
+                  <li>
+                    <em>Estructura:</em> Concéntrica, centralizada y
+                    estratificada (Núcleo, Repositorio Común, Herramientas,
+                    Interfaz Uniforme).
+                  </li>
+                  <li>
+                    <em>Ventaja:</em> Alta integración y consistencia
+                    automática.
+                  </li>
+                  <li>
+                    <em>Desventaja:</em> Rigidez operativa y dependencia de
+                    proveedor (vendor lock-in).
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 border border-dark bg-light h-100">
+                <strong>Modelo de Tostadora (Toaster Model):</strong><br />
+                <ul class="small mt-2 mb-0">
+                  <li>
+                    <em>Estructura:</em> Arquitectura abierta de herramientas
+                    autónomas, débilmente acopladas ("ranuras" independientes).
+                  </li>
+                  <li>
+                    <em>Ventaja:</em> Máxima flexibilidad para componer
+                    ecosistemas a medida (best-of-breed).
+                  </li>
+                  <li>
+                    <em>Desventaja:</em> Vulnerabilidad a la inconsistencia y
+                    pérdida de trazabilidad por integración ad-hoc.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. PATOLOGÍAS DEL FRACASO -->
+      <div class="custom-card mb-5">
+        <div class="custom-card-header">
+          4. Patologías del Fracaso en la Adopción (Pressman & Sommerville)
+        </div>
+        <div class="card-body">
+          <p class="small">
+            Factores que inducen al abandono corporativo de herramientas CASE:
+          </p>
+          <div class="row g-2 small">
+            <div class="col-md-6">
+              <strong>Inversión Inicial Elevada:</strong> Altos costos de
+              licencias e infraestructura.
+            </div>
+            <div class="col-md-6">
+              <strong>Curva de Aprendizaje Crítica:</strong> Reducción temporal
+              de productividad.
+            </div>
+            <div class="col-md-6">
+              <strong>Resistencia Cultural al Cambio:</strong> Renuencia a
+              modificar flujos informales.
+            </div>
+            <div class="col-md-6">
+              <strong>Falacia de la Bala de Plata:</strong> Expectativas
+              irreales de resolver procesos caóticos automáticamente.
+            </div>
+            <div class="col-md-6">
+              <strong>Desajuste Metodológico (Process Mismatch):</strong>
+              Incompatibilidad operativa.
+            </div>
+            <div class="col-md-6">
+              <strong>Aislamiento Técnico e Incompatibilidad:</strong> Silos de
+              información (fallas tipo tostadora).
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center pb-5">
+      <p class="small text-muted fw-bold">SIMULATRÓN © 2026 | LUCABAZZADEV</p>
+    </footer>
+  </body>
+</html>

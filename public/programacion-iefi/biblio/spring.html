@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulatrón | IEFI - Java Spring Boot</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../../icono.png" />
+  </head>
+  <body class="bg-grid">
+    <nav
+      class="sticky-top-bar shadow-sm py-2 mb-4"
+      style="
+        background: var(--bg-surface);
+        border-bottom: 2px solid var(--text-main);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      "
+    >
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="../index.html" class="btn btn-outline-tech btn-sm">Volver</a>
+        <span class="fw-bold text-uppercase small">Spring Boot</span>
+      </div>
+    </nav>
+
+    <div class="container py-4">
+      <header class="mb-5 text-center">
+        <h1 class="h2 fw-bold border-bottom border-dark pb-2 text-uppercase">
+          Eje 2 · Backend con Java Spring Boot
+        </h1>
+        <p class="text-muted">
+          Arquitectura en capas, persistencia JPA, diseño de APIs RESTful,
+          validación y seguridad stateless.
+        </p>
+      </header>
+
+      <!-- 9. Arquitectura en capas Controller–Service–Repository -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          <span>9. Arquitectura en capas Controller–Service–Repository</span>
+          <span>Patrones & Responsabilidades</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Estructuración arquitectónica basada en el principio de
+            responsabilidad única (SRP), que desacopla el ciclo de vida de una
+            petición HTTP en estratos especializados:
+          </p>
+          <ul>
+            <li>
+              <strong>Capa Controlador (<code>@RestController</code>):</strong>
+              Puerta de entrada del sistema. Responsable exclusivo del protocolo
+              HTTP: deserializa la carga útil, dispara la validación estructural
+              de entrada, delega la ejecución al servicio y empaqueta la
+              respuesta final en un contenedor <code>ResponseEntity</code>.
+              <em
+                >No debe contener lógica de negocio ni comunicarse directamente
+                con la base de datos.</em
+              >
+            </li>
+            <li>
+              <strong>Capa de Servicio (<code>@Service</code>):</strong> Núcleo
+              operativo del backend. Implementa las reglas del dominio, orquesta
+              transacciones mediante <code>@Transactional</code>, coordina
+              múltiples repositorios y efectúa el mapeo bidireccional entre DTOs
+              y Entidades.
+            </li>
+            <li>
+              <strong>Capa de Repositorio (<code>@Repository</code>):</strong>
+              Capa de acceso a datos que encapsula las operaciones de lectura y
+              persistencia a través de la interfaz de Spring Data JPA.
+            </li>
+            <li>
+              <strong>Modelos de datos:</strong> La
+              <strong>Entidad</strong> modela el esquema relacional persistente,
+              mientras que el <strong>DTO</strong> define formalmente el
+              contrato de transferencia con los clientes de la API.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 10. Inyección de dependencias y estereotipos de Spring -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">
+          <span>10. Inyección de dependencias y estereotipos de Spring</span>
+          <span>Inversión de Control (IoC)</span>
+        </div>
+        <div class="card-body">
+          <p>
+            El contenedor de inversión de control (IoC) de Spring gestiona el
+            ciclo de vida, configuración e instanciación de los componentes de
+            la aplicación (<em>Beans</em>), entregándolos a las clases
+            consumidoras para reducir el acoplamiento y favorecer la
+            testabilidad.
+          </p>
+          <ul>
+            <li>
+              <strong>Anotaciones de estereotipo:</strong> Especializaciones
+              semánticas de <code>@Component</code> que registran clases en el
+              contexto de Spring: <code>@Service</code> (lógica del dominio),
+              <code>@Repository</code> (persistencia y traducción de excepciones
+              SQL) y <code>@RestController</code> (controlador web con
+              serialización JSON implícita).
+            </li>
+            <li>
+              <strong>Anotación <code>@SpringBootApplication</code>:</strong>
+              Agrupador canónico que unifica
+              <code>@Configuration</code> (definición de beans programáticos),
+              <code>@EnableAutoConfiguration</code> (carga de dependencias según
+              el classpath) y <code>@ComponentScan</code> (escaneo reflexivo de
+              paquetes desde la clase raíz).
+            </li>
+            <li>
+              <strong>Inyección por constructor:</strong> Práctica recomendada
+              sobre la inyección por campo (<code>@Autowired</code> directo).
+              Combinada con modificadores <code>final</code> (o
+              <code>@RequiredArgsConstructor</code> de Lombok), asegura
+              inmutabilidad, previene punteros nulos durante la inicialización y
+              permite instanciar servicios en pruebas unitarias puras sin
+              levantar el contexto completo de Spring.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 11. Entidades JPA y mapeo objeto-relacional -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          <span>11. Entidades JPA y mapeo objeto-relacional</span>
+          <span>Persistencia & ORM</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Mecanismo que traduce clases Java orientadas a objetos en tablas
+            relacionales de base de datos a través de la especificación JPA y el
+            motor Hibernate:
+          </p>
+          <ul>
+            <li>
+              <strong>Mapeo estructural:</strong> <code>@Entity</code> declara
+              la persistencia, <code>@Table</code> define el nombre físico,
+              <code>@Id</code> establece la clave primaria vinculada con
+              <code>@GeneratedValue(strategy = GenerationType.IDENTITY)</code>,
+              y <code>@Column</code> tipifica las restricciones del campo.
+            </li>
+            <li>
+              <strong>Relaciones relacionales:</strong> Asociaciones
+              <code>@ManyToOne</code>, <code>@OneToMany</code>,
+              <code>@OneToOne</code> y <code>@ManyToMany</code>. El
+              <strong>lado dueño</strong> declara la columna de clave foránea
+              mediante <code>@JoinColumn</code>, mientras que el
+              <strong>lado inverso</strong> utiliza el atributo
+              <code>mappedBy</code> para evitar redundancias de esquemas.
+            </li>
+            <li>
+              <strong>Estrategias de carga (FetchType):</strong>
+              <ul>
+                <li>
+                  <code>FetchType.LAZY</code> (Diferida): Carga las relaciones
+                  únicamente cuando son invocadas explícitamente en el código.
+                  Es la opción recomendada para prevenir el grave problema de
+                  rendimiento de consultas <strong>N+1</strong>.
+                </li>
+                <li>
+                  <code>FetchType.EAGER</code> (Inmediata): Ejecuta joins o
+                  subconsultas automáticas para traer todas las relaciones
+                  asociadas junto con la entidad principal, saturando memoria de
+                  forma prematura.
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 12. Spring Data JPA: repositorios, query methods y paginación -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">
+          <span
+            >12. Spring Data JPA: repositorios, query methods y paginación</span
+          >
+          <span>Acceso a Datos & Rendimiento</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Capa de abstracción que elimina la necesidad de escribir
+            implementaciones manuales de acceso a datos mediante la extensión de
+            la interfaz genérica
+            <code>JpaRepository&lt;Entidad, TipoId&gt;</code>:
+          </p>
+          <ul>
+            <li>
+              <strong>Operaciones provistas:</strong> Métodos estándar listos
+              para producción (<code>save</code>, <code>findById</code>,
+              <code>findAll</code>, <code>deleteById</code>,
+              <code>count</code> y <code>existsById</code>).
+            </li>
+            <li>
+              <strong>Métodos de consulta derivados (Query Methods):</strong>
+              Generación automatizada de consultas SQL complejas a partir de la
+              signatura léxica del método en la interfaz (ej.
+              <code>findByEmail(String email)</code> o
+              <code
+                >findByActivoTrueAndNombreContainingIgnoreCase(String
+                nombre)</code
+              >).
+            </li>
+            <li>
+              <strong>Consultas explícitas (<code>@Query</code>):</strong>
+              Declaración de sentencias JPQL (orientadas al modelo de objetos) o
+              SQL nativas para consultas de alto volumen o joins complejos que
+              no resultan prácticos mediante nombres de métodos.
+            </li>
+            <li>
+              <strong
+                >Paginación obligatoria (<code>Pageable</code> y
+                <code>Page&lt;T&gt;</code>):</strong
+              >
+              Evita el colapso por agotamiento de memoria del servidor (Out of
+              Memory) y reduce el ancho de banda transferido al fragmentar
+              listados en bloques acotados con soporte de ordenamiento nativo
+              (<code>Sort</code>).
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 13. DTOs y validación de datos -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          <span>13. DTOs y validación de datos</span>
+          <span>Contratos de API & Seguridad</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Los <strong>Objetos de Transferencia de Datos (DTO)</strong> definen
+            formalmente la estructura de entrada y salida de los endpoints,
+            desacoplando los esquemas de base de datos de los clientes externos:
+          </p>
+          <ul>
+            <li>
+              <strong>Riesgos de exponer entidades directamente:</strong> Puede
+              filtrar atributos sensibles (contraseñas hasheadas, tokens, marcas
+              internas de auditoría), genera acoplamiento rígido entre el
+              cliente y las tablas, y desata errores de serialización JSON como
+              referencias circulares infinitas o excepciones por sesiones
+              cerradas en relaciones LAZY.
+            </li>
+            <li>
+              <strong>Especialización:</strong> <em>Request DTO</em> recibe
+              exclusivamente la información requerida para la operación
+              aplicando validaciones declarativas;
+              <em>Response DTO</em> devuelve proyecciones sanitizadas.
+            </li>
+            <li>
+              <strong>Anotaciones de validación Jakarta:</strong>
+              <code>@NotNull</code> (no nulo), <code>@NotBlank</code> (no vacío
+              ni compuesto solo por espacios en blanco),
+              <code>@Size</code> (longitudes mínimas/máximas),
+              <code>@Email</code> (formato de correo), <code>@Positive</code> y
+              <code>@Pattern</code> (expresiones regulares). Se activan en los
+              controladores mediante la anotación <code>@Valid</code> en el
+              parámetro del cuerpo.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 14. Controladores REST, verbos y códigos HTTP -->
+      <div class="custom-card mb-4">
+        <div class="custom-card-header">
+          <span>14. Controladores REST, verbos y códigos HTTP</span>
+          <span>Diseño de Interfaces Web</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Implementación de interfaces orientadas a recursos siguiendo los
+            principios arquitectónicos REST:
+          </p>
+          <ul>
+            <li>
+              <strong>Semántica de verbos HTTP:</strong> <code>GET</code> para
+              recuperación segura e idempotente, <code>POST</code> para creación
+              de recursos subordinados, <code>PUT</code> para reemplazo total de
+              estado, <code>PATCH</code> para modificaciones parciales y
+              <code>DELETE</code> para remoción.
+            </li>
+            <li>
+              <strong>Mapeo de parámetros:</strong> Extracción de
+              identificadores en rutas jerárquicas (<code>@PathVariable</code>),
+              filtros o paginaciones en la cadena de consulta
+              (<code>@RequestParam</code>) y desensamblado del cuerpo JSON
+              entrante (<code>@RequestBody</code>).
+            </li>
+            <li>
+              <strong
+                >Códigos de estado canónicos
+                (<code>ResponseEntity</code>):</strong
+              >
+              <ul>
+                <li>
+                  <code>200 OK:</code> Operación exitosa con cuerpo de retorno.
+                </li>
+                <li>
+                  <code>201 Created:</code> Creación confirmada con cabecera de
+                  ubicación (Location).
+                </li>
+                <li>
+                  <code>204 No Content:</code> Ejecución exitosa sin cuerpo de
+                  retorno (común en bajas o actualizaciones).
+                </li>
+                <li>
+                  <code>400 Bad Request:</code> Error de validación o sintaxis
+                  mal formada.
+                </li>
+                <li>
+                  <code>401 Unauthorized / 403 Forbidden:</code> Ausencia de
+                  autenticación válida vs. permisos insuficientes sobre el
+                  recurso.
+                </li>
+                <li>
+                  <code>404 Not Found:</code> Recurso inexistente en el sistema.
+                </li>
+                <li>
+                  <code>409 Conflict:</code> Conflicto con el estado actual (ej.
+                  registros únicos duplicados).
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 15. Manejo global de excepciones -->
+      <div class="custom-card mb-4 highlight-card">
+        <div class="custom-card-header">
+          <span>15. Manejo global de excepciones</span>
+          <span>Resiliencia & Respuestas Consistentes</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Estrategia centralizada orientada a interceptar fallas operativas en
+            cualquier capa de la aplicación, evitando la dispersión de bloques
+            <code>try/catch</code> redundantes y la exposición accidental de
+            trazas de pila (<em>stack traces</em>) al cliente.
+          </p>
+          <ul>
+            <li>
+              <strong>Anotaciones arquitectónicas:</strong> Se utiliza una clase
+              interceptora decorada con <code>@RestControllerAdvice</code> (o
+              <code>@ControllerAdvice</code>), la cual contiene métodos
+              específicos mapeados mediante
+              <code>@ExceptionHandler(TipoExcepcion.class)</code>.
+            </li>
+            <li>
+              <strong>Excepciones del dominio:</strong> Creación de excepciones
+              personalizadas no chequeadas
+              (<code>ResourceNotFoundException</code>,
+              <code>BusinessException</code>) que portan significado semántico
+              del negocio.
+            </li>
+            <li>
+              <strong>Estructura canónica de respuesta de error:</strong>
+              Estándar uniforme en formato JSON que garantiza previsibilidad a
+              los clientes frontend:
+              <pre class="bg-dark text-light p-3 small font-monospace mt-2">
+{
+  "timestamp": "2026-11-06T20:30:00Z",
+  "status": 404,
+  "error": "Not Found",
+  "message": "El recurso con ID 12 no existe en el sistema.",
+  "path": "/api/v1/productos/12"
+}</pre
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 16. Seguridad stateless con Spring Security y JWT -->
+      <div class="custom-card mb-5">
+        <div class="custom-card-header">
+          <span>16. Seguridad stateless con Spring Security y JWT</span>
+          <span>Autenticación & Autorización</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Mecanismo de seguridad desacoplado para arquitecturas SPA/móviles
+            donde el servidor no retiene sesiones en memoria
+            (<code>SessionCreationPolicy.STATELESS</code>), permitiendo escalado
+            horizontal inmediato.
+          </p>
+          <ul>
+            <li>
+              <strong>Flujo de autenticación:</strong> El cliente envía
+              credenciales vía <code>POST /auth/login</code>; el servicio valida
+              contra la base con contraseñas hasheadas mediante
+              <code>BCryptPasswordEncoder</code> y genera un JSON Web Token
+              firmado criptográficamente que retorna al cliente.
+            </li>
+            <li>
+              <strong>Anatomía del Token (JWT):</strong> Compuesto por tres
+              segmentos codificados en Base64Url separados por puntos:
+              <code>Header</code> (algoritmo de firma),
+              <code>Payload</code> (declaraciones/claims: emisor, sujeto, roles
+              y fecha de expiración) y <code>Signature</code> (garantía
+              criptográfica de integridad).
+              <em
+                >El payload no está cifrado, por lo que nunca debe contener
+                información confidencial.</em
+              >
+            </li>
+            <li>
+              <strong>Autorización en peticiones subsiguientes:</strong> Un
+              filtro perimetral (<code>OncePerRequestFilter</code>) intercepta
+              la cabecera <code>Authorization: Bearer &lt;token&gt;</code>,
+              valida la firma y vigencia del token y establece el contexto de
+              seguridad (<code>SecurityContextHolder</code>) para que
+              anotaciones como
+              <code>@PreAuthorize("hasRole('ADMIN')")</code> controlen el acceso
+              a los métodos.
+            </li>
+            <li>
+              <strong>Control de CORS:</strong> Configuración explícita en el
+              filtro de seguridad que autoriza los orígenes cruzados (dominios
+              del frontend), métodos HTTP y encabezados permitidos por las
+              políticas de seguridad del navegador.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center pb-5">
+      <p class="small text-muted fw-bold">SIMULATRÓN © 2026 | LUCABAZZADEV</p>
+    </footer>
+  </body>
+</html>
