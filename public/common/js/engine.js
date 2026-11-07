@@ -1,7 +1,7 @@
 /**
- * MOTOR DE EXAMEN CENTRALIZADO
- * Este archivo gestiona dinámicamente cualquier materia
- * importando su banco de preguntas desde la carpeta correspondiente en la raíz.
+ * MOTOR DE EXAMEN CENTRALIZADO (ByLuca)
+ * Gestiona dinámicamente cualquier materia con soporte para exámenes por nivel
+ * o simulacros globales integradores (nivel=all).
  */
 
 // --- 1. CONFIGURACIÓN INICIAL ---
@@ -10,7 +10,10 @@ const urlParams = new URLSearchParams(window.location.search);
 
 // Parámetros técnicos
 const materiaActiva = urlParams.get("materia") || "frontend";
-const nivelActual = parseInt(urlParams.get("nivel")) || 1;
+const nivelParam = urlParams.get("nivel");
+const esNivelGlobal =
+  nivelParam === "all" || nivelParam === "mix" || nivelParam === "global";
+const nivelActual = esNivelGlobal ? 0 : parseInt(nivelParam) || 1;
 const temaActual = urlParams.get("tema") || "mix";
 const dificultadActual = urlParams.get("dificultad") || "mix";
 
@@ -157,14 +160,42 @@ function inicializarExamen(banco) {
   let temasAFiltrar = gruposDeTemas[temaActual] || [temaActual];
 
   let bancoFiltrado = banco.filter((p) => {
-    const nivelCoincide = p.nivel === nivelActual;
+    const nivelCoincide = esNivelGlobal || p.nivel === nivelActual;
     const temaCoincide = temaActual === "mix" || temasAFiltrar.includes(p.tema);
     const dificultadCoincide =
       dificultadActual === "mix" || p.dificultad === dificultadActual;
     return nivelCoincide && temaCoincide && dificultadCoincide;
   });
 
-  preguntasSeleccionadas = barajar(bancoFiltrado).slice(0, 20);
+  // MUESTREO EQUITATIVO EN CASO DE SIMULACRO GLOBAL
+  if (esNivelGlobal) {
+    const nivelesPresentes = [...new Set(bancoFiltrado.map((p) => p.nivel))];
+    if (nivelesPresentes.length > 1) {
+      const cuotaPorNivel = Math.floor(20 / nivelesPresentes.length);
+      let seleccionEquitativa = [];
+
+      nivelesPresentes.forEach((niv) => {
+        const delNivel = bancoFiltrado.filter((p) => p.nivel === niv);
+        seleccionEquitativa.push(...barajar(delNivel).slice(0, cuotaPorNivel));
+      });
+
+      // Si restan cupos para completar 20, rellenamos con el resto barajado
+      if (seleccionEquitativa.length < 20) {
+        const sobrantes = bancoFiltrado.filter(
+          (p) => !seleccionEquitativa.includes(p),
+        );
+        seleccionEquitativa.push(
+          ...barajar(sobrantes).slice(0, 20 - seleccionEquitativa.length),
+        );
+      }
+
+      preguntasSeleccionadas = barajar(seleccionEquitativa);
+    } else {
+      preguntasSeleccionadas = barajar(bancoFiltrado).slice(0, 20);
+    }
+  } else {
+    preguntasSeleccionadas = barajar(bancoFiltrado).slice(0, 20);
+  }
 
   const infoMateria = etiquetasMateria[materiaActiva] || {
     titulo: materiaActiva,
@@ -173,7 +204,12 @@ function inicializarExamen(banco) {
   const nombreTema = infoMateria.temas[temaActual] || temaActual.toUpperCase();
   const nombreDificultad =
     dificultadActual === "mix" ? "Mixto" : dificultadActual.toUpperCase();
-  headerTitulo.innerText = `${infoMateria.titulo} - Nivel ${nivelActual}: ${nombreTema} - ${nombreDificultad}`;
+
+  if (esNivelGlobal) {
+    headerTitulo.innerText = `${infoMateria.titulo} - Simulacro (${nombreDificultad})`;
+  } else {
+    headerTitulo.innerText = `${infoMateria.titulo} - Nivel ${nivelActual}: ${nombreTema} - ${nombreDificultad}`;
+  }
 
   if (preguntasSeleccionadas.length === 0) {
     contenedor.innerHTML = `<div class="col-12 p-5 text-center alert-error-tech">No se encontraron preguntas suficientes.</div>`;
